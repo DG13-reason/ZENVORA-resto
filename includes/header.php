@@ -6,7 +6,7 @@
     <title>ZENORA Resto</title>
 
     <link rel="stylesheet" 
-    href="assets/css/style.css">
+    href="./assets/css/style.css?v=<?php echo time(); ?>">
 
     <script src="https://unpkg.com/feather-icons"></script>
 

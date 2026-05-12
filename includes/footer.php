@@ -12,8 +12,6 @@
 
     </footer>
 
-    <script>
-        feather.replace();
-    </script>
+    <script src="./assets/js/script.js?=v<?php echo time(); ?>"></script>
 </body>
 </html>

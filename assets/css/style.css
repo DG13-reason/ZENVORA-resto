@@ -96,6 +96,107 @@ body{
 }
 
 /*HALAMAN INDEX*/
+.search-sect{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-top:30px;
+}
+.search-menu{
+    position: relative;
+    width: 3orem;
+}
+.search-menu input{
+    width: 100%;
+    text-align: center;
+    padding: 5px 8rem;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    border: solid 2px var(--secondary-color);
+}
+.search-menu button{
+    position: absolute;
+    right: 0;
+    top:50%;
+    transform:translateY(-50%);
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    border: none;
+    color: var(--secondary-color);
+    background: transparent;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+}
+.banner-sect{
+    width: 100%;
+    padding: 20px 5%;
+}
+.banner-slider{
+    width:100%;
+    overflow:hidden;
+    border-radius:20px;
+    position:relative;
+}
+
+.info-track{
+    display:flex;
+    transition: 0.5s ease-in-out;
+}
+
+.info-banner{
+    min-width:100%;
+}
+
+.info-banner img{
+    width:100%;
+    height: 100%;
+    object-fit:cover;
+    border-radius:20px;
+}
+
+.prev,
+.next{
+    position: absolute;
+    top:50%;
+    transform:translateY(-50%);
+
+    width:45px;
+    height:45px;
+
+    border:none;
+    border-radius:50%;
+
+    background:rgba(0,0,0,0.5);
+    color:white;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    cursor:pointer;
+
+    z-index:10;
+
+    transition:0.3s;
+}
+
+.prev:hover,
+.next:hover{
+    background:#00aa5b;
+}
+
+.prev{
+    left:15px;
+}
+
+.next{
+    right:15px;
+}
+
 
 /*HALAMAN LOGIN*/
 /*HALAMAN PROFILE*/
