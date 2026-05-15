@@ -48,15 +48,23 @@
         </div>
         <div class="Recomend-container">
             <div class="menu-card">
-                <img src="assets/images/Menu/Bakso.png" alt="">
+                <div class="card-img">
+                    <img src="assets/images/Menu/Bakso.png" alt="">
+                </div>
+                
                 <div class="menu-desc">
-                    <h4>Bakso</h4>
-                    <p>Bakso dengan cita rasa pedasnya</p>
+                    <div class="menu-tittleRate">
+                        <h4>Bakso</h4>
+                        <div class="rating">
+                            <i data-feather="star"></i>4.5
+                        </div>
+                    </div>
+                    <div class="content">
+                        <p>Bakso dengan cita rasa pedasnya</p>
+                    </div>
+
                     <div class="menu-price">
                         <span class="price">Rp20.000</span>
-                        <span class="rating">
-                            <i data-feather="star"></i>4.5
-                        </span>
                     </div>
                     <div class="button-price">
                         <a href="">
@@ -67,15 +75,23 @@
                 </div>
             </div>
             <div class="menu-card">
-                <img src="assets/images/Menu/Nasgor.png" alt="">
+                <div class="card-img">
+                    <img src="assets/images/Menu/Bakso.png" alt="">
+                </div>
+                
                 <div class="menu-desc">
-                    <h4>Nasi Goreng</h4>
-                    <p>Bakso dengan cita rasa pedas & manis</p>
-                    <div class="menu-price">
-                        <span class="price">Rp25.000</span>
-                        <span class="rating">
+                    <div class="menu-tittleRate">
+                        <h4>Bakso</h4>
+                        <div class="rating">
                             <i data-feather="star"></i>4.5
-                        </span>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <p>Bakso dengan cita rasa pedasnya</p>
+                    </div>
+
+                    <div class="menu-price">
+                        <span class="price">Rp20.000</span>
                     </div>
                     <div class="button-price">
                         <a href="">
@@ -86,15 +102,23 @@
                 </div>
             </div>
             <div class="menu-card">
-                <img src="assets/images/Menu/MieAyam.png" alt="">
+                <div class="card-img">
+                    <img src="assets/images/Menu/Bakso.png" alt="">
+                </div>
+                
                 <div class="menu-desc">
-                    <h4>Mie Ayam</h4>
-                    <p>Bakso dengan cita rasa pedasnya</p>
-                    <div class="menu-price">
-                        <span class="price">Rp16.000</span>
-                        <span class="rating">
+                    <div class="menu-tittleRate">
+                        <h4>Bakso</h4>
+                        <div class="rating">
                             <i data-feather="star"></i>4.5
-                        </span>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <p>Bakso dengan cita rasa pedasnya</p>
+                    </div>
+
+                    <div class="menu-price">
+                        <span class="price">Rp20.000</span>
                     </div>
                     <div class="button-price">
                         <a href="">
@@ -104,10 +128,7 @@
                     </div>
                 </div>
             </div>
-            
-        
-        <div class="main-course">
-            <a href="#">View All</a>
+        <a href="">View All</a>
         </div>
     </div>
 </section>
@@ -118,15 +139,23 @@
         </div>
         <div class="Recomend-container">
             <div class="menu-card">
-                <img src="assets/images/Menu/JusAlpukat.png" alt="">
+                <div class="card-img">
+                    <img src="assets/images/Menu/Bakso.png" alt="">
+                </div>
+                
                 <div class="menu-desc">
-                    <h4>Jus Alpukat</h4>
-                    <p>Jus Alpukat dengan rasa segar dan aromanya yang kuat</p>
-                    <div class="menu-price">
-                        <span class="price">Rp10.000</span>
-                        <span class="rating">
+                    <div class="menu-tittleRate">
+                        <h4>Bakso</h4>
+                        <div class="rating">
                             <i data-feather="star"></i>4.5
-                        </span>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <p>Bakso dengan cita rasa pedasnya</p>
+                    </div>
+
+                    <div class="menu-price">
+                        <span class="price">Rp20.000</span>
                     </div>
                     <div class="button-price">
                         <a href="">
@@ -137,15 +166,23 @@
                 </div>
             </div>
             <div class="menu-card">
-                <img src="assets/images/Menu/EsTeler.png" alt="">
+                <div class="card-img">
+                    <img src="assets/images/Menu/Bakso.png" alt="">
+                </div>
+                
                 <div class="menu-desc">
-                    <h4>Es Teler</h4>
-                    <p>Es teler dengan buah dan cita rasanya yang manis dan segar</p>
-                    <div class="menu-price">
-                        <span class="price">Rp15.000</span>
-                        <span class="rating">
+                    <div class="menu-tittleRate">
+                        <h4>Bakso</h4>
+                        <div class="rating">
                             <i data-feather="star"></i>4.5
-                        </span>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <p>Bakso dengan cita rasa pedasnya</p>
+                    </div>
+
+                    <div class="menu-price">
+                        <span class="price">Rp20.000</span>
                     </div>
                     <div class="button-price">
                         <a href="">
@@ -156,15 +193,23 @@
                 </div>
             </div>
             <div class="menu-card">
-                <img src="assets/images/Menu/Matcha.png" alt="">
+                <div class="card-img">
+                    <img src="assets/images/Menu/Bakso.png" alt="">
+                </div>
+                
                 <div class="menu-desc">
-                    <h4>Matcha Latte</h4>
-                    <p>Matcha latte perpaduan antara matcha dan kopi yang pahit</p>
-                    <div class="menu-price">
-                        <span class="price">Rp17.000</span>
-                        <span class="rating">
+                    <div class="menu-tittleRate">
+                        <h4>Bakso</h4>
+                        <div class="rating">
                             <i data-feather="star"></i>4.5
-                        </span>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <p>Bakso dengan cita rasa pedasnya</p>
+                    </div>
+
+                    <div class="menu-price">
+                        <span class="price">Rp20.000</span>
                     </div>
                     <div class="button-price">
                         <a href="">
@@ -174,10 +219,98 @@
                     </div>
                 </div>
             </div>
-            
-        
+        <a href="">View All</a>
+        </div>
+    </div>
+</section>
+<section class="menu-sect">
+    <div class="menu-reco">
         <div class="main-course">
-            <a href="#">View All</a>
+            <h3>Desserts</h3>
+        </div>
+        <div class="Recomend-container">
+            <div class="menu-card">
+                <div class="card-img">
+                    <img src="assets/images/Menu/Bakso.png" alt="">
+                </div>
+                
+                <div class="menu-desc">
+                    <div class="menu-tittleRate">
+                        <h4>Bakso</h4>
+                        <div class="rating">
+                            <i data-feather="star"></i>4.5
+                        </div>
+                    </div>
+                    <div class="content">
+                        <p>Bakso dengan cita rasa pedasnya</p>
+                    </div>
+
+                    <div class="menu-price">
+                        <span class="price">Rp20.000</span>
+                    </div>
+                    <div class="button-price">
+                        <a href="">
+                            <i data-feather="shopping-cart"></i>
+                        </a>
+                        <button>Pesan</button>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <div class="card-img">
+                    <img src="assets/images/Menu/Bakso.png" alt="">
+                </div>
+                
+                <div class="menu-desc">
+                    <div class="menu-tittleRate">
+                        <h4>Bakso</h4>
+                        <div class="rating">
+                            <i data-feather="star"></i>4.5
+                        </div>
+                    </div>
+                    <div class="content">
+                        <p>Bakso dengan cita rasa pedasnya</p>
+                    </div>
+
+                    <div class="menu-price">
+                        <span class="price">Rp20.000</span>
+                    </div>
+                    <div class="button-price">
+                        <a href="">
+                            <i data-feather="shopping-cart"></i>
+                        </a>
+                        <button>Pesan</button>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <div class="card-img">
+                    <img src="assets/images/Menu/Bakso.png" alt="">
+                </div>
+                
+                <div class="menu-desc">
+                    <div class="menu-tittleRate">
+                        <h4>Bakso</h4>
+                        <div class="rating">
+                            <i data-feather="star"></i>4.5
+                        </div>
+                    </div>
+                    <div class="content">
+                        <p>Bakso dengan cita rasa pedasnya</p>
+                    </div>
+
+                    <div class="menu-price">
+                        <span class="price">Rp20.000</span>
+                    </div>
+                    <div class="button-price">
+                        <a href="">
+                            <i data-feather="shopping-cart"></i>
+                        </a>
+                        <button>Pesan</button>
+                    </div>
+                </div>
+            </div>
+        <a href="">View All</a>
         </div>
     </div>
 </section>
