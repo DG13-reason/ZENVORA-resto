@@ -2,55 +2,49 @@
 
 <?php include 'includes/navbar.php'; ?>
 
-<section class="tentang">
+<section class="tentang-sect">
+    <h1>TENTANG <span>ZENVORA</span></h1>
+    <div class="content">
+        <div class="text">
+            <p>
+                ZENVORA resto adalah platform digital yang menggabungkan
+                layanan pemesanan makanan dan pencarian lowongan kerja.
+            </p>
 
-    <div class="text">
-        <button class="judul">TENTANG KAMI</button>
+            <p>
+                Melalui ZENVORA, Anda dapat menemukan berbagai makanan
+                favorit dan peluang karier terbaik.
+            </p>
 
-        <h1>TENTANG <span>ZENVORA</span></h1>
+            <button class="btn">Pelajari lebih lanjut</button>
+        </div>
 
-        <p>
-            ZENVORA resto adalah platform digital yang menggabungkan
-            layanan pemesanan makanan dan pencarian lowongan kerja.
-        </p>
-
-        <p>
-            Melalui ZENVORA, Anda dapat menemukan berbagai makanan
-            favorit dan peluang karier terbaik.
-        </p>
-
-        <button class="btn">Pelajari lebih lanjut</button>
-
-        <div class="sosmed">
-            <img src="instagram.png">
-            <img src="gmail.png">
-            <img src="wa.png">
+        <div class="gambar">
+            <img src="assets/images/LOGO/tentang-zenvora.png" alt="">
         </div>
     </div>
-
-    <div class="gambar">
-        <img src="laptop.png" alt="">
-    </div>
+    
 
 </section>
 
 <section class="box">
-
-    <div class="visi">
-        <h2>Visi Kami</h2>
-        <p>
-            Menjadi platform digital terdepan
-            dalam kebutuhan makanan dan karier.
-        </p>
+    <div class="card">
+        <div class="visi">
+            <h2>Visi Kami</h2>
+            <p>
+                Menjadi platform digital terdepan
+                dalam kebutuhan makanan dan karier.
+            </p>
+        </div>
+        <div class="misi">
+            <h2>Misi Kami</h2>
+            <p>
+                Menyediakan layanan praktis,
+                cepat, dan terpercaya.
+            </p>
+        </div>
     </div>
-
-    <div class="misi">
-        <h2>Misi Kami</h2>
-        <p>
-            Menyediakan layanan praktis,
-            cepat, dan terpercaya.
-        </p>
-    </div>
+    
 
 </section>
 
@@ -59,19 +53,19 @@
     <h2>Keunggulan ZENVORA</h2>
 
     <div class="icon-box">
-        <div>
+        <div class="card">
             <h3>Mudah Digunakan</h3>
         </div>
 
-        <div>
+        <div class="card">
             <h3>Aman & Terpercaya</h3>
         </div>
 
-        <div>
+        <div class="card">
             <h3>Cepat & Praktis</h3>
         </div>
 
-        <div>
+        <div class="card">
             <h3>Layanan Terbaik</h3>
         </div>
     </div>
