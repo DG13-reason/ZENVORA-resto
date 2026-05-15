@@ -10,9 +10,9 @@
 
     <div class="nav-links">
         <ul>
-            <li><a class="btn-navLinks" href="#">Home</a></li>
-            <li><a class="btn-navLinks" href="#">Menu</a></li>
-            <li><a class="btn-navLinks" href="#">About Us</a></li>
+            <li><a class="btn-navLinks" href="../index.php">Home</a></li>
+            <li><a class="btn-navLinks" href="../menu.php">Menu</a></li>
+            <li><a class="btn-navLinks" href="../about.php">About Us</a></li>
         </ul>
     </div>
 

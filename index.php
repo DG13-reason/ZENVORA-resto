@@ -38,7 +38,7 @@
 
 
 
-<section class="menu-section">
+<section class="menu-sect">
     <div class="menu-tittleSect">
         <h2>Recommendation Menu</h2>
     </div>
@@ -111,7 +111,7 @@
         </div>
     </div>
 </section>
-<section class="menu-section">
+<section class="menu-sect">
     <div class="menu-reco">
         <div class="main-course">
             <h3>Drinks</h3>
