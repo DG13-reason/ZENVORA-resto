@@ -225,10 +225,11 @@ body{
 .Recomend-container{
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 2rem;
 }
 .menu-card{
-    width: 300px;
+    width: 20rem;
+    height: 30rem;
     background: #fff;
     border-radius: 20px;
     overflow: hidden;
