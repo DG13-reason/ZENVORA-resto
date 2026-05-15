@@ -2,7 +2,7 @@
 
 <nav class="navbar">
     <div class="nav-logo">
-        <a href="../index.php">
+        <a href="/ZENVORA-resto/index.php">
             <img src="assets/images/LOGO/ZENVORA.jpeg" alt="logo">
             <h2>ZENVORA <span>Resto</span></h2>
         </a>
@@ -10,9 +10,9 @@
 
     <div class="nav-links">
         <ul>
-            <li><a class="btn-navLinks" href="../index.php">Home</a></li>
-            <li><a class="btn-navLinks" href="../menu.php">Menu</a></li>
-            <li><a class="btn-navLinks" href="../about.php">About Us</a></li>
+            <li><a class="btn-navLinks" href="/ZENVORA-resto/index.php">Home</a></li>
+            <li><a class="btn-navLinks" href="/ZENVORA-resto/menu.php">Menu</a></li>
+            <li><a class="btn-navLinks" href="/ZENVORA-resto/about.php">About Us</a></li>
         </ul>
     </div>
 
