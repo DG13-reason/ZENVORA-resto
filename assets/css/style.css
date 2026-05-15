@@ -323,6 +323,65 @@ body{
 /*HALAMAN REGISTER*/
 /*HALAMAN MENU*/
 /*HALAMAN ABOUT*/
+.tentang{
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    padding:50px;
+}
+
+.judul{
+    background:#11b8d6;
+    color:white;
+    border:none;
+    padding:15px 30px;
+    margin-bottom:20px;
+}
+
+h1 span{
+    color:#00d95f;
+}
+
+.btn{
+    background:#191970;
+    color:white;
+    border:none;
+    padding:15px 30px;
+    border-radius:30px;
+    margin-top:20px;
+}
+
+.sosmed img{
+    width:60px;
+    margin:20px 10px;
+}
+
+.gambar img{
+    width:450px;
+}
+
+.box{
+    display:flex;
+    gap:20px;
+    padding:30px;
+}
+
+.visi,.misi{
+    background:#11b8d6;
+    padding:20px;
+    width:50%;
+}
+
+.keunggulan{
+    text-align:center;
+    padding:40px;
+}
+
+.icon-box{
+    display:flex;
+    justify-content:space-around;
+    margin-top:30px;
+}
 /*HALAMAN CART*/
 
 
