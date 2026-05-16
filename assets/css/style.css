@@ -328,65 +328,106 @@ body{
 /*HALAMAN REGISTER*/
 /*HALAMAN MENU*/
 /*HALAMAN ABOUT*/
-.tentang{
-    display:flex;
-    justify-content:space-around;
+.tentang-sect{
     align-items:center;
-    padding:50px;
+    padding: 2rem 7%;
+}
+.tentang-sect h1{
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--font-main-color);
+}
+.tentang-sect span{
+    color: var(--font-navbar);
+}
+.tentang-sect .content{
+    display: flex; 
+    justify-content: center;
+    gap: 3rem;
+}
+.tentang-sect .content .text{
+    text-align: left;
+    padding-top: 5rem;
+    margin-right: 5rem;
+}
+.tentang-sect .content .text p{
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
 }
 
-.judul{
-    background:#11b8d6;
-    color:white;
-    border:none;
-    padding:15px 30px;
-    margin-bottom:20px;
-}
 
-h1 span{
-    color:#00d95f;
-}
-
-.btn{
-    background:#191970;
+.tentang-sect .content .text .btn{
+    background: var(--secondary-color);
     color:white;
     border:none;
     padding:15px 30px;
     border-radius:30px;
     margin-top:20px;
 }
-
-.sosmed img{
-    width:60px;
-    margin:20px 10px;
+.tentang-sect .content .gambar{
+    width: 60rem;
+    height: 22rem;
 }
-
-.gambar img{
-    width:450px;
+.tentang-sect .content .gambar img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .box{
-    display:flex;
-    gap:20px;
-    padding:30px;
+    
+    gap: 5rem;
+    padding: 5rem;
 }
-
-.visi,.misi{
-    background:#11b8d6;
-    padding:20px;
-    width:50%;
+.box .card{
+    width: 70rem;
+    height: 15rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 5rem;
 }
-
+.box .card .visi,.misi{
+    background: var(--font-secondary-color);
+    padding: 2rem;
+    width:100%;
+    height: 100%;
+    border-radius: 20px;
+}
+.box .card .visi h2,.misi h2{
+    text-align: center;
+    color: var(--font-navbar);
+    margin-bottom: 2rem;
+}
+.box .card .visi p,.misi p{
+    font-size: 1.2rem;
+    color: var(--font-main-color);
+}
 .keunggulan{
     text-align:center;
     padding:40px;
 }
-
-.icon-box{
-    display:flex;
-    justify-content:space-around;
-    margin-top:30px;
+.keunggulan h2{
+    color: var(--font-main-color);
 }
+.keunggulan .icon-box{
+    display:flex;
+    height: 4rem; 
+    align-items: center;
+    justify-content:space-around;
+    margin-top:30px; 
+}
+.keunggulan .icon-box .card{
+    display: flex; 
+    align-items: center;
+    height: 100%;
+    padding: 1.2rem;
+    border-radius: 10px;
+    background: var(--secondary-color);
+}
+.keunggulan .icon-box .card h3{
+    color: var(--font-main-color)
+}
+
 /*HALAMAN CART*/
 
 
