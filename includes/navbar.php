@@ -9,6 +9,10 @@
     </div>
 
     <div class="nav-links">
+        <a class="nav-user mobile-nav-user" href="profile.php">
+            <i data-feather="user"></i>
+            <span>Profile</span>
+        </a>
         <ul>
             <li><a class="btn-navLinks" href="/ZENVORA-resto/index.php">Home</a></li>
             <li><a class="btn-navLinks" href="/ZENVORA-resto/menu.php">Menu</a></li>

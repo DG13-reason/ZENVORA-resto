@@ -77,8 +77,8 @@ body{
 .nav-right{
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 1.2rem;
+    gap: 1rem;
+    flex-shrink: 0;
 }
 .nav-right a{
     color: #ffffff;
@@ -96,19 +96,29 @@ body{
     border-radius: 20px;
 }
 
+.nav-right .toggle-menu{
+    color: white;
+    cursor: pointer;
+}
+
+.mobile-nav-user{
+        display: none;
+    }
+
+
 /*HALAMAN INDEX*/
 .search-sect{
     width:100%;
     display:flex;
     justify-content:center;
     align-items:center;
-    margin-top:30px;
+    margin-top:2rem;
 }
-.search-menu{
+.search-sect .search-menu{
     position: relative;
-    width: 3orem;
+    width: 30rem;
 }
-.search-menu input{
+.search-sect .search-menu input{
     width: 100%;
     text-align: center;
     padding: 5px 8rem;
@@ -116,7 +126,7 @@ body{
     border-radius: 10px;
     border: solid 2px var(--secondary-color);
 }
-.search-menu button{
+.search-sect .search-menu button{
     position: absolute;
     right: 0;
     top:50%;
@@ -136,31 +146,30 @@ body{
     width: 100%;
     padding: 20px 5%;
 }
-.banner-slider{
+.banner-sect .banner-slider{
     width:100%;
     overflow:hidden;
     border-radius:20px;
     position:relative;
 }
 
-.info-track{
+.banner-sect .banner-slider .info-track{
     display:flex;
     transition: 0.5s ease-in-out;
 }
 
-.info-banner{
+.banner-sect .banner-slider .info-track .info-banner{
     min-width:100%;
 }
 
-.info-banner img{
+.banner-sect .banner-slider .info-track .info-banner img{
     width:100%;
     height: 100%;
     object-fit:cover;
     border-radius:20px;
 }
 
-.prev,
-.next{
+.banner-sect .banner-slider .prev,.next{
     position: absolute;
     top:50%;
     transform:translateY(-50%);
@@ -178,16 +187,15 @@ body{
     transition:0.3s;
 }
 
-.prev:hover,
-.next:hover{
+.banner-sect .banner-slider .prev:hover,.next:hover{
     background:#00aa5b;
 }
 
-.prev{
+.banner-sect .banner-slider .prev{
     left: 0;
 }
 
-.next{
+.banner-sect .banner-slider .next{
     right: 0;
 }
 
@@ -197,37 +205,34 @@ body{
     margin-top: 3rem;
 }
 
-.menu-tittleSect{
+.menu-sect .menu-tittleSect{
     padding-top: 0;
     text-align: center;
 }
 
-.menu-tittleSect h2{
+.menu-sect .menu-tittleSect h2{
     font-size: 2.5rem;
     color: #ffffff;
     margin-bottom: 10px;
 }
 
-.menu-reco{
+.menu-sect .menu-reco{
     padding: 1.2rem;
     margin-bottom: 25px;
     background: var(--font-secondary-color);
 }
-.menu-reco h3{
+.menu-sect  .menu-reco .main-course h3{
+    margin-bottom: 1rem;
     font-size: 1.8rem;
     color: #222;
 }
-.menu-reco a{
-    text-decoration: none;
-    color: #ff6600;
-    font-weight: 600;
-}
-.Recomend-container{
+
+.menu-sect  .menu-reco .Recomend-container{
     display: flex;
     align-items: center;
     gap: 2rem;
 }
-.menu-card{
+.menu-sect  .menu-reco .Recomend-container .menu-card{
     width: 20rem;
     height: 30rem;
     background: #fff;
@@ -236,36 +241,36 @@ body{
     box-shadow: 0 5px 15px rgba(0,0,0,0.08);
     transition: 0.3s;
 }
-.menu-card:hover{
-    transform: translateY(-10px);
+.menu-sect  .menu-reco .Recomend-container .menu-card:hover{
+    transform: translateY(-8px);
 }
 
-.menu-card .card-img{
+.menu-sect  .menu-reco .Recomend-container .menu-card .card-img{
     text-align: center;
     width: 100%;
     height: 14rem;
 }
 
-.menu-card .card-img img{
+.menu-sect  .menu-reco .Recomend-container .menu-card .card-img img{
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.menu-card .menu-desc{
+.menu-sect  .menu-reco .Recomend-container .menu-card .menu-desc{
     padding: 0.5rem;
 }
 
-.menu-desc .menu-tittleRate{
+.menu-sect  .menu-reco .Recomend-container .menu-card .menu-desc .menu-tittleRate{
     display: flex;
     justify-content: space-between;
     margin-bottom: 0.2rem;
 }
 
-.menu-desc .menu-tittleRate h4{
+.menu-sect  .menu-reco .Recomend-container .menu-card .menu-desc .menu-tittleRate h4{
     font-size: 1.3rem;
 }
-.menu-desc .menu-tittleRate .rating{
+.menu-sect  .menu-reco .Recomend-container .menu-card .menu-desc .menu-tittleRate .rating{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -273,42 +278,42 @@ body{
     color: #f4b400;
     font-weight: bold;
 }
-.menu-desc .content{
+.menu-sect  .menu-reco .Recomend-container .menu-card .menu-desc .content{
     width: 100%;
     height: 8rem;
 }
-.menu-desc .content p{
+.menu-sect  .menu-reco .Recomend-container .menu-card .menu-desc .content p{
     color: #666;
     font-size: 0.90rem;
     margin-bottom: 15px;
 }
 
-.menu-desc .menu-price{
+.menu-sect  .menu-reco .Recomend-container .menu-card .menu-desc .menu-price{
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
 }
 
-.menu-desc .menu-price .price{
+.menu-sect  .menu-reco .Recomend-container .menu-card .menu-desc .menu-price .price{
     color: #ff6600;
     font-weight: bold;
 }
 
 
-.menu-desc .button-price{
+.menu-sect  .menu-reco .Recomend-container .menu-card .menu-desc .button-price{
     display: flex;
     align-items: center;
     gap: 5px;
 }
 
-.menu-desc .button-price a{
+.menu-sect  .menu-reco .Recomend-container .menu-card .menu-desc .button-price a{
     padding: 9px 12px 0 10px;
     background-color: #22C55E;
     color: #ffffff;
     border-radius: 10px 0;
 }
-.menu-desc .button-price button{
+.menu-sect  .menu-reco .Recomend-container .menu-card .menu-desc .button-price button{
     width: 100%;
     border: none;
     padding: 12px;
@@ -385,71 +390,128 @@ h1 span{
 /*HALAMAN CART*/
 
 
-
-
-
-/*MENU TOGGE*/
-.toggle-menu{
-
-    display: none;
-
-    cursor: pointer;
-
-    color: white;
-}
-
-.toggle-menu svg{
-
-    width: 28px;
-
-    height: 28px;
-}
 /*Responsive*/
+@media screen and (min-width: 769px){
+
+    .toggle-menu{
+        display: none;
+    }
+}
+/*TABLET*/
 @media (max-width: 768px){
-
-    .navbar{
-
-        padding: 20px;
-    }
-
-    .nav-links{
-
-        position: absolute;
-
-        top: 90px;
-
-        right: -100%;
-
-        width: 250px;
-
-        background: #1a1a1a;
-
-        padding: 30px;
-
-        transition: 0.3s;
-    }
-
-    .nav-links.active{
-
-        right: 0;
-    }
-
-    .nav-links ul{
-
-        flex-direction: column;
-
-        align-items: flex-start;
-    }
-
     .toogle-menu{
-
         display: block;
     }
 
     .nav-user{
-
         display: none;
+    }
+
+    .navbar{
+        padding: 20px;
+    }
+
+    .nav-links{
+        position: absolute;
+        width: 50%;
+        top: 100%;
+        right: -100%;
+        height: 50vh;
+        background: rgba(37, 99, 235, 0.7);
+        padding: 2rem;
+        transition: 0.3s;
+        z-index: 9999;
+    }
+
+    .mobile-nav-user{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.7rem;
+        color: white;
+        text-decoration: none;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+        border-bottom: solid 1px;
+    }
+    .mobile-nav-user:hover{
+        color: var(--font-navbar);
+    }
+
+    .nav-links.active{
+        right: 0;
+    }
+
+    .nav-links ul{
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .btn-navLinks{
+        background: none;
+        border-radius: 0;
+    }
+
+    .btn-navLinks:hover{
+        color: var(--font-navbar);
+        border-bottom: solid 1px;
+    }
+
+    /*HALAMAN INDEX*/
+    .menu-sect .menu-tittleSect h2{
+        font-size: 1.8rem;
+    }
+
+    .menu-sect .menu-reco .main-course h3{
+        font-size: 1.5rem;
+    }
+    .menu-sect  .menu-reco .Recomend-container{
+        flex-wrap: wrap;
+    }
+    .menu-sect  .menu-reco .Recomend-container .menu-card{
+        width: 46%;
+        height: 46%;
     }
 }
 
-/*HALAMAN INDEX*/
+/*HANDPHONE*/
+@media (max-width: 480px){
+    .nav-links{
+        height: 100vh;
+        width: 100%;
+    }
+    /*HALAMAN INDEX*/
+    .search-sect .search-menu{
+        width: 70%;
+    }
+    .search-sect .search-menu input{
+        width: 100%;
+        height: 2rem;
+        padding: 1px 2rem;
+        font-size: 0.8rem;
+    } 
+    .search-sect .search-menu button{
+        width: 20px;
+        height: 20px;
+        right: 0.5rem;
+    }
+    .menu-sect .menu-tittleSect h2{
+        font-size: 1.4rem;
+    }
+
+    .menu-sect .menu-reco .main-course h3{
+        font-size: 1.2rem;
+    }
+    .menu-sect  .menu-reco .Recomend-container{
+        flex-wrap: wrap;
+    }
+    .menu-sect  .menu-reco .Recomend-container .menu-card{
+        width: 800%;
+        height: 100%;
+    }
+
+    .menu-sect .menu-reco .Recomend-container a{
+        display: none;
+    }
+}
