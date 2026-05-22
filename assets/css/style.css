@@ -145,6 +145,7 @@ body{
 .banner-sect{
     width: 100%;
     padding: 20px 5%;
+    margin-bottom: 4rem;
 }
 .banner-sect .banner-slider{
     width:100%;
@@ -198,130 +199,150 @@ body{
 .banner-sect .banner-slider .next{
     right: 0;
 }
-
-.menu-sect{
-    padding: 2rem 5%;
-    background: var(--font-secondary-color);
-    margin-top: 3rem;
+.menu-recomend{
+    width: 100%;
+    padding: 3rem 8%;
 }
-
-.menu-sect .menu-tittleSect{
-    padding-top: 0;
+.menu-recomend .menu-recomend-tittle{
     text-align: center;
+    margin-bottom: 2rem;
 }
-
-.menu-sect .menu-tittleSect h2{
-    font-size: 2.5rem;
+.menu-recomend .menu-recomend-tittle h2{
+    font-size: 42px;
     color: #ffffff;
-    margin-bottom: 10px;
+    border-bottom: solid 1px #ffffff;
+    margin-bottom: 2rem;    
 }
 
-.menu-sect .menu-reco{
-    padding: 1.2rem;
-    margin-bottom: 25px;
-    background: var(--font-secondary-color);
-}
-.menu-sect  .menu-reco .main-course h3{
-    margin-bottom: 1rem;
-    font-size: 1.8rem;
-    color: #222;
-}
-
-.menu-sect  .menu-reco .Recomend-container{
+.menu-recomend .menu-filter{
     display: flex;
-    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+.menu-recomend .menu-filter .filter-btn{
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    background: white;
+    color: #000000;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+.menu-recomend .menu-filter .filter-btn:hover{
+    background: var(--font-navbar);
+    color: white;
+}
+.menu-recomend .menu-filter .filter-btn.active{
+    background: var(--font-navbar);
+    color: white;
+}
+.menu-recomend .menu-container{
+    display: flex;
     gap: 2rem;
 }
-.menu-sect  .menu-reco .Recomend-container .menu-card{
-    width: 20rem;
-    height: 30rem;
-    background: #fff;
+.menu-recomend .menu-container .menu-card{
+    background: white;
+    width: 15rem;
+    height: 20rem;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    transition: 0.3s;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: 0.3s ease;
 }
-.menu-sect  .menu-reco .Recomend-container .menu-card:hover{
-    transform: translateY(-8px);
+.menu-recomend .menu-container .menu-card:hover{
+    transform: translateY(-10px);
 }
-
-.menu-sect  .menu-reco .Recomend-container .menu-card .card-img{
-    text-align: center;
+.menu-recomend .menu-container .menu-card .menu-img{
     width: 100%;
-    height: 14rem;
+    height: 10rem;
+    margin-bottom: 0.2rem;
 }
-
-.menu-sect  .menu-reco .Recomend-container .menu-card .card-img img{
+.menu-recomend .menu-container .menu-card .menu-img img{
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-
-.menu-sect  .menu-reco .Recomend-container .menu-card .menu-desc{
-    padding: 0.5rem;
+.menu-recomend .menu-container .menu-card .menu-desc{
+    padding: 0 0.5rem 0 0.5rem;
+    width: 100%;
+    height: 5.5rem;
+    margin-bottom: 1.5rem;
 }
-
-.menu-sect  .menu-reco .Recomend-container .menu-card .menu-desc .menu-tittleRate{
+.menu-recomend .menu-container .menu-card .menu-desc .tittle{
     display: flex;
     justify-content: space-between;
-    margin-bottom: 0.2rem;
+    align-items: center;
 }
-
-.menu-sect  .menu-reco .Recomend-container .menu-card .menu-desc .menu-tittleRate h4{
-    font-size: 1.3rem;
+.menu-recomend .menu-container .menu-card .menu-desc .tittle h3{
+    font-size: 1rem;
+    color: #000000;
 }
-.menu-sect  .menu-reco .Recomend-container .menu-card .menu-desc .menu-tittleRate .rating{
+.menu-recomend .menu-container .menu-card .menu-desc .tittle .rating{
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.1rem;
-    color: #f4b400;
-    font-weight: bold;
+    gap: 1px;
 }
-.menu-sect  .menu-reco .Recomend-container .menu-card .menu-desc .content{
+.menu-recomend .menu-container .menu-card .menu-desc .tittle .rating svg{
+    color: #facc15;
+    fill: #facc15;
+}
+.menu-recomend .menu-container .menu-card .menu-desc .tittle .rating span{
+    font-size: 1rem;
+    color: #000000;
+    font-weight: 500;
+}
+.menu-recomend .menu-container .menu-card .menu-desc p{
+    color: #64748b;
+    line-height: 1.6;
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+}
+.menu-recomend .menu-container .menu-card .menu-footer{
+    height: 2.6rem;
     width: 100%;
-    height: 8rem;
-}
-.menu-sect  .menu-reco .Recomend-container .menu-card .menu-desc .content p{
-    color: #666;
-    font-size: 0.90rem;
-    margin-bottom: 15px;
-}
-
-.menu-sect  .menu-reco .Recomend-container .menu-card .menu-desc .menu-price{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
+    gap: 0.5rem;
+    margin-bottom: 0;
+    padding: 0 0.5rem 0 0.5rem;
 }
-
-.menu-sect  .menu-reco .Recomend-container .menu-card .menu-desc .menu-price .price{
-    color: #ff6600;
-    font-weight: bold;
-}
-
-
-.menu-sect  .menu-reco .Recomend-container .menu-card .menu-desc .button-price{
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.menu-sect  .menu-reco .Recomend-container .menu-card .menu-desc .button-price a{
-    padding: 9px 12px 0 10px;
-    background-color: #22C55E;
-    color: #ffffff;
-    border-radius: 10px 0;
-}
-.menu-sect  .menu-reco .Recomend-container .menu-card .menu-desc .button-price button{
-    width: 100%;
+.cart-btn{
+    width: 3rem;
+    height: 100%;
     border: none;
-    padding: 12px;
     border-radius: 0 10px;
-    text-align: center;
-    background: var(--alert-main);
+    background: #22C55E;
+    color: #ffffff;
     cursor: pointer;
+    transition: 0.3s ease;
 }
+.cart-btn:hover{
+    background: #2563EB;
+    color: white;
+}
+.pesan-btn{
+    width: 100%;
+    flex: 1;
+    border: none;
+    border-radius: 10px 0;
+    background: var(--alert-main);
+    color: white;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+.pesan-btn:hover{
+    background: #1d4ed8;
+}
+
+
+
 
 /*HALAMAN LOGIN*/
 /*HALAMAN PROFILE*/
