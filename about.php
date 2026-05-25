@@ -72,4 +72,35 @@
 
 </section>
 
+<!-- KONTAK -->
+<section class="contact-section">
+
+    <h1>Kontak Kami</h1>
+    <p>Hubungi kami kapan saja untuk informasi dan pemesanan.</p>
+
+    <div class="contact-container">
+
+        <div class="contact-card">
+            <i data-feather="map-pin"></i>
+            <h2>Alamat</h2>
+            <span>Jl. Pejanggik No.12, Mataram</span>
+        </div>
+
+        <div class="contact-card">
+            <i class="fa-solid fa-envelope"></i>
+            <h2>Email</h2>
+            <span>zenvoraresto@gmail.com</span>
+        </div>
+
+        <div class="contact-card">
+            <i class="fa-solid fa-phone"></i>
+            <h2>Telepon</h2>
+            <span>+62 812-3456-7890</span>
+        </div>
+
+    </div>
+
+</section>
+
+
 <?php include 'includes/footer.php'; ?>

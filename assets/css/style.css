@@ -448,6 +448,60 @@ body{
 .keunggulan .icon-box .card h3{
     color: var(--font-main-color)
 }
+.contact-section{
+    padding: 70px 50px;
+    text-align: center;
+    color: white;
+}
+
+.contact-section h1{
+    font-size: 55px;
+    margin-bottom: 10px;
+}
+
+.contact-section p{
+    font-size: 22px;
+    margin-bottom: 60px;
+}
+
+.contact-container{
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.contact-card{
+    width: 350px;
+    background: #6f7b91;
+    padding: 5px;
+    border-radius: 25px;
+    height: 100px;
+
+}
+
+.contact-card i{
+    font-size: 65px;
+    color: #ffd000;
+    margin-bottom: 20px;
+}
+
+.contact-card h2{
+    color: #ffd000;
+    margin-bottom: 1px;
+    font-size: 20px;
+}
+
+.contact-card span{
+    font-size: 20px;
+}
+svg{
+    width: 27px;
+    height: 27px;
+    stroke: #ffd000;
+    stroke-width: 2.5;
+}
+
 
 /*HALAMAN CART*/
 
