@@ -182,6 +182,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
+const popup = document.getElementById("popup");
+const openPopup = document.getElementById("openPopup");
+const closePopup = document.getElementById("closePopup");
+
+const loginForm = document.querySelector(".login-form");
+const registerForm = document.querySelector(".register-form");
+
+const showRegister = document.getElementById("showRegister");
+const showLogin = document.getElementById("showLogin");
+
+openPopup.addEventListener("click", () => {
+    popup.classList.add("active");
+});
+
+closePopup.addEventListener("click", () => {
+    popup.classList.remove("active");
+});
+
+showRegister.addEventListener("click", () => {
+    loginForm.style.display = "none";
+    registerForm.style.display = "flex";
+});
+
+showLogin.addEventListener("click", () => {
+    registerForm.style.display = "none";
+    loginForm.style.display = "flex";
+});
+
 /* ================= FEATHER RELOAD ================= */
 
 feather.replace();
