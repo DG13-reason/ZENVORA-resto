@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if(isset($_SESSION['user'])){
+    echo "Selamat datang " . $_SESSION['user']['username'];
+}
+?>
+
 <?php include 'includes/header.php'; ?>
 
 <?php include 'includes/navbar.php'; ?>

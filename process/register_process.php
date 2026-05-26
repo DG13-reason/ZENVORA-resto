@@ -1,6 +1,8 @@
 <?php
 session_start();
-include ('../database/Koneksi.php');
+require_once ('../database/koneksi.php');
+
+/** @var mysqli $conn */
 
 $username = $_POST['username'];
 $email = $_POST['email'];
@@ -26,6 +28,6 @@ VALUES
 
 mysqli_query($conn, $query);
 
-header("Location: ./index.php");
+header("Location: ../index.php");
 exit;
 ?>

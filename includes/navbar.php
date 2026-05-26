@@ -1,5 +1,8 @@
 <?php 
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 include 'header.php';
 ?>
 
@@ -12,7 +15,7 @@ include 'header.php';
     </div>
 
     <div class="nav-links">
-        <a class="nav-user mobile-nav-user" href="profile.php">
+        <a class="nav-user mobile-nav-user" href="">
             <i data-feather="user"></i>
             <span>Profile</span>
         </a>
@@ -31,7 +34,7 @@ include 'header.php';
 
         <?php if(isset($_SESSION['user'])): ?>
 
-            <a class="nav-user logged-in" href="profile.php">
+            <a class="nav-user logged-in" href="/ZENVORA-resto/profile.php">
 
                 <?php  if(!empty($_SESSION['user']['foto'])): ?>
                     <img src="uploads/<?php echo $_SESSION['user']['foto']; ?>" class="usr-photo" alt="user">

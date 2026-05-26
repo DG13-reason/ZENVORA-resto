@@ -1,6 +1,9 @@
 <?php
 session_start();
-include './database/Koneksi.php';
+
+include '../database/koneksi.php';
+
+/** @var mysqli $conn */
 
 $email = $_POST['email'];
 $password = $_POST['password'];
@@ -24,5 +27,9 @@ if($user){
     }
 }
 
-echo "email atau password salah";
+echo "
+<script>
+    alert('Email atau password salah!');
+    window.location.href='../index.php';
+</script>";
 ?>
