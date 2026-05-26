@@ -53,23 +53,73 @@
     <h2>Keunggulan ZENVORA</h2>
 
     <div class="icon-box">
-        <div class="card">
+        <div class="card" onclick="toggleText(this)">
+            <i data-feather="check-circle"></i>
+            
             <h3>Mudah Digunakan</h3>
+
+            <p class="hidden">
+                ZENVORA dirancang dengan tampilan yang sederhana dan mudah dipahami sehingga pengguna dapat menggunakan semua fitur dengan nyamnan tampa merasa kesulitan.
+            </p>
         </div>
 
-        <div class="card">
+        <div class="card" onclick="toggleText(this)">
+            <i data-feather="sheield"></i>
             <h3>Aman & Terpercaya</h3>
+            <p class="hiden-text">
+                kami selalu menjaga keamanan data pelanggan dan memberikan layanan yang terpecaya agar pengguna merasa aman saat menggunakan ZENVORA.
+            </p>
         </div>
 
-        <div class="card">
+        <div class="card" onclick="toggleText(this)">
+            <i data-feather="zap"></i>
             <h3>Cepat & Praktis</h3>
+            <p class="hident-text">
+                semua layanan dibuat lebih cepat dan pratis sehingga pelanggan dapat melakukan pemesanan dan mencari informasi dengan mudah tampa menunggu lama.
+            </p>
+            
         </div>
 
-        <div class="card">
+        <div class="card" onclick="toggleText(this)">
+            <i data-feather="star"></i>
             <h3>Layanan Terbaik</h3>
+            <p class="hidden-text">
+                kami berkomitmen memberikan pelayanan terbaik dengan kualitas makanan dan layanan yang memuaskan agar pelanggan mendapatkan pelanggan yang nyaman dan menyenangkan.
+            </p>
         </div>
     </div>
 
 </section>
+
+<!-- KONTAK -->
+<section class="contact-section">
+
+    <h1>Kontak Kami</h1>
+    <p>Hubungi kami kapan saja untuk informasi dan pemesanan.</p>
+
+    <div class="contact-container">
+
+        <div class="contact-card">
+            <i data-feather="map-pin"></i>
+            <h2>Alamat</h2>
+            <span>Jl. Pejanggik No.12, Mataram</span>
+        </div>
+
+        <div class="contact-card">
+            <i data-feather="mail"></i>
+            <h2>Email</h2>
+            <span>zenvoraresto@gmail.com</span>
+        </div>
+
+        <div class="contact-card">
+            <i data-feather="phone"></i>
+            <h2>Telepon</h2>
+            <span>+62 812-3456-7890</span>
+        </div>
+
+    </div>
+
+</section>
+
 
 <?php include 'includes/footer.php'; ?>
