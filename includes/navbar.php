@@ -25,7 +25,7 @@ include 'header.php';
 
     <div class="nav-right">
 
-        <a class="btn-cart" href="">
+        <a class="btn-cart" href="/ZENVORA-resto/cart.php">
             <i data-feather="shopping-cart"></i>
         </a>
 
