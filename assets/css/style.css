@@ -515,21 +515,51 @@ body{
 }
 .keunggulan .icon-box{
     display:flex;
-    height: 4rem; 
     align-items: center;
-    justify-content:space-around;
-    margin-top:30px; 
+    justify-content: space-around;
+    margarin: top 30px;
+    gap: 20px;
+    flex-wrap: wrap; 
 }
 .keunggulan .icon-box .card{
     display: flex; 
+    flex-direction:colum;
     align-items: center;
+    justify-content: center;
+    width: 250px;
+    min-height: 170px;
     height: 100%;
     padding: 1.2rem;
-    border-radius: 10px;
+    border-radius: 15px;
     background: var(--secondary-color);
+    cursor: crosshair;
+    transition: 0.3s;
+}
+.keunggulan .icon-box .card:hover{
+    transform: translate(-5px);
 }
 .keunggulan .icon-box .card h3{
-    color: var(--font-main-color)
+    color:var(--font-main-color);
+    margin-top: 10px;
+}
+
+.hidden-text{
+    display: none;
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 1.5px;
+    color: white;
+    text-align: center;
+}
+.card.active .hidden-text{
+    display: block;
+}
+.card svg{
+    width: 45px;
+    height: 45px;
+    stroke: #ffd000;
+    stroke-width: 2.5;
+    margin-bottom: 10px;
 }
 .contact-section{
     padding: 70px 50px;
@@ -576,7 +606,7 @@ body{
 }
 
 .contact-card span{
-    font-size: 20px;
+    font-size: 15px;
 }
 svg{
     width: 27px;

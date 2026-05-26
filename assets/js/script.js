@@ -210,6 +210,10 @@ showLogin.addEventListener("click", () => {
     loginForm.style.display = "flex";
 });
 
+function toggleText(card){
+    card.classList.toggle("active");
+}
+
 /* ================= FEATHER RELOAD ================= */
 
 feather.replace();
