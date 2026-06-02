@@ -515,25 +515,32 @@ body{
 }
 .keunggulan .icon-box{
     display:flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-around;
-    margarin: top 30px;
     gap: 20px;
     flex-wrap: wrap; 
 }
 .keunggulan .icon-box .card{
-    display: flex; 
-    flex-direction:colum;
-    align-items: center;
-    justify-content: center;
     width: 250px;
     min-height: 170px;
-    height: 100%;
-    padding: 1.2rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    padding: 20px;
     border-radius: 15px;
     background: var(--secondary-color);
-    cursor: crosshair;
-    transition: 0.3s;
+}
+.hidden-text{
+    display: none;
+}
+.card.active .hidden-text{
+    display: block;
+}
+.card.active{
+    min-height: 220px;
 }
 .keunggulan .icon-box .card:hover{
     transform: translate(-5px);
@@ -542,19 +549,10 @@ body{
     color:var(--font-main-color);
     margin-top: 10px;
 }
-
-.hidden-text{
-    display: none;
-    margin-top: 10px;
-    font-size: 14px;
-    line-height: 1.5px;
-    color: white;
-    text-align: center;
-}
-.card.active .hidden-text{
+.keunggulan .icon-box .card.active .hidden-text{
     display: block;
 }
-.card svg{
+.keunggulan .icon-box .card svg{
     width: 45px;
     height: 45px;
     stroke: #ffd000;
@@ -577,14 +575,14 @@ body{
     margin-bottom: 60px;
 }
 
-.contact-container{
+.contact-section .contact-container{
     display: flex;
     justify-content: center;
     gap: 40px;
     flex-wrap: wrap;
 }
 
-.contact-card{
+.contact-section .contact-container .contact-card{
     width: 350px;
     background: #6f7b91;
     padding: 5px;
@@ -593,27 +591,22 @@ body{
 
 }
 
-.contact-card i{
+.contact-section .contact-container .contact-card i{
     font-size: 65px;
     color: #ffd000;
     margin-bottom: 20px;
 }
 
-.contact-card h2{
+.contact-section .contact-container .contact-card h2{
     color: #ffd000;
     margin-bottom: 1px;
     font-size: 20px;
 }
 
-.contact-card span{
+.contact-section .contact-container .contact-card span{
     font-size: 15px;
 }
-svg{
-    width: 27px;
-    height: 27px;
-    stroke: #ffd000;
-    stroke-width: 2.5;
-}
+
 
 
 /*HALAMAN CART*/

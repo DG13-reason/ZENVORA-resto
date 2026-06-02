@@ -54,19 +54,15 @@
 
     <div class="icon-box">
         <div class="card" onclick="toggleText(this)">
-            <i data-feather="check-circle"></i>
-            
             <h3>Mudah Digunakan</h3>
-
-            <p class="hidden">
+            <p class="hidden-text">
                 ZENVORA dirancang dengan tampilan yang sederhana dan mudah dipahami sehingga pengguna dapat menggunakan semua fitur dengan nyamnan tampa merasa kesulitan.
             </p>
         </div>
 
         <div class="card" onclick="toggleText(this)">
-            <i data-feather="sheield"></i>
             <h3>Aman & Terpercaya</h3>
-            <p class="hiden-text">
+            <p class="hidden-text">
                 kami selalu menjaga keamanan data pelanggan dan memberikan layanan yang terpecaya agar pengguna merasa aman saat menggunakan ZENVORA.
             </p>
         </div>
@@ -74,7 +70,7 @@
         <div class="card" onclick="toggleText(this)">
             <i data-feather="zap"></i>
             <h3>Cepat & Praktis</h3>
-            <p class="hident-text">
+            <p class="hidden-text">
                 semua layanan dibuat lebih cepat dan pratis sehingga pelanggan dapat melakukan pemesanan dan mencari informasi dengan mudah tampa menunggu lama.
             </p>
             
