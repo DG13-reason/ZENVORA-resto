@@ -610,11 +610,19 @@ body{
 }
 .keunggulan .icon-box{
     display:flex;
+<<<<<<< HEAD
     align-items:flex-start;
     justify-content:space-around;
     margin-top:30px;
     gap:20px;
     flex-wrap:wrap;
+=======
+    align-items: flex-start;
+    justify-content: space-around;
+    margin: top 30px;
+    gap: 20px;
+    flex-wrap: wrap; 
+>>>>>>> 74210f57fd1f2ff6345a5c0f6e62cf07a3413849
 }
 .keunggulan .icon-box .card{
     width: 250px;
@@ -703,6 +711,12 @@ body{
     font-size: 15px;
 }
 
+.contact-section .contact-container .contact-card svg{
+    width: 27px;
+    height: 27px;
+    stroke: #ffd000;
+    stroke-width: 2.5;
+}
 
 
 /*HALAMAN CART*/
