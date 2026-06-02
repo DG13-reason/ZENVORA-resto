@@ -1,172 +1,134 @@
-<?php
-session_start();
 
-include 'database/Koneksi.php';
-
-if (isset($_POST['cart'])) {
-
-$id = $_POST['id'];
-
-if (isset($_SESSION['cart'][$id])) {
-
-$_SESSION['cart'][$id]['qty']++;
-
-} else {
-
-$_SESSION['cart'][$id] = [
-'nama' => $_POST['nama'],
-'harga' => $_POST['harga'],
-'qty' => 1
-];
-
-}
-
-header("Location: cart.php");
-exit;
-
-}
-
-$query =
-mysqli_query(
-$conn,
-"SELECT * FROM menu"
-);
 
 include 'includes/header.php';
 include 'includes/navbar.php';
+
+<section class="menu-section">
+
+    <div class="menu-search">
+        <input type="text" placeholder="searching">
+    </div>
+
+    <h2 class="menu-title">MAKANAN</h2>
+    <p class="menu-subtitle">
+        Pilih makanan favoritmu dari berbagai pilihan lezat kami.
+    </p>
+
+    <div class="menu-kategori">
+        <button class="active">Semua</button>
+        <button>Makanan Berat</button>
+        <button>Snack</button>
+        <button>Minuman</button>
+    </div>
+
+    <!-- MAKANAN BERAT -->
+    <h3 class="judul-kategori">Makanan Berat</h3>
+
+    <div class="menu-grid">
+
+        <!-- 12 Menu Makanan -->
+        <?php
+        $makanan = [
+            ["Nasi Goreng","Rp20.000","img/nasigoreng.png"],
+            ["Bakso","Rp15.000","img/bakso.png"],
+            ["Mie Ayam","Rp15.000","img/mieayam.png"],
+            ["Nila Bakar","Rp25.000","img/nilabakar.jpg"],
+            ["Rawon","Rp25.000","img/rawon.jpg"],
+            ["Sate Lilit","Rp15.000","img/satelilit.jpg"],
+            ["Seafood Mix","Rp35.000","img/seafoodmix.jpg"],
+            ["Steak","Rp55.000","img/steak.jpg"],
+            ["Plecing Kangkung","Rp10.000","img/plecingkangkung.jpg"],
+            ["Ayam Betutu","Rp35.000","img/ayambetutu.jpg"],
+            ["Capcay","Rp20.000","img/capcay.jpg"],
+            ["Spagetti","Rp25.000","img/spagetti.jpg"]
+        ];
+
+        foreach($makanan as $item){
+            echo "
+            <div class='menu-card'>
+                <img src='{$item[2]}' alt='{$item[0]}'>
+                <div class='menu-info'>
+                    <h4>{$item[0]}</h4>
+                    <p>{$item[1]}</p>
+                </div>
+            </div>";
+        }
+        ?>
+    </div>
+
+    <!-- MINUMAN -->
+    <h3 class="judul-kategori">Minuman</h3>
+
+    <div class="menu-grid">
+
+        <?php
+       $minuman = [
+    ["Jus Alpukat","Rp12.000","img/jusalpukat.png"],
+    ["Kopi","Rp10.000","img/kopi.jpg"],
+    ["Boba Matcha Latte","Rp15.000","img/Matcha.Png"],
+    ["Boba Taro","Rp15.000","img/bobataro.jpg"],
+    ["Jus Mangga","Rp13.000","img/jusmangga.jpg"],
+    ["The Red Oriental","Rp17.000","img/redoriental.jpg"],
+    ["Es Teler","Rp15.000","img/esteler.png"],
+    ["Boba Brown Sugar","Rp15.000","img/brownsugar.jpg"],
+    ["Lemon Tea","Rp13.000","img/lemontea.jpg"],
+    ["Smoothies Strawberry","Rp16.000","img/smoothies.jpg"],
+    ["Choco Hazelnut Frappe","Rp20.000","img/chocohazelnut.jpg"],
+    ["Lychee White Blossom","Rp16.000","img/lychee.jpg"]
+];
+
+        foreach($minuman as $item){
+            echo "
+            <div class='menu-card'>
+                <img src='{$item[2]}' alt='{$item[0]}'>
+                <div class='menu-info'>
+                    <h4>{$item[0]}</h4>
+                    <p>{$item[1]}</p>
+                </div>
+            </div>";
+        }
+        ?>
+    </div>
+
+    <!-- DESSERT -->
+    <h3 class="judul-kategori">Dessert</h3>
+
+    <div class="menu-grid">
+
+        <?php
+        $dessert = [
+            ["Panna Cotta","Rp17.000","img/pannacotta.jpg"],
+            ["Strawberry Parfait","Rp15.000","img/parfait.jpg"],
+            ["Fried Ice Cream","Rp10.000","img/friedicecream.jpg"],
+            ["Semifreddo","Rp17.000","img/semifreddo.jpg"],
+            ["Pancake","Rp12.000","img/pancake.jpg"],
+            ["Risol Mayo","Rp15.000","img/Risol.png"],
+            ["French Fries","Rp12.000","img/kentang.png"],
+            ["Sandwich","Rp15.000","img/sandwich.jpg"],
+            ["Brownie Tiramisu","Rp14.000","img/brownietiramisu.jpg"],
+            ["Momo","Rp16.000","img/momo.jpg"],
+            ["Gyoza","Rp16.000","img/gyoza.jpg"],
+            ["Salted Caramel Ice Cream Squares","Rp15.000","img/saltedcaramel.jpg"]
+        ];
+
+        foreach($dessert as $item){
+            echo "
+            <div class='menu-card'>
+                <img src='{$item[2]}' alt='{$item[0]}'>
+                <div class='menu-info'>
+                    <h4>{$item[0]}</h4>
+                    <p>{$item[1]}</p>
+                </div>
+            </div>";
+        }
+        ?>
+    </div>
+
+</section>
+
+<?php
+include 'includes/footer.php';
 ?>
 
-<style>
 
-.container{
-width:90%;
-margin:auto;
-padding:30px;
-}
-
-.judul{
-text-align:center;
-margin-bottom:30px;
-}
-
-.menu-grid{
-display:grid;
-grid-template-columns:
-repeat(auto-fit,minmax(250px,1fr));
-
-gap:20px;
-}
-
-.card{
-
-background:white;
-
-padding:20px;
-
-border-radius:10px;
-
-box-shadow:
-0 2px 10px rgba(0,0,0,.1);
-
-text-align:center;
-
-}
-
-.card h3{
-margin-bottom:10px;
-}
-
-.harga{
-
-color:#007bff;
-
-font-weight:bold;
-
-margin-bottom:15px;
-
-}
-
-.btn{
-
-background:#28a745;
-
-color:white;
-
-border:none;
-
-padding:10px 18px;
-
-border-radius:8px;
-
-cursor:pointer;
-
-}
-
-.btn:hover{
-
-opacity:.9;
-
-}
-
-</style>
-
-<div class="container">
-
-<h1 class="judul">
-🍽 Daftar Menu
-</h1>
-
-<div class="menu-grid">
-
-<?php while($row = mysqli_fetch_assoc($query)): ?>
-
-<div class="card">
-
-<h3>
-<?= $row['nama_menu'] ?>
-</h3>
-
-<div class="harga">
-
-Rp
-<?= number_format($row['harga']) ?>
-
-</div>
-
-<form method="POST">
-
-<input
-type="hidden"
-name="id"
-value="<?= $row['id'] ?>">
-
-<input
-type="hidden"
-name="nama"
-value="<?= $row['nama_menu'] ?>">
-
-<input
-type="hidden"
-name="harga"
-value="<?= $row['harga'] ?>">
-
-<button
-type="submit"
-name="cart"
-class="btn">
-
-Tambah Keranjang
-
-</button>
-
-</form>
-
-</div>
-
-<?php endwhile; ?>
-
-</div>
-
-</div>
-
-<?php include 'includes/footer.php'; ?>
+include 'includes/footer.php'
