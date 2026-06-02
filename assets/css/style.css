@@ -596,10 +596,7 @@ body{
     display:flex;
     align-items: flex-start;
     justify-content: space-around;
-<<<<<<< HEAD
     margin: top 30px;
-=======
->>>>>>> 83fb9800cf826491b48c62b502f31c9bed8eaba7
     gap: 20px;
     flex-wrap: wrap; 
 }
@@ -690,15 +687,12 @@ body{
     font-size: 15px;
 }
 
-<<<<<<< HEAD
-svg{
+.contact-section .contact-container .contact-card svg{
     width: 27px;
     height: 27px;
     stroke: #ffd000;
     stroke-width: 2.5;
 }
-=======
->>>>>>> 5a0a6bdc884fe8a83a603a196d422092afcde53e
 
 
 /*HALAMAN CART*/

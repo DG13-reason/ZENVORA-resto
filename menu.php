@@ -1,7 +1,6 @@
 
-
-include 'includes/header.php';
-include 'includes/navbar.php';
+<?php include 'includes/header.php'; ?>
+<?php include 'includes/navbar.php'; ?>
 
 <section class="menu-section">
 
@@ -61,21 +60,21 @@ include 'includes/navbar.php';
 
     <div class="menu-grid">
 
-        <?php
-       $minuman = [
-    ["Jus Alpukat","Rp12.000","img/jusalpukat.png"],
-    ["Kopi","Rp10.000","img/kopi.jpg"],
-    ["Boba Matcha Latte","Rp15.000","img/Matcha.Png"],
-    ["Boba Taro","Rp15.000","img/bobataro.jpg"],
-    ["Jus Mangga","Rp13.000","img/jusmangga.jpg"],
-    ["The Red Oriental","Rp17.000","img/redoriental.jpg"],
-    ["Es Teler","Rp15.000","img/esteler.png"],
-    ["Boba Brown Sugar","Rp15.000","img/brownsugar.jpg"],
-    ["Lemon Tea","Rp13.000","img/lemontea.jpg"],
-    ["Smoothies Strawberry","Rp16.000","img/smoothies.jpg"],
-    ["Choco Hazelnut Frappe","Rp20.000","img/chocohazelnut.jpg"],
-    ["Lychee White Blossom","Rp16.000","img/lychee.jpg"]
-];
+    <?php
+    $minuman = [
+        ["Jus Alpukat","Rp12.000","img/jusalpukat.png"],
+        ["Kopi","Rp10.000","img/kopi.jpg"],
+        ["Boba Matcha Latte","Rp15.000","img/Matcha.Png"],
+        ["Boba Taro","Rp15.000","img/bobataro.jpg"],
+        ["Jus Mangga","Rp13.000","img/jusmangga.jpg"],
+        ["The Red Oriental","Rp17.000","img/redoriental.jpg"],
+        ["Es Teler","Rp15.000","img/esteler.png"],
+        ["Boba Brown Sugar","Rp15.000","img/brownsugar.jpg"],
+        ["Lemon Tea","Rp13.000","img/lemontea.jpg"],
+        ["Smoothies Strawberry","Rp16.000","img/smoothies.jpg"],
+        ["Choco Hazelnut Frappe","Rp20.000","img/chocohazelnut.jpg"],
+        ["Lychee White Blossom","Rp16.000","img/lychee.jpg"]
+    ];
 
         foreach($minuman as $item){
             echo "
@@ -129,6 +128,3 @@ include 'includes/navbar.php';
 <?php
 include 'includes/footer.php';
 ?>
-
-
-include 'includes/footer.php'
