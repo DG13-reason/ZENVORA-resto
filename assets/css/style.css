@@ -431,6 +431,101 @@ body{
 /*HALAMAN PROFILE*/
 /*HALAMAN REGISTER*/
 /*HALAMAN MENU*/
+
+.menu-section{
+    padding: 2rem 5%;
+}
+
+.menu-section .menu-title{
+    color: var(--font-main-color);
+    margin-bottom: 10px;
+}
+
+.menu-section .menu-subtitle{
+    color: #ddd;
+    margin-bottom: 20px;
+}
+
+.menu-section .menu-search{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.menu-section .menu-search input{
+    width:300px;
+    padding:10px;
+    border:none;
+    border-radius:8px;
+}
+
+.menu-section .menu-kategori{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.menu-section .menu-kategori button{
+    padding: 10px 18px;
+    border: none;
+    cursor: pointer;
+    background: #d9d9d9;
+    color: #fff;
+    transition: .3s;
+}
+
+.menu-section .menu-kategori button.active{
+    background: var(--font-navbar);
+}
+
+.menu-section .judul-kategori{
+    color: white;
+    margin: 25px 0 15px;
+    font-size: 18px;
+}
+
+.menu-section .menu-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(160px,1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.menu-section .menu-card{
+    background: #666;
+    overflow: hidden;
+    transition: .3s;
+}
+
+.menu-section .menu-card:hover{
+    transform: translateY(-5px);
+}
+
+.menu-section .menu-card img{
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+}
+
+.menu-section .menu-card .menu-info{
+    padding: 8px;
+    text-align: center;
+}
+
+.menu-section .menu-card .menu-info h4{
+    color: white;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.menu-section .menu-card .menu-info p{
+    color: #e0e0e0;
+    font-size: 13px;
+}
+
+
+
+
 /*HALAMAN ABOUT*/
 .tentang-sect{
     align-items:center;
@@ -515,10 +610,19 @@ body{
 }
 .keunggulan .icon-box{
     display:flex;
+<<<<<<< HEAD
+    align-items:flex-start;
+    justify-content:space-around;
+    margin-top:30px;
+    gap:20px;
+    flex-wrap:wrap;
+=======
     align-items: flex-start;
     justify-content: space-around;
+    margin: top 30px;
     gap: 20px;
     flex-wrap: wrap; 
+>>>>>>> 74210f57fd1f2ff6345a5c0f6e62cf07a3413849
 }
 .keunggulan .icon-box .card{
     width: 250px;
@@ -610,6 +714,12 @@ body{
     font-size: 15px;
 }
 
+.contact-section .contact-container .contact-card svg{
+    width: 27px;
+    height: 27px;
+    stroke: #ffd000;
+    stroke-width: 2.5;
+}
 
 
 /*HALAMAN CART*/
@@ -741,3 +851,4 @@ body{
         display: none;
     }
 }
+

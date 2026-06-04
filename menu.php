@@ -1,172 +1,293 @@
 <?php
 session_start();
 
-include 'database/Koneksi.php';
+<<<<<<< HEAD
+// TAMBAH KE KERANJANG
+if(isset($_POST['cart'])){
 
-if (isset($_POST['cart'])) {
+    $id = $_POST['id'];
 
-$id = $_POST['id'];
+    if(isset($_SESSION['cart'][$id])){
+        $_SESSION['cart'][$id]['qty']++;
+    }else{
+        $_SESSION['cart'][$id] = [
+            'nama'  => $_POST['nama'],
+            'harga' => $_POST['harga'],
+            'qty'   => 1
+        ];
+    }
 
-if (isset($_SESSION['cart'][$id])) {
-
-$_SESSION['cart'][$id]['qty']++;
-
-} else {
-
-$_SESSION['cart'][$id] = [
-'nama' => $_POST['nama'],
-'harga' => $_POST['harga'],
-'qty' => 1
-];
-
+    header("Location: cart.php");
+    exit;
 }
-
-header("Location: cart.php");
-exit;
-
-}
-
-$query =
-mysqli_query(
-$conn,
-"SELECT * FROM menu"
-);
 
 include 'includes/header.php';
 include 'includes/navbar.php';
+=======
+<?php include 'includes/header.php'; ?>
+<?php include 'includes/navbar.php'; ?>
+>>>>>>> 74210f57fd1f2ff6345a5c0f6e62cf07a3413849
+
+// DATA MAKANAN
+$makanan = [
+    ["Nasi Goreng",20000,"assets/images/nasigoreng.png"],
+    ["Bakso",15000,"assets/images/bakso.png"],
+    ["Mie Ayam",15000,"assets/images/mieayam.png"],
+    ["Nila Bakar",25000,"assets/images/nilabakar.jpg"],
+    ["Rawon",25000,"assets/images/rawon.jpg"],
+    ["Sate Lilit",15000,"assets/images/satelilit.jpg"],
+    ["Seafood Mix",35000,"assets/images/seafoodmix.jpg"],
+    ["Steak",55000,"assets/images/steak.jpg"]
+];
+
+// DATA SNACK
+$snack = [
+    ["French Fries",12000,"assets/images/kentang.png"],
+    ["Risol Mayo",15000,"assets/images/Risol.png"],
+    ["Sandwich",15000,"assets/images/sandwich.jpg"],
+    ["Pancake",12000,"assets/images/pancake.jpg"]
+];
+
+// DATA MINUMAN
+$minuman = [
+    ["Jus Alpukat",12000,"assets/images/jusalpukat.png"],
+    ["Kopi",10000,"assets/images/kopi.jpg"],
+    ["Boba Matcha",15000,"assets/images/matcha.png"],
+    ["Boba Taro",15000,"assets/images/bobataro.jpg"]
+];
 ?>
 
-<style>
+<section class="menu-section">
 
-.container{
-width:90%;
-margin:auto;
-padding:30px;
-}
+    <div class="menu-search">
+        <input type="text" placeholder="Cari menu...">
+    </div>
 
-.judul{
-text-align:center;
-margin-bottom:30px;
-}
+    <h2 class="menu-title">MENU RESTORAN</h2>
 
-.menu-grid{
-display:grid;
-grid-template-columns:
-repeat(auto-fit,minmax(250px,1fr));
+    <p class="menu-subtitle">
+        Pilih makanan favoritmu dari berbagai pilihan lezat kami.
+    </p>
 
-gap:20px;
-}
+    <div class="menu-kategori">
 
-.card{
+        <button onclick="filterMenu('all')">
+            Semua
+        </button>
 
-background:white;
+        <button onclick="filterMenu('makanan')">
+            Makanan Berat
+        </button>
 
-padding:20px;
+        <button onclick="filterMenu('snack')">
+            Snack
+        </button>
 
-border-radius:10px;
+        <button onclick="filterMenu('minuman')">
+            Minuman
+        </button>
 
-box-shadow:
-0 2px 10px rgba(0,0,0,.1);
+    </div>
 
-text-align:center;
+    <!-- MAKANAN -->
+    <div class="kategori makanan">
 
-}
+        <h3 class="judul-kategori">
+            🍛 Makanan Berat
+        </h3>
 
-.card h3{
-margin-bottom:10px;
-}
+        <div class="menu-grid">
 
-.harga{
+            <?php foreach($makanan as $item){ ?>
 
-color:#007bff;
+            <div class="menu-card">
 
-font-weight:bold;
+                <img src="<?= $item[2] ?>" alt="<?= $item[0] ?>">
 
-margin-bottom:15px;
+                <div class="menu-info">
 
-}
+                    <h4><?= $item[0] ?></h4>
 
-.btn{
+                    <p>
+                        Rp <?= number_format($item[1],0,',','.') ?>
+                    </p>
 
-background:#28a745;
+                    <form method="POST">
 
-color:white;
+                        <input type="hidden"
+                               name="id"
+                               value="<?= $item[0] ?>">
 
-border:none;
+                        <input type="hidden"
+                               name="nama"
+                               value="<?= $item[0] ?>">
 
-padding:10px 18px;
+                        <input type="hidden"
+                               name="harga"
+                               value="<?= $item[1] ?>">
 
-border-radius:8px;
+                        <button
+                            type="submit"
+                            name="cart"
+                            class="btn-cart">
 
-cursor:pointer;
+                            🛒 Tambah Keranjang
 
-}
+                        </button>
 
-.btn:hover{
+                    </form>
 
-opacity:.9;
+                </div>
 
-}
+            </div>
 
-</style>
+            <?php } ?>
 
-<div class="container">
+        </div>
 
-<h1 class="judul">
-🍽 Daftar Menu
-</h1>
+    </div>
 
-<div class="menu-grid">
+    <!-- SNACK -->
+    <div class="kategori snack">
 
-<?php while($row = mysqli_fetch_assoc($query)): ?>
+        <h3 class="judul-kategori">
+            🍟 Snack
+        </h3>
 
-<div class="card">
+        <div class="menu-grid">
 
-<h3>
-<?= $row['nama_menu'] ?>
-</h3>
+            <?php foreach($snack as $item){ ?>
 
-<div class="harga">
+            <div class="menu-card">
 
-Rp
-<?= number_format($row['harga']) ?>
+                <img src="<?= $item[2] ?>" alt="<?= $item[0] ?>">
 
-</div>
+                <div class="menu-info">
 
-<form method="POST">
+                    <h4><?= $item[0] ?></h4>
 
-<input
-type="hidden"
-name="id"
-value="<?= $row['id'] ?>">
+                    <p>
+                        Rp <?= number_format($item[1],0,',','.') ?>
+                    </p>
 
-<input
-type="hidden"
-name="nama"
-value="<?= $row['nama_menu'] ?>">
+                    <form method="POST">
 
-<input
-type="hidden"
-name="harga"
-value="<?= $row['harga'] ?>">
+                        <input type="hidden"
+                               name="id"
+                               value="<?= $item[0] ?>">
 
-<button
-type="submit"
-name="cart"
-class="btn">
+                        <input type="hidden"
+                               name="nama"
+                               value="<?= $item[0] ?>">
 
-Tambah Keranjang
+                        <input type="hidden"
+                               name="harga"
+                               value="<?= $item[1] ?>">
 
-</button>
+                        <button
+                            type="submit"
+                            name="cart"
+                            class="btn-cart">
 
-</form>
+                            🛒 Tambah Keranjang
 
-</div>
+                        </button>
 
-<?php endwhile; ?>
+                    </form>
 
-</div>
+                </div>
 
-</div>
+            </div>
 
-<?php include 'includes/footer.php'; ?>
+            <?php } ?>
+
+        </div>
+
+    </div>
+
+    <!-- MINUMAN -->
+    <div class="kategori minuman">
+
+        <h3 class="judul-kategori">
+            🥤 Minuman
+        </h3>
+
+<<<<<<< HEAD
+        <div class="menu-grid">
+
+            <?php foreach($minuman as $item){ ?>
+
+            <div class="menu-card">
+
+                <img src="<?= $item[2] ?>" alt="<?= $item[0] ?>">
+
+                <div class="menu-info">
+
+                    <h4><?= $item[0] ?></h4>
+
+                    <p>
+                        Rp <?= number_format($item[1],0,',','.') ?>
+                    </p>
+
+                    <form method="POST">
+
+                        <input type="hidden"
+                               name="id"
+                               value="<?= $item[0] ?>">
+
+                        <input type="hidden"
+                               name="nama"
+                               value="<?= $item[0] ?>">
+
+                        <input type="hidden"
+                               name="harga"
+                               value="<?= $item[1] ?>">
+
+                        <button
+                            type="submit"
+                            name="cart"
+                            class="btn-cart">
+
+                            🛒 Tambah Keranjang
+
+                        </button>
+
+                    </form>
+=======
+    <?php
+    $minuman = [
+        ["Jus Alpukat","Rp12.000","img/jusalpukat.png"],
+        ["Kopi","Rp10.000","img/kopi.jpg"],
+        ["Boba Matcha Latte","Rp15.000","img/Matcha.Png"],
+        ["Boba Taro","Rp15.000","img/bobataro.jpg"],
+        ["Jus Mangga","Rp13.000","img/jusmangga.jpg"],
+        ["The Red Oriental","Rp17.000","img/redoriental.jpg"],
+        ["Es Teler","Rp15.000","img/esteler.png"],
+        ["Boba Brown Sugar","Rp15.000","img/brownsugar.jpg"],
+        ["Lemon Tea","Rp13.000","img/lemontea.jpg"],
+        ["Smoothies Strawberry","Rp16.000","img/smoothies.jpg"],
+        ["Choco Hazelnut Frappe","Rp20.000","img/chocohazelnut.jpg"],
+        ["Lychee White Blossom","Rp16.000","img/lychee.jpg"]
+    ];
+>>>>>>> 74210f57fd1f2ff6345a5c0f6e62cf07a3413849
+
+                </div>
+
+            </div>
+
+            <?php } ?>
+
+        </div>
+
+    </div>
+
+</section>
+
+<?php
+<<<<<<< HEAD
+include 'includes/footer.php';   
+?>
+=======
+include 'includes/footer.php';
+?>
+>>>>>>> 74210f57fd1f2ff6345a5c0f6e62cf07a3413849

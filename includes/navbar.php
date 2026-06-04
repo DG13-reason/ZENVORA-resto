@@ -15,7 +15,7 @@ include 'header.php';
     </div>
 
     <div class="nav-links">
-        <a class="nav-user mobile-nav-user" href="">
+        <a class="nav-user mobile-nav-user" href="/ZENVORA-resto/profile.php">
             <i data-feather="user"></i>
             <span>Profile</span>
         </a>
