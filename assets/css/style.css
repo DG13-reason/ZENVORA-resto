@@ -589,6 +589,9 @@ body{
     border-radius: 25px;
     height: 100px;
 
+    cursor: pointer;
+    transition: 0.3s ease;
+
 }
 
 .contact-section .contact-container .contact-card i{
