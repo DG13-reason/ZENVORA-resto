@@ -16,7 +16,7 @@ if(menuToggle && navLinks){
     });
 
 }
-
+/* ================= HALAMAN INDEX ================= */
 /* ================= SLIDER ================= */
 
 const track = document.querySelector('.info-track');
@@ -116,7 +116,7 @@ if(track && slides.length > 0 && nextBtn && prevBtn && slider){
     });
 
 }
-
+/* ================= HALAMAN INDEX ================= */
 /* ================= FILTER MENU ================= */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
     });
-
+/* ================= HALAMAN INDEX ================= */
     /* DEFAULT MAIN MENU */
 
     menuCards.forEach((card) => {
@@ -214,6 +214,33 @@ function toggleText(card){
     card.classList.toggle("active");
 }
 
+/* ================= HALAMAN MENU ================= */
+function filterMenu(kategori){
+
+    let semua =
+    document.querySelectorAll('.kategori');
+
+    if(kategori === 'all'){
+
+        semua.forEach(item=>{
+            item.style.display = 'block';
+        });
+
+    }else{
+
+        semua.forEach(item=>{
+
+            item.style.display = 'none';
+
+            if(item.classList.contains(kategori)){
+                item.style.display = 'block';
+            }
+
+        });
+
+    }
+
+}
 /* ================= FEATHER RELOAD ================= */
 
 feather.replace();

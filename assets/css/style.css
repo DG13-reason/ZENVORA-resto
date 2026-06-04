@@ -438,10 +438,6 @@ body{
     color: var(--font-main-color);
     margin-bottom: 10px;
 }
-.menu-section .menu-subtitle{
-    color: #ddd;
-    margin-bottom: 20px;
-}
 .menu-section .menu-kategori{
     display: flex;
     gap: 10px;
@@ -457,7 +453,7 @@ body{
     transition: .3s;
 }
 
-.menu-kategori button.active{
+.menu-section .menu-kategori button.active{
     background: var(--font-navbar);
 }
 
@@ -589,11 +585,11 @@ body{
 }
 .keunggulan .icon-box{
     display:flex;
-    align-items: flex-start;
-    justify-content: space-around;
-    margin: top 30px;
-    gap: 20px;
-    flex-wrap: wrap; 
+    align-items:flex-start;
+    justify-content:space-around;
+    margin-top:30px;
+    gap:20px;
+    flex-wrap:wrap;
 }
 .keunggulan .icon-box .card{
     width: 250px;
@@ -663,6 +659,9 @@ body{
     padding: 5px;
     border-radius: 25px;
     height: 100px;
+
+    cursor: pointer;
+    transition: 0.3s ease;
 
 }
 
@@ -819,3 +818,4 @@ body{
         display: none;
     }
 }
+

@@ -95,22 +95,22 @@
 
     <div class="contact-container">
 
-        <div class="contact-card">
+        <div class="contact-card" onclick="window.open('https://maps.google.com/?qJl.+pejanggik+No.12+mataram')">
             <i data-feather="map-pin"></i>
             <h2>Alamat</h2>
             <span>Jl. Pejanggik No.12, Mataram</span>
         </div>
 
-        <div class="contact-card">
+        <div class="contact-card" onclick="window.location.href='mailto:zwnvoraresto@gmail.com'">
             <i data-feather="mail"></i>
             <h2>Email</h2>
             <span>zenvoraresto@gmail.com</span>
         </div>
 
-        <div class="contact-card">
+        <div class="contact-card" ondblclick="window.open('https://wa.me/+6281776490435')"> 
             <i data-feather="phone"></i>
-            <h2>Telepon</h2>
-            <span>+62 812-3456-7890</span>
+            <h2>Kontak</h2>
+            <span>+6281776490435</span>
         </div>
 
     </div>
