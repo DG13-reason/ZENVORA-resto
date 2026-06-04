@@ -118,69 +118,58 @@ if(track && slides.length > 0 && nextBtn && prevBtn && slider){
 }
 /* ================= HALAMAN INDEX ================= */
 /* ================= FILTER MENU ================= */
-
 document.addEventListener('DOMContentLoaded', () => {
 
     const filterButtons =
     document.querySelectorAll('.filter-btn');
 
-    const menuCards =
-    document.querySelectorAll('.menu-card');
+    // Jalankan hanya jika halaman memiliki filter-btn
+    if(filterButtons.length > 0){
 
-    filterButtons.forEach((button) => {
+        const menuCards =
+        document.querySelectorAll('.menu-card');
 
-        button.addEventListener('click', () => {
+        filterButtons.forEach((button) => {
 
-            /* REMOVE ACTIVE */
+            button.addEventListener('click', () => {
 
-            filterButtons.forEach((btn) => {
+                filterButtons.forEach((btn) => {
+                    btn.classList.remove('active');
+                });
 
-                btn.classList.remove('active');
+                button.classList.add('active');
 
-            });
+                const category =
+                button.getAttribute('data-category');
 
-            /* ADD ACTIVE */
+                menuCards.forEach((card) => {
 
-            button.classList.add('active');
+                    if(card.classList.contains(category)){
+                        card.style.display = 'block';
+                    }else{
+                        card.style.display = 'none';
+                    }
 
-            /* CATEGORY */
-
-            const category =
-            button.getAttribute('data-category');
-
-            /* FILTER MENU */
-
-            menuCards.forEach((card) => {
-
-                if(card.classList.contains(category)){
-
-                    card.style.display = 'block';
-
-                }else{
-
-                    card.style.display = 'none';
-
-                }
+                });
 
             });
 
         });
 
-    });
-/* ================= HALAMAN INDEX ================= */
-    /* DEFAULT MAIN MENU */
+        // Default hanya untuk halaman index
+        menuCards.forEach((card) => {
 
-    menuCards.forEach((card) => {
+            if(!card.classList.contains('main')){
+                card.style.display = 'none';
+            }
 
-        if(!card.classList.contains('main')){
+        });
 
-            card.style.display = 'none';
-
-        }
-
-    });
+    }
 
 });
+
+/* ================= POPUP LOGIN ================= */
 
 const popup = document.getElementById("popup");
 const openPopup = document.getElementById("openPopup");
@@ -192,48 +181,74 @@ const registerForm = document.querySelector(".register-form");
 const showRegister = document.getElementById("showRegister");
 const showLogin = document.getElementById("showLogin");
 
-openPopup.addEventListener("click", () => {
-    popup.classList.add("active");
-});
+if(
+    popup &&
+    openPopup &&
+    closePopup &&
+    loginForm &&
+    registerForm &&
+    showRegister &&
+    showLogin
+){
 
-closePopup.addEventListener("click", () => {
-    popup.classList.remove("active");
-});
+    openPopup.addEventListener("click", () => {
+        popup.classList.add("active");
+    });
 
-showRegister.addEventListener("click", () => {
-    loginForm.style.display = "none";
-    registerForm.style.display = "flex";
-});
+    closePopup.addEventListener("click", () => {
+        popup.classList.remove("active");
+    });
 
-showLogin.addEventListener("click", () => {
-    registerForm.style.display = "none";
-    loginForm.style.display = "flex";
-});
+    showRegister.addEventListener("click", () => {
+        loginForm.style.display = "none";
+        registerForm.style.display = "flex";
+    });
+
+    showLogin.addEventListener("click", () => {
+        registerForm.style.display = "none";
+        loginForm.style.display = "flex";
+    });
+
+}
+
+/* ================= CARD ABOUT ================= */
 
 function toggleText(card){
     card.classList.toggle("active");
 }
 
 /* ================= HALAMAN MENU ================= */
-function filterMenu(kategori){
 
-    let semua =
+function filterMenu(kategori, tombol){
+
+    const semuaKategori =
     document.querySelectorAll('.kategori');
+
+    const semuaTombol =
+    document.querySelectorAll('.menu-kategori button');
+
+    // Hapus active dari semua tombol
+    semuaTombol.forEach(btn => {
+        btn.classList.remove('active');
+    });
+
+    // Tambahkan active ke tombol yang diklik
+    tombol.classList.add('active');
 
     if(kategori === 'all'){
 
-        semua.forEach(item=>{
+        semuaKategori.forEach(item => {
             item.style.display = 'block';
         });
 
     }else{
 
-        semua.forEach(item=>{
-
-            item.style.display = 'none';
+        semuaKategori.forEach(item => {
 
             if(item.classList.contains(kategori)){
                 item.style.display = 'block';
+            }else{
+                item.style.display = 'none';
             }
 
         });
@@ -241,6 +256,6 @@ function filterMenu(kategori){
     }
 
 }
-/* ================= FEATHER RELOAD ================= */
 
+/* ================= FEATHER RELOAD ================= */
 feather.replace();
