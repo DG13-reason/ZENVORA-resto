@@ -54,6 +54,7 @@
 
     <div class="icon-box">
         <div class="card" onclick="toggleText(this)">
+            <i data-feather="thumbs-up"></i>
             <h3>Mudah Digunakan</h3>
             <p class="hidden-text">
                 ZENVORA dirancang dengan tampilan yang sederhana dan mudah dipahami sehingga pengguna dapat menggunakan semua fitur dengan nyamnan tampa merasa kesulitan.
@@ -61,6 +62,7 @@
         </div>
 
         <div class="card" onclick="toggleText(this)">
+            <i data-feather="shield"></i>
             <h3>Aman & Terpercaya</h3>
             <p class="hidden-text">
                 kami selalu menjaga keamanan data pelanggan dan memberikan layanan yang terpecaya agar pengguna merasa aman saat menggunakan ZENVORA.
@@ -112,6 +114,14 @@
             <h2>Kontak</h2>
             <span>+6281776490435</span>
         </div>
+
+        <div class="contact-card" onclick="window.open('https://instagram.com/zenvora_resto')">
+            <i data-feather="instagram"></i>
+            <h2>Instagram</h2>
+            <span>@zenvora_resto</span>
+    </div>
+        
+</div>
 
     </div>
 

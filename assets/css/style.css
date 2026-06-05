@@ -602,27 +602,20 @@ body{
     color: var(--font-main-color);
 }
 .keunggulan{
-    text-align:center;
-    padding:40px;
+    text-align: center;
+    padding: 400px;
 }
 .keunggulan h2{
     color: var(--font-main-color);
+
 }
 .keunggulan .icon-box{
-    display:flex;
-<<<<<<< HEAD
-    align-items:flex-start;
-    justify-content:space-around;
-    margin-top:30px;
-    gap:20px;
-    flex-wrap:wrap;
-=======
+    display: flex;
     align-items: flex-start;
     justify-content: space-around;
-    margin: top 30px;
+    margin-top: 30px;
     gap: 20px;
-    flex-wrap: wrap; 
->>>>>>> 74210f57fd1f2ff6345a5c0f6e62cf07a3413849
+    flex-wrap: wrap;
 }
 .keunggulan .icon-box .card{
     width: 250px;
@@ -635,10 +628,15 @@ body{
 
     padding: 20px;
     border-radius: 15px;
-    background: var(--secondary-color);
+    justify-content: var(--secondary-color);
 }
 .hidden-text{
     display: none;
+    width: 100%;
+    margin-top: 15px;
+    text-align: center;
+    line-height: 24px;
+    color: white;
 }
 .card.active .hidden-text{
     display: block;
@@ -655,13 +653,18 @@ body{
 }
 .keunggulan .icon-box .card.active .hidden-text{
     display: block;
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 25px;
+    color: white;
+    text-align: center;
 }
 .keunggulan .icon-box .card svg{
     width: 45px;
     height: 45px;
     stroke: #ffd000;
     stroke-width: 2.5;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 .contact-section{
     padding: 70px 50px;
@@ -682,26 +685,41 @@ body{
 .contact-section .contact-container{
     display: flex;
     justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 20px;
+    flex-wrap: nowrap;
 }
 
 .contact-section .contact-container .contact-card{
-    width: 350px;
+    width: 250px;
+    height: 120px;
     background: #6f7b91;
-    padding: 5px;
+    padding: 15px;
     border-radius: 25px;
-    height: 100px;
 
-    cursor: pointer;
-    transition: 0.3s ease;
 
 }
 
 .contact-section .contact-container .contact-card i{
     font-size: 65px;
     color: #ffd000;
-    margin-bottom: 20px;
+    margin-keunggulan{
+    text-align:center;
+    padding:40px;
+}
+.keunggulan h2{
+    color: var(--font-main-color);
+}
+.keunggulan .icon-box{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-around;
+    margin-top:30px;
+    gap:20px;
+    flex-wrap:wrap;
+}
+.keunggulan .icon-box .card{
+    widthbottom: 20px;
 }
 
 .contact-section .contact-container .contact-card h2{
