@@ -1,7 +1,8 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 session_start();
 
-<<<<<<< HEAD
 // TAMBAH KE KERANJANG
 if(isset($_POST['cart'])){
 
@@ -23,10 +24,6 @@ if(isset($_POST['cart'])){
 
 include 'includes/header.php';
 include 'includes/navbar.php';
-=======
-<?php include 'includes/header.php'; ?>
-<?php include 'includes/navbar.php'; ?>
->>>>>>> 74210f57fd1f2ff6345a5c0f6e62cf07a3413849
 
 // DATA MAKANAN
 $makanan = [
@@ -71,19 +68,19 @@ $minuman = [
 
     <div class="menu-kategori">
 
-        <button onclick="filterMenu('all')">
+        <button type="button" class="active" onclick="filterMenu('all', this)">
             Semua
         </button>
 
-        <button onclick="filterMenu('makanan')">
+        <button type="button" onclick="filterMenu('makanan', this)">
             Makanan Berat
         </button>
 
-        <button onclick="filterMenu('snack')">
+        <button type="button" onclick="filterMenu('snack', this)">
             Snack
         </button>
 
-        <button onclick="filterMenu('minuman')">
+        <button type="button" onclick="filterMenu('minuman', this)">
             Minuman
         </button>
 
@@ -96,7 +93,7 @@ $minuman = [
             🍛 Makanan Berat
         </h3>
 
-        <div class="menu-grid">
+        <div class="kategori-grid">
 
             <?php foreach($makanan as $item){ ?>
 
@@ -115,16 +112,16 @@ $minuman = [
                     <form method="POST">
 
                         <input type="hidden"
-                               name="id"
-                               value="<?= $item[0] ?>">
+                                name="id"
+                                value="<?= $item[0] ?>">
 
                         <input type="hidden"
-                               name="nama"
-                               value="<?= $item[0] ?>">
+                                name="nama"
+                                value="<?= $item[0] ?>">
 
                         <input type="hidden"
-                               name="harga"
-                               value="<?= $item[1] ?>">
+                                name="harga"
+                                value="<?= $item[1] ?>">
 
                         <button
                             type="submit"
@@ -154,7 +151,7 @@ $minuman = [
             🍟 Snack
         </h3>
 
-        <div class="menu-grid">
+        <div class="kategori-grid">
 
             <?php foreach($snack as $item){ ?>
 
@@ -173,16 +170,16 @@ $minuman = [
                     <form method="POST">
 
                         <input type="hidden"
-                               name="id"
-                               value="<?= $item[0] ?>">
+                                name="id"
+                                value="<?= $item[0] ?>">
 
                         <input type="hidden"
-                               name="nama"
-                               value="<?= $item[0] ?>">
+                                name="nama"
+                                value="<?= $item[0] ?>">
 
                         <input type="hidden"
-                               name="harga"
-                               value="<?= $item[1] ?>">
+                                name="harga"
+                                value="<?= $item[1] ?>">
 
                         <button
                             type="submit"
@@ -206,14 +203,14 @@ $minuman = [
     </div>
 
     <!-- MINUMAN -->
+    <!-- MINUMAN -->
     <div class="kategori minuman">
 
         <h3 class="judul-kategori">
             🥤 Minuman
         </h3>
 
-<<<<<<< HEAD
-        <div class="menu-grid">
+        <div class="kategori-grid">
 
             <?php foreach($minuman as $item){ ?>
 
@@ -232,16 +229,16 @@ $minuman = [
                     <form method="POST">
 
                         <input type="hidden"
-                               name="id"
-                               value="<?= $item[0] ?>">
+                            name="id"
+                            value="<?= $item[0] ?>">
 
                         <input type="hidden"
-                               name="nama"
-                               value="<?= $item[0] ?>">
+                            name="nama"
+                            value="<?= $item[0] ?>">
 
                         <input type="hidden"
-                               name="harga"
-                               value="<?= $item[1] ?>">
+                            name="harga"
+                            value="<?= $item[1] ?>">
 
                         <button
                             type="submit"
@@ -253,23 +250,6 @@ $minuman = [
                         </button>
 
                     </form>
-=======
-    <?php
-    $minuman = [
-        ["Jus Alpukat","Rp12.000","img/jusalpukat.png"],
-        ["Kopi","Rp10.000","img/kopi.jpg"],
-        ["Boba Matcha Latte","Rp15.000","img/Matcha.Png"],
-        ["Boba Taro","Rp15.000","img/bobataro.jpg"],
-        ["Jus Mangga","Rp13.000","img/jusmangga.jpg"],
-        ["The Red Oriental","Rp17.000","img/redoriental.jpg"],
-        ["Es Teler","Rp15.000","img/esteler.png"],
-        ["Boba Brown Sugar","Rp15.000","img/brownsugar.jpg"],
-        ["Lemon Tea","Rp13.000","img/lemontea.jpg"],
-        ["Smoothies Strawberry","Rp16.000","img/smoothies.jpg"],
-        ["Choco Hazelnut Frappe","Rp20.000","img/chocohazelnut.jpg"],
-        ["Lychee White Blossom","Rp16.000","img/lychee.jpg"]
-    ];
->>>>>>> 74210f57fd1f2ff6345a5c0f6e62cf07a3413849
 
                 </div>
 
@@ -284,10 +264,5 @@ $minuman = [
 </section>
 
 <?php
-<<<<<<< HEAD
 include 'includes/footer.php';   
 ?>
-=======
-include 'includes/footer.php';
-?>
->>>>>>> 74210f57fd1f2ff6345a5c0f6e62cf07a3413849
