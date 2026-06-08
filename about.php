@@ -20,7 +20,7 @@
         </div>
 
         <div class="gambar">
-            <img src="assets/images/LOGO/tentang-zenvora.png" alt="">
+            <img src="assets/images/LOGO/gambar 2..png" alt="">
         </div>
     </div>
     

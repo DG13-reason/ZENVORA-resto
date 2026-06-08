@@ -606,45 +606,43 @@ body{
 }
 .keunggulan{
     text-align: center;
-    padding: 400px;
+    padding: 2rem 7%;
 }
 .keunggulan h2{
     color: var(--font-main-color);
 
 }
 .keunggulan .icon-box{
+    width: 70rem;
     display: flex;
     align-items: flex-start;
     justify-content: space-around;
     margin-top: 30px;
     gap: 20px;
-    flex-wrap: wrap;
 }
 .keunggulan .icon-box .card{
-    width: 250px;
-    min-height: 170px;
-
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-
     padding: 20px;
+    cursor: pointer;
     border-radius: 15px;
-    justify-content: var(--secondary-color);
+    background: var(--secondary-color);
 }
-.hidden-text{
+
+.keunggulan .icon-box .card .hidden-text{
     display: none;
     width: 100%;
     margin-top: 15px;
-    text-align: center;
+    text-align: left;
     line-height: 24px;
     color: white;
 }
-.card.active .hidden-text{
+.keunggulan .icon-box .card.active .hidden-text{
     display: block;
 }
-.card.active{
+.keunggulan .icon-box .card.active{
     min-height: 220px;
 }
 .keunggulan .icon-box .card:hover{
@@ -660,7 +658,7 @@ body{
     font-size: 14px;
     line-height: 25px;
     color: white;
-    text-align: center;
+    text-align: left;
 }
 .keunggulan .icon-box .card svg{
     width: 45px;
@@ -698,33 +696,15 @@ body{
     height: 120px;
     background: #6f7b91;
     padding: 15px;
+    cursor: pointer;
     border-radius: 25px;
-
-
 }
-
 .contact-section .contact-container .contact-card i{
     font-size: 65px;
     color: #ffd000;
-    margin-keunggulan{
     text-align:center;
     padding:40px;
 }
-.keunggulan h2{
-    color: var(--font-main-color);
-}
-.keunggulan .icon-box{
-    display:flex;
-    align-items:flex-start;
-    justify-content:space-around;
-    margin-top:30px;
-    gap:20px;
-    flex-wrap:wrap;
-}
-.keunggulan .icon-box .card{
-    widthbottom: 20px;
-}
-
 .contact-section .contact-container .contact-card h2{
     color: #ffd000;
     margin-bottom: 1px;
@@ -872,4 +852,3 @@ body{
         display: none;
     }
 }
-
