@@ -728,7 +728,7 @@ body{
 
 
 /*Responsive*/
-@media screen and (min-width: 769px){
+@media (min-width: 769px){
 
     .toggle-menu{
         display: none;
@@ -760,7 +760,7 @@ body{
         z-index: 9999;
     }
 
-    .mobile-nav-user{
+    .nav-links .mobile-nav-user{
         display: flex;
         align-items: center;
         justify-content: center;
@@ -771,7 +771,7 @@ body{
         padding-bottom: 1rem;
         border-bottom: solid 1px;
     }
-    .mobile-nav-user:hover{
+    .nav-links .mobile-nav-user:hover{
         color: var(--font-navbar);
     }
 
