@@ -577,7 +577,6 @@ body{
 }
 
 .box{
-    
     gap: 5rem;
     padding: 5rem;
 }
@@ -620,7 +619,7 @@ body{
     margin-top: 30px;
     gap: 20px;
 }
-.keunggulan .icon-box .card{
+.keunggulan .icon-box .about-card{
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -631,7 +630,7 @@ body{
     background: var(--secondary-color);
 }
 
-.keunggulan .icon-box .card .hidden-text{
+.keunggulan .icon-box .about-card .hidden-text{
     display: none;
     width: 100%;
     margin-top: 15px;
@@ -639,20 +638,20 @@ body{
     line-height: 24px;
     color: white;
 }
-.keunggulan .icon-box .card.active .hidden-text{
+.keunggulan .icon-box .about-card.active .hidden-text{
     display: block;
 }
-.keunggulan .icon-box .card.active{
+.keunggulan .icon-box .about-card.active{
     min-height: 220px;
 }
-.keunggulan .icon-box .card:hover{
+.keunggulan .icon-box .about-card:hover{
     transform: translate(-5px);
 }
-.keunggulan .icon-box .card h3{
+.keunggulan .icon-box .about-card h3{
     color:var(--font-main-color);
     margin-top: 10px;
 }
-.keunggulan .icon-box .card.active .hidden-text{
+.keunggulan .icon-box .about-card.active .hidden-text{
     display: block;
     margin-top: 10px;
     font-size: 14px;
@@ -660,7 +659,7 @@ body{
     color: white;
     text-align: left;
 }
-.keunggulan .icon-box .card svg{
+.keunggulan .icon-box .about-card svg{
     width: 45px;
     height: 45px;
     stroke: #ffd000;
@@ -810,6 +809,48 @@ body{
         width: 46%;
         height: 46%;
     }
+
+    /*HALAMAN ABOUT*/
+    .tentang-sect{
+        padding: 1rem 5%;
+    }
+    .tentang-sect h1{
+        font-size: 1.5rem;
+    }
+    .tentang-sect .content{
+        gap: 0;
+    }
+    .tentang-sect .content .text{
+        padding-top: 0;
+    }
+    .tentang-sect .content .text p{
+        font-size: 0.8rem;
+    }
+    .tentang-sect .content .gambar{
+        width: 60rem;
+        height: 15rem;
+    }
+    .box{
+        padding: 5rem 0.8rem;
+    }
+    .box .card{
+        width: 40rem;
+        height: 10rem;
+        gap: 1rem;
+    }
+    .box .card .visi,.misi{
+        padding: 1rem;
+    }
+    .box .card .visi h2,.misi h2{
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+    .box .card .visi p,.misi p{
+        font-size: 1rem;
+    }
+    .keunggulan h2{
+        font-size: 1.5rem;
+    }
 }
 
 /*HANDPHONE*/
@@ -851,4 +892,5 @@ body{
     .menu-sect .menu-reco .Recomend-container a{
         display: none;
     }
+    /*HALAMAN ABOUT*/
 }
