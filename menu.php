@@ -27,30 +27,30 @@ include 'includes/navbar.php';
 
 // DATA MAKANAN
 $makanan = [
-    ["Nasi Goreng",20000,"assets/images/nasigoreng.png"],
-    ["Bakso",15000,"assets/images/bakso.png"],
-    ["Mie Ayam",15000,"assets/images/mieayam.png"],
-    ["Nila Bakar",25000,"assets/images/nilabakar.jpg"],
-    ["Rawon",25000,"assets/images/rawon.jpg"],
-    ["Sate Lilit",15000,"assets/images/satelilit.jpg"],
-    ["Seafood Mix",35000,"assets/images/seafoodmix.jpg"],
-    ["Steak",55000,"assets/images/steak.jpg"]
+    ["Nasi Goreng",20000,"assets/images/Menu/Nasgor.png"],
+    ["Bakso",15000,"assets/images/Menu/bakso.png"],
+    ["Mie Ayam",15000,"assets/images/Menu/MieAyam.png"],
+    ["Nila Bakar",25000,"assets/images/Menu/Nila Bakar.jpg"],
+    ["Rawon",25000,"assets/images/Menu/Rawon.jpg"],
+    ["Sate Lilit",15000,"assets/images/Menu/sate lilit.jpg"],
+    ["Seafood Mix",35000,"assets/images/Menu/Seafoodmix.jpg"],
+    ["Steak",55000,"assets/images/Menu/Steak.jpg"]
 ];
 
 // DATA SNACK
 $snack = [
-    ["French Fries",12000,"assets/images/kentang.png"],
-    ["Risol Mayo",15000,"assets/images/Risol.png"],
-    ["Sandwich",15000,"assets/images/sandwich.jpg"],
-    ["Pancake",12000,"assets/images/pancake.jpg"]
+    ["French Fries",12000,"assets/images/Menu/French Fries.jpg"],
+    ["Risol Mayo",15000,"assets/images/Menu/Risol Mayo.jpg"],
+    ["Sandwich",15000,"assets/images/Menu/Sandwich.jpg"],
+    ["Pancake",12000,"assets/images/Menu/Pancake.jpg"]
 ];
 
 // DATA MINUMAN
 $minuman = [
-    ["Jus Alpukat",12000,"assets/images/jusalpukat.png"],
-    ["Kopi",10000,"assets/images/kopi.jpg"],
-    ["Boba Matcha",15000,"assets/images/matcha.png"],
-    ["Boba Taro",15000,"assets/images/bobataro.jpg"]
+    ["Jus Alpukat",12000,"assets/images/Menu/jusAlpukat.png"],
+    ["Kopi",10000,"assets/images/Menu/kopi.jpg"],
+    ["Matcha",15000,"assets/images/Menu/Matcha.png"],
+    ["Boba Taro",15000,"assets/images/Menu/Boba taro.jpg"]
 ];
 ?>
 
