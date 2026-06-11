@@ -257,5 +257,15 @@ function filterMenu(kategori, tombol){
 
 }
 
+function toggleText(card){
+    document.querySelectorAll('.about-card').forEach(item=>{
+        if(item !== card){
+            item.classList.remove('active');
+        }
+    });
+
+    card.classList.toggle('active');
+}
+
 /* ================= FEATHER RELOAD ================= */
 feather.replace();
