@@ -53,7 +53,7 @@
     <h2>Keunggulan ZENVORA</h2>
 
     <div class="icon-box">
-        <div class="card" onclick="toggleText(this)">
+        <div class="about-card" onclick="toggleText(this)">
             <i data-feather="thumbs-up"></i>
             <h3>Mudah Digunakan</h3>
             <p class="hidden-text">
@@ -61,7 +61,7 @@
             </p>
         </div>
 
-        <div class="card" onclick="toggleText(this)">
+        <div class="about-card" onclick="toggleText(this)">
             <i data-feather="shield"></i>
             <h3>Aman & Terpercaya</h3>
             <p class="hidden-text">
@@ -69,7 +69,7 @@
             </p>
         </div>
 
-        <div class="card" onclick="toggleText(this)">
+        <div class="about-card" onclick="toggleText(this)">
             <i data-feather="zap"></i>
             <h3>Cepat & Praktis</h3>
             <p class="hidden-text">
@@ -78,7 +78,7 @@
             
         </div>
 
-        <div class="card" onclick="toggleText(this)">
+        <div class="about-card" onclick="toggleText(this)">
             <i data-feather="star"></i>
             <h3>Layanan Terbaik</h3>
             <p class="hidden-text">
@@ -100,25 +100,21 @@
         <div class="contact-card" onclick="window.open('https://maps.google.com/?qJl.+pejanggik+No.12+mataram')">
             <i data-feather="map-pin"></i>
             <h2>Alamat</h2>
-            <span>Jl. Pejanggik No.12, Mataram</span>
         </div>
 
         <div class="contact-card" onclick="window.location.href='mailto:zwnvoraresto@gmail.com'">
             <i data-feather="mail"></i>
             <h2>Email</h2>
-            <span>zenvoraresto@gmail.com</span>
         </div>
 
-        <div class="contact-card" ondblclick="window.open('https://wa.me/+6281776490435')"> 
+        <div class="contact-card" onclick="window.open('https://wa.me/+6281776490435')"> 
             <i data-feather="phone"></i>
             <h2>Kontak</h2>
-            <span>+6281776490435</span>
         </div>
 
         <div class="contact-card" onclick="window.open('https://instagram.com/zenvora_resto')">
             <i data-feather="instagram"></i>
             <h2>Instagram</h2>
-            <span>@zenvora_resto</span>
     </div>
         
 </div>
