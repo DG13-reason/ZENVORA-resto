@@ -43,54 +43,6 @@ include 'includes/header.php';
 include 'includes/navbar.php';
 ?>
 
-<style>
-
-.container{
-max-width:900px;
-margin:30px auto;
-background:white;
-padding:30px;
-border-radius:10px;
-}
-
-table{
-width:100%;
-border-collapse:collapse;
-}
-
-th,td{
-padding:15px;
-text-align:center;
-border-bottom:1px solid #ede3e3ff;
-}
-
-.btn{
-padding:8px 12px;
-text-decoration:none;
-color:white;
-border-radius:5px;
-}
-
-.tambah{
-background:green;
-}
-
-.kurang{
-background:orange;
-}
-
-.hapus{
-background:red;
-}
-
-.checkout{
-background:#007bff;
-display:inline-block;
-margin-top:20px;
-}
-
-</style>
-
 <div class="container">
 
 <h2>🛒 Keranjang Pesanan</h2>

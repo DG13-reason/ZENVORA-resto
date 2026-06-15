@@ -16,11 +16,11 @@
                 favorit dan peluang karier terbaik.
             </p>
 
-            <button class="btn">Pelajari lebih lanjut</button>
+            <button class="btn" onclick="location.href='#kontak'">Pelajari lebih lanjut</button>
         </div>
 
         <div class="gambar">
-            <img src="assets/images/LOGO/tentang-zenvora.png" alt="">
+            <img src="assets/images/LOGO/gambar 2..png" alt="">
         </div>
     </div>
     
@@ -53,21 +53,23 @@
     <h2>Keunggulan ZENVORA</h2>
 
     <div class="icon-box">
-        <div class="card" onclick="toggleText(this)">
+        <div class="about-card" onclick="toggleText(this)">
+            <i data-feather="thumbs-up"></i>
             <h3>Mudah Digunakan</h3>
             <p class="hidden-text">
                 ZENVORA dirancang dengan tampilan yang sederhana dan mudah dipahami sehingga pengguna dapat menggunakan semua fitur dengan nyamnan tampa merasa kesulitan.
             </p>
         </div>
 
-        <div class="card" onclick="toggleText(this)">
+        <div class="about-card" onclick="toggleText(this)">
+            <i data-feather="shield"></i>
             <h3>Aman & Terpercaya</h3>
             <p class="hidden-text">
                 kami selalu menjaga keamanan data pelanggan dan memberikan layanan yang terpecaya agar pengguna merasa aman saat menggunakan ZENVORA.
             </p>
         </div>
 
-        <div class="card" onclick="toggleText(this)">
+        <div class="about-card" onclick="toggleText(this)">
             <i data-feather="zap"></i>
             <h3>Cepat & Praktis</h3>
             <p class="hidden-text">
@@ -76,7 +78,7 @@
             
         </div>
 
-        <div class="card" onclick="toggleText(this)">
+        <div class="about-card" onclick="toggleText(this)">
             <i data-feather="star"></i>
             <h3>Layanan Terbaik</h3>
             <p class="hidden-text">
@@ -88,30 +90,34 @@
 </section>
 
 <!-- KONTAK -->
-<section class="contact-section">
+<section class="contact-section" id="kontak">
 
     <h1>Kontak Kami</h1>
     <p>Hubungi kami kapan saja untuk informasi dan pemesanan.</p>
 
     <div class="contact-container">
 
-        <div class="contact-card">
+        <div class="contact-card" onclick="window.open('https://maps.google.com/?qJl.+pejanggik+No.12+mataram')">
             <i data-feather="map-pin"></i>
             <h2>Alamat</h2>
-            <span>Jl. Pejanggik No.12, Mataram</span>
         </div>
 
-        <div class="contact-card">
+        <div class="contact-card" onclick="window.location.href='mailto:zwnvoraresto@gmail.com'">
             <i data-feather="mail"></i>
             <h2>Email</h2>
-            <span>zenvoraresto@gmail.com</span>
         </div>
 
-        <div class="contact-card">
+        <div class="contact-card" onclick="window.open('https://wa.me/+6281776490435')"> 
             <i data-feather="phone"></i>
-            <h2>Telepon</h2>
-            <span>+62 812-3456-7890</span>
+            <h2>Kontak</h2>
         </div>
+
+        <div class="contact-card" onclick="window.open('https://instagram.com/zenvora_resto')">
+            <i data-feather="instagram"></i>
+            <h2>Instagram</h2>
+    </div>
+        
+</div>
 
     </div>
 
