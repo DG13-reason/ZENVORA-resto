@@ -15,10 +15,18 @@ include 'header.php';
     </div>
 
     <div class="nav-links">
-        <a class="nav-user mobile-nav-user" href="/ZENVORA-resto/profile.php">
+        <?php if(isset($_SESSION['user'])): ?>
+        <a class="nav-user mobile-nav-user" href="/ZENVORA-resto/profile.php" id="openPopup">
             <i data-feather="user"></i>
-            <span>Profile</span>
+            <span><?php echo $_SESSION['user']['username']; ?>></span>
         </a>
+        <?php else: ?>
+            <a class="nav-user mobile-nav-user" href="#" id="openPopup">
+            <i data-feather="user"></i>
+            <span>Login</span>
+            </a>
+        <?php endif; ?>
+
         <ul>
             <li><a class="btn-navLinks" href="/ZENVORA-resto/index.php">Home</a></li>
             <li><a class="btn-navLinks" href="/ZENVORA-resto/menu.php">Menu</a></li>

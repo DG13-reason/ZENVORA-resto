@@ -1,5 +1,8 @@
 <?php
 session_start();
+include 'database/koneksi.php';
+
+$query = mysqli_query($conn, "SELECT * FROM menus");
 
 if(isset($_SESSION['user'])){
     echo "Selamat datang " . $_SESSION['user']['username'];
@@ -26,21 +29,9 @@ if(isset($_POST['cart'])){
 include 'includes/header.php';
 include 'includes/navbar.php';
 
-$makanan = [
-    ["Nasi Goreng",20000,"assets/images/Menu/Nasgor.png"],
-    ["Bakso",15000,"assets/images/Menu/bakso.png"],
-    ["Mie Ayam",15000,"assets/images/Menu/MieAyam.png"]
-];
-
-$minuman = [
-    ["Jus Alpukat",12000,"assets/images/Menu/jusAlpukat.png"],
-    ["Kopi",10000,"assets/images/Menu/kopi.jpg"]
-];
-
-$snack = [
-    ["French Fries",12000,"assets/images/Menu/French Fries.jpg"],
-    ["Sandwich",15000,"assets/images/Menu/Sandwich.jpg"]
-];
+$makanan = mysqli_query($conn, "SELECT * FROM menus Where category_id= 1 LIMIT 3");
+$minuman = mysqli_query($conn, "SELECT * FROM menus Where category_id= 2 LIMIT 3");
+$snack = mysqli_query($conn, "SELECT * FROM menus Where category_id= 3 LIMIT 3");
 ?>
 
 
@@ -94,23 +85,25 @@ $snack = [
         </div>
         
         <div class="menu-container">
-            <?php foreach($makanan as $item){ ?>
+            <?php while($item = mysqli_fetch_assoc($makanan)){ ?>
             <div class="menu-card main">
                 <div class="menu-img">
-                    <img src="<?=  $item[2] ?>" alt="<?= $item[0] ?>">
+                    <img src="assets/images/Menu/<?= $item['gambar']; ?>" alt="<?= $item['nama_menu']; ?>">
                 </div>
                 <div class="menu-desc">
                     <div class="tittle">
-                        <h3><?= $item[0] ?></h3>
+                        <h3><?= $item['nama_menu'] ?></h3>
                         <div class="rating">
                             <i data-feather="star"></i>
                             <span>4.5</span>
                         </div>
                     </div>
-                    <p>Rp <?= number_format($item[1],0,',','.') ?></p>
+                    <p>Rp <?= number_format($item['harga'],0,',','.'); ?></p>
                 </div>
                 <form method="POST">
-                    
+                    <input type="hidden" name="id" value="<?= $item['id'] ?>">
+                    <input type="hidden" name="nama" value="<?= $item['nama_menu'] ?>">
+                    <input type="hidden" name="harga" value="<?= $item['harga'] ?>">
                     <div class="menu-footer">
                     <button type="submit" name="cart"  class="cart-btn">
                         <i data-feather="shopping-cart"></i>
@@ -123,23 +116,25 @@ $snack = [
             </div>
             <?php } ?>
 
-            <?php foreach($minuman as $item){ ?>
+            <?php while($item = mysqli_fetch_assoc($minuman)){ ?>
             <div class="menu-card drinks">
                 <div class="menu-img">
-                    <img src="<?=  $item[2] ?>" alt="<?= $item[0] ?>">
+                    <img src="assets/images/Menu/<?= $item['gambar']; ?>" alt="<?= $item['nama_menu']; ?>">
                 </div>
                 <div class="menu-desc">
                     <div class="tittle">
-                        <h3><?= $item[0] ?></h3>
+                        <h3><?= $item['nama_menu'] ?></h3>
                         <div class="rating">
                             <i data-feather="star"></i>
                             <span>4.5</span>
                         </div>
                     </div>
-                    <p>Rp <?= number_format($item[1],0,',','.') ?></p>
+                    <p>Rp <?= number_format($item['harga'],0,',','.'); ?></p>
                 </div>
                 <form method="POST">
-
+                    <input type="hidden" name="id" value="<?= $item['id'] ?>">
+                    <input type="hidden" name="nama" value="<?= $item['nama_menu'] ?>">
+                    <input type="hidden" name="harga" value="<?= $item['harga'] ?>">
                     <div class="menu-footer">
                     <button type="submit" name="cart"  class="cart-btn">
                         <i data-feather="shopping-cart"></i>
@@ -152,22 +147,25 @@ $snack = [
             </div>
             <?php } ?>
 
-            <?php foreach($snack as $item){ ?>
+            <?php while($item = mysqli_fetch_assoc($snack)){ ?>
             <div class="menu-card desserts">
                 <div class="menu-img">
-                    <img src="<?=  $item[2] ?>" alt="<?= $item[0] ?>">
+                    <img src="assets/images/Menu/<?= $item['gambar']; ?>" alt="<?= $item['nama_menu']; ?>">
                 </div>
                 <div class="menu-desc">
                     <div class="tittle">
-                        <h3><?= $item[0] ?></h3>
+                        <h3><?= $item['nama_menu'] ?></h3>
                         <div class="rating">
                             <i data-feather="star"></i>
                             <span>4.5</span>
                         </div>
                     </div>
-                    <p>Rp <?= number_format($item[1],0,',','.') ?></p>
+                    <p>Rp <?= number_format($item['harga'],0,',','.'); ?></p>
                 </div>
                 <form method="POST">
+                    <input type="hidden" name="id" value="<?= $item['id'] ?>">
+                    <input type="hidden" name="nama" value="<?= $item['nama_menu'] ?>">
+                    <input type="hidden" name="harga" value="<?= $item['harga'] ?>">
                     <div class="menu-footer">
                     <button type="submit" name="cart"  class="cart-btn">
                         <i data-feather="shopping-cart"></i>
@@ -179,6 +177,8 @@ $snack = [
                 
             </div>
             <?php } ?>
+
+            
         </div>
         
     </div>

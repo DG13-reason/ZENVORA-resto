@@ -124,7 +124,7 @@ Hapus
 Total: Rp <?= number_format($total) ?>
 </h3>
 
-<a href="#" class="btn checkout">
+<a href="process/checkout_process.php" class="btn checkout">
 Checkout
 </a>
 
