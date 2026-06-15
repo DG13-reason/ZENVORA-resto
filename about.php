@@ -16,7 +16,7 @@
                 favorit dan peluang karier terbaik.
             </p>
 
-            <button class="btn">Pelajari lebih lanjut</button>
+            <button class="btn" onclick="location.href='#kontak'">Pelajari lebih lanjut</button>
         </div>
 
         <div class="gambar">
@@ -90,7 +90,7 @@
 </section>
 
 <!-- KONTAK -->
-<section class="contact-section">
+<section class="contact-section" id="kontak">
 
     <h1>Kontak Kami</h1>
     <p>Hubungi kami kapan saja untuk informasi dan pemesanan.</p>
