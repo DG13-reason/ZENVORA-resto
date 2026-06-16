@@ -22,35 +22,52 @@ if(isset($_POST['cart'])){
     exit;
 }
 
-include 'includes/header.php';
-include 'includes/navbar.php';
-
-// DATA MAKANAN
+// ================= MAKANAN =================
 $makanan = [
     ["Nasi Goreng",20000,"assets/images/Menu/Nasgor.png"],
-    ["Bakso",15000,"assets/images/Menu/bakso.png"],
+    ["Bakso",15000,"assets/images/Menu/Bakso.png"],
     ["Mie Ayam",15000,"assets/images/Menu/MieAyam.png"],
-    ["Nila Bakar",25000,"assets/images/Menu/Nila Bakar.jpg"],
-    ["Rawon",25000,"assets/images/Menu/Rawon.jpg"],
+    ["Nila Bakar",25000,"assets/images/Menu/nila bakar.jpg"],
+    ["Rawon",25000,"assets/images/Menu/rawon.jpg"],
     ["Sate Lilit",15000,"assets/images/Menu/sate lilit.jpg"],
-    ["Seafood Mix",35000,"assets/images/Menu/Seafoodmix.jpg"],
-    ["Steak",55000,"assets/images/Menu/Steak.jpg"]
+    ["Seafood Mix",35000,"assets/images/Menu/seafood mix.jpg"],
+    ["Steak",55000,"assets/images/Menu/steak.jpg"],
+    ["Plecing Kangkung",10000,"assets/images/Menu/plecing kangkung.jpg"],
+    ["Ayam Betutu",35000,"assets/images/Menu/ayam betutu.jpg"],
+    ["Capcay",20000,"assets/images/Menu/capcay.jpg"],
+    ["Spageti",25000,"assets/images/Menu/spageti.jpg"]
 ];
 
-// DATA SNACK
-$snack = [
-    ["French Fries",12000,"assets/images/Menu/French Fries.jpg"],
-    ["Risol Mayo",15000,"assets/images/Menu/Risol Mayo.jpg"],
-    ["Sandwich",15000,"assets/images/Menu/Sandwich.jpg"],
-    ["Pancake",12000,"assets/images/Menu/Pancake.jpg"]
-];
-
-// DATA MINUMAN
+// ================= MINUMAN =================
 $minuman = [
-    ["Jus Alpukat",12000,"assets/images/Menu/jusAlpukat.png"],
-    ["Kopi",10000,"assets/images/Menu/kopi.jpg"],
-    ["Matcha",15000,"assets/images/Menu/Matcha.png"],
-    ["Boba Taro",15000,"assets/images/Menu/Boba taro.jpg"]
+    ["Alpukat Kocok",12000,"assets/images/Menu/JusAlpukat.png"],
+    ["Kopi",10000,"assets/images/Menu/Kopi.jpg"],
+    ["Boba Matcha Latte",15000,"assets/images/Menu/Matcha.png"],
+    ["Boba Taro",15000,"assets/images/Menu/Boba taro.jpg"],
+    ["Jus Mangga",13000,"assets/images/Menu/jus mangga.jpg"],
+    ["The Red Oriental",17000,"assets/images/Menu/lacy.jpg"],
+    ["Es Teler",15000,"assets/images/Menu/EsTeler.png"],
+    ["Boba Brown Sugar",15000,"assets/images/Menu/boba brown sugar.jpg"],
+    ["Lemon Tea",13000,"assets/images/Menu/lemontea.jpg"],
+    ["Smoothies Strawberry",16000,"assets/images/Menu/smootis.jpg"],
+    ["Choco Hazelnut Frappe",20000,"assets/images/Menu/coco hazelnut.jpg"],
+    ["Lychee White Blossom",16000,"assets/images/Menu/lacy.jpg"]
+];
+
+// ================= DESSERT & CEMILAN =================
+$dessert = [
+    ["Panna Cotta",17000,"assets/images/Menu/panna cota.jpg"],
+    ["Strawberry Parfait",13000,"assets/images/Menu/strawberry parfait.jpg"],
+    ["Fried Ice Cream",10000,"assets/images/Menu/fried ice cream.jpg"],
+    ["Semifreddo",17000,"assets/images/Menu/semifreddo.jpg"],
+    ["Pancake",12000,"assets/images/Menu/pancake.jpg"],
+    ["Risol Mayo",15000,"assets/images/Menu/Risol.jpg"],
+    ["French Fries",12000,"assets/images/Menu/Kentang.png"],
+    ["Sandwich",15000,"assets/images/Menu/sandwich.jpg"],
+    ["Brownie Tiramisu",14000,"assets/images/Menu/Brownis.png"],
+    ["Momo",16000,"assets/images/Menu/momo.jpg"],
+    ["Gyoza",16000,"assets/images/Menu/gyoza.jpg"],
+    ["Salted Caramel Ice Cream",15000,"assets/images/Menu/ice cream salt caramel.jpg"]
 ];
 ?>
 
