@@ -5,10 +5,10 @@ include '../database/koneksi.php';
 
 /** @var mysqli $conn */
 
-$email = $_POST['email'];
+$login = mysqli_real_escape_string($conn, $_POST['login']);
 $password = $_POST['password'];
 
-$query = mysqli_query($conn, "SELECT * From users Where email='$email'");
+$query = mysqli_query($conn, "SELECT * FROM users WHERE email ='$login' OR username='$login'");
 
 $user = mysqli_fetch_assoc($query);
 

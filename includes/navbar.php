@@ -87,7 +87,7 @@ include 'header.php';
             <h2>Login</h2>
 
             <form action="/ZENVORA-resto/process/login_process.php" method="post">
-                <input type="email" name="email" placeholder="email" required>
+                <input type="text" name="login" placeholder="Email atau Username" required>
                 <input type="password" name="password" placeholder="password" required>
                 <button type="submit">Login</button>
             </form>
