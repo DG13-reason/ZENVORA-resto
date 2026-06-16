@@ -5,7 +5,7 @@ include 'database/koneksi.php';
 $query = mysqli_query($conn, "SELECT * FROM menus");
 
 if(isset($_SESSION['user'])){
-    echo "Selamat datang " . $_SESSION['user']['username'];
+    $username = $_SESSION['user']['username'];
 }
 
 if(isset($_POST['cart'])){
