@@ -22,6 +22,9 @@ if(isset($_POST['cart'])){
     exit;
 }
 
+include "../ZENVORA-resto/includes/header.php";
+include "../ZENVORA-resto/includes/navbar.php";
+
 // ================= MAKANAN =================
 $makanan = [
     ["Nasi Goreng",20000,"assets/images/Menu/Nasgor.png"],
@@ -170,7 +173,7 @@ $dessert = [
 
         <div class="kategori-grid">
 
-            <?php foreach($snack as $item){ ?>
+            <?php foreach($dessert as $item){ ?>
 
             <div class="menu-card">
 
@@ -281,6 +284,6 @@ $dessert = [
 </section>
 
 <?php
-include 'includes/footer.php';   
+include "../ZENVORA-resto/includes/footer.php";   
 ?>
 

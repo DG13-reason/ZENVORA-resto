@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
 /* ================= POPUP LOGIN ================= */
 
 const popup = document.getElementById("popup");
-const openPopup = document.getElementById("openPopup");
+const openPopupButtons = document.querySelectorAll(".openPopup");
 const closePopup = document.getElementById("closePopup");
 
 const loginForm = document.querySelector(".login-form");
@@ -183,7 +183,7 @@ const showLogin = document.getElementById("showLogin");
 
 if(
     popup &&
-    openPopup &&
+    openPopupButtons.length > 0 &&
     closePopup &&
     loginForm &&
     registerForm &&
@@ -191,9 +191,12 @@ if(
     showLogin
 ){
 
-    openPopup.addEventListener("click", () => {
-        popup.classList.add("active");
-    });
+    openPopupButtons.forEach(button => {
+        button.addEventListener("click", (e) => {
+            e.preventDefault();
+            popup.classList.add("active")
+        })
+    })
 
     closePopup.addEventListener("click", () => {
         popup.classList.remove("active");

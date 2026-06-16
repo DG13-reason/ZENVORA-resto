@@ -16,12 +16,12 @@ include 'header.php';
 
     <div class="nav-links">
         <?php if(isset($_SESSION['user'])): ?>
-        <a class="nav-user mobile-nav-user" href="/ZENVORA-resto/profile.php" id="openPopup">
+        <a class="nav-user mobile-nav-user" href="/ZENVORA-resto/profile.php">
             <i data-feather="user"></i>
-            <span><?php echo $_SESSION['user']['username']; ?>></span>
+            <span><?php echo $_SESSION['user']['username']; ?></span>
         </a>
         <?php else: ?>
-            <a class="nav-user mobile-nav-user" href="#" id="openPopup">
+            <a class="nav-user mobile-nav-user openPopup" href="#">
             <i data-feather="user"></i>
             <span>Login</span>
             </a>
@@ -31,6 +31,15 @@ include 'header.php';
             <li><a class="btn-navLinks" href="/ZENVORA-resto/index.php">Home</a></li>
             <li><a class="btn-navLinks" href="/ZENVORA-resto/menu.php">Menu</a></li>
             <li><a class="btn-navLinks" href="/ZENVORA-resto/about.php">About Us</a></li>
+
+            <?php if(
+                isset($_SESSION['user']) &&
+                $_SESSION['user']['role'] == 'admin'
+            ): ?>
+                <li>
+                    <a href="/ZENVORA-resto/admin/dashboard.php">Dashboard</a>
+                </li>
+            <?php endif; ?>
         </ul>
     </div>
 
@@ -56,7 +65,7 @@ include 'header.php';
         
         <?php else: ?>
 
-            <button class="nav-user login-btn" id="openPopup">
+            <button class="nav-user login-btn openPopup">
                 <i data-feather="user"></i>
             </button>
 
