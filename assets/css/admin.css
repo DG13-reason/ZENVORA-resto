@@ -61,13 +61,20 @@ body{
 .admin-sect{
     height: 100vh;
     width: 100%;
-    text-align: center;
+    padding: 2rem 7%;
 }
 .admin-sect h1{
+    text-align: center;
     color: var(--font-navbar);
 }
 .admin-sect h3,span{
+    text-align: center;
     color: var(--font-main-color);
+}
+.admin-sect .admin-kategori {
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
 }
 /*HALAMAN MENU*/
 /*HALAMAN EDIT MENU*/

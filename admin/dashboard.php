@@ -41,7 +41,7 @@ $totalUser = mysqli_num_rows(
         <div class="admin-kategori">
             <li><a href="menu.php">Kelola Menu</a></li>
             <li><a href="orders.php">Kelola Pesanan</a></li>
-            <li><a href="users.php">Kelola User</a></li>
+            <li><a href="users.php">Kelola User</a></li>  
         </div>
 
         <div>
