@@ -2,8 +2,14 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 session_start();
+include 'database/koneksi.php';
 
-// TAMBAH KE KERANJANG
+$query = mysqli_query($conn, "SELECT * FROM menus");
+
+if(isset($_SESSION['user'])){
+    $username = $_SESSION['user']['username'];
+}
+
 if(isset($_POST['cart'])){
 
     $id = $_POST['id'];
@@ -25,53 +31,9 @@ if(isset($_POST['cart'])){
 include "../ZENVORA-resto/includes/header.php";
 include "../ZENVORA-resto/includes/navbar.php";
 
-// ================= MAKANAN =================
-$makanan = [
-    ["Nasi Goreng",20000,"assets/images/Menu/Nasgor.png"],
-    ["Bakso",15000,"assets/images/Menu/Bakso.png"],
-    ["Mie Ayam",15000,"assets/images/Menu/MieAyam.png"],
-    ["Nila Bakar",25000,"assets/images/Menu/nila bakar.jpg"],
-    ["Rawon",25000,"assets/images/Menu/rawon.jpg"],
-    ["Sate Lilit",15000,"assets/images/Menu/sate lilit.jpg"],
-    ["Seafood Mix",35000,"assets/images/Menu/seafood mix.jpg"],
-    ["Steak",55000,"assets/images/Menu/steak.jpg"],
-    ["Plecing Kangkung",10000,"assets/images/Menu/plecing kangkung.jpg"],
-    ["Ayam Betutu",35000,"assets/images/Menu/ayam betutu.jpg"],
-    ["Capcay",20000,"assets/images/Menu/capcay.jpg"],
-    ["Spageti",25000,"assets/images/Menu/spageti.jpg"]
-];
-
-// ================= MINUMAN =================
-$minuman = [
-    ["Alpukat Kocok",12000,"assets/images/Menu/JusAlpukat.png"],
-    ["Kopi",10000,"assets/images/Menu/Kopi.jpg"],
-    ["Boba Matcha Latte",15000,"assets/images/Menu/Matcha.png"],
-    ["Boba Taro",15000,"assets/images/Menu/Boba taro.jpg"],
-    ["Jus Mangga",13000,"assets/images/Menu/jus mangga.jpg"],
-    ["The Red Oriental",17000,"assets/images/Menu/lacy.jpg"],
-    ["Es Teler",15000,"assets/images/Menu/EsTeler.png"],
-    ["Boba Brown Sugar",15000,"assets/images/Menu/boba brown sugar.jpg"],
-    ["Lemon Tea",13000,"assets/images/Menu/lemontea.jpg"],
-    ["Smoothies Strawberry",16000,"assets/images/Menu/smootis.jpg"],
-    ["Choco Hazelnut Frappe",20000,"assets/images/Menu/coco hazelnut.jpg"],
-    ["Lychee White Blossom",16000,"assets/images/Menu/lacy.jpg"]
-];
-
-// ================= DESSERT & CEMILAN =================
-$dessert = [
-    ["Panna Cotta",17000,"assets/images/Menu/panna cota.jpg"],
-    ["Strawberry Parfait",13000,"assets/images/Menu/strawberry parfait.jpg"],
-    ["Fried Ice Cream",10000,"assets/images/Menu/fried ice cream.jpg"],
-    ["Semifreddo",17000,"assets/images/Menu/semifreddo.jpg"],
-    ["Pancake",12000,"assets/images/Menu/pancake.jpg"],
-    ["Risol Mayo",15000,"assets/images/Menu/Risol.jpg"],
-    ["French Fries",12000,"assets/images/Menu/Kentang.png"],
-    ["Sandwich",15000,"assets/images/Menu/sandwich.jpg"],
-    ["Brownie Tiramisu",14000,"assets/images/Menu/Brownis.png"],
-    ["Momo",16000,"assets/images/Menu/momo.jpg"],
-    ["Gyoza",16000,"assets/images/Menu/gyoza.jpg"],
-    ["Salted Caramel Ice Cream",15000,"assets/images/Menu/ice cream salt caramel.jpg"]
-];
+$makanan = mysqli_query($conn, "SELECT * FROM menus Where category_id= 1 ");
+$minuman = mysqli_query($conn, "SELECT * FROM menus Where category_id= 2 ");
+$snack = mysqli_query($conn, "SELECT * FROM menus Where category_id= 3");
 ?>
 
 <section class="menu-section">
@@ -115,33 +77,33 @@ $dessert = [
 
         <div class="kategori-grid">
 
-            <?php foreach($makanan as $item){ ?>
+            <?php while($item = mysqli_fetch_assoc($makanan)){ ?>
 
             <div class="menu-card">
 
-                <img src="<?= $item[2] ?>" alt="<?= $item[0] ?>">
+                <img src="assets/images/Menu/<?= $item['gambar']; ?>" alt="<?= $item['nama_menu']; ?>">
 
                 <div class="menu-info">
 
-                    <h4><?= $item[0] ?></h4>
+                    <h4><?= $item['nama_menu'] ?></h4>
 
                     <p>
-                        Rp <?= number_format($item[1],0,',','.') ?>
+                        Rp <?= number_format($item['harga'],0,',','.') ?>
                     </p>
 
                     <form method="POST">
 
                         <input type="hidden"
                                 name="id"
-                                value="<?= $item[0] ?>">
+                                value="<?= $item['id'] ?>">
 
                         <input type="hidden"
                                 name="nama"
-                                value="<?= $item[0] ?>">
+                                value="<?= $item['nama_menu'] ?>">
 
                         <input type="hidden"
                                 name="harga"
-                                value="<?= $item[1] ?>">
+                                value="<?= $item['harga'] ?>">
 
                         <button
                             type="submit"
@@ -173,33 +135,33 @@ $dessert = [
 
         <div class="kategori-grid">
 
-            <?php foreach($dessert as $item){ ?>
+            <?php while($item = mysqli_fetch_assoc($snack)){ ?>
 
             <div class="menu-card">
 
-                <img src="<?= $item[2] ?>" alt="<?= $item[0] ?>">
+                <img src="assets/images/Menu/<?= $item['gambar']; ?>" alt="<?= $item['nama_menu']; ?>">
 
                 <div class="menu-info">
 
-                    <h4><?= $item[0] ?></h4>
+                    <h4><?= $item['nama_menu'] ?></h4>
 
                     <p>
-                        Rp <?= number_format($item[1],0,',','.') ?>
+                        Rp <?= number_format($item['harga'],0,',','.'); ?>
                     </p>
 
                     <form method="POST">
 
                         <input type="hidden"
                                 name="id"
-                                value="<?= $item[0] ?>">
+                                value="<?= $item['id'] ?>">
 
                         <input type="hidden"
                                 name="nama"
-                                value="<?= $item[0] ?>">
+                                value="<?= $item['nama_menu'] ?>">
 
                         <input type="hidden"
                                 name="harga"
-                                value="<?= $item[1] ?>">
+                                value="<?= $item['harga'] ?>">
 
                         <button
                             type="submit"
@@ -232,33 +194,33 @@ $dessert = [
 
         <div class="kategori-grid">
 
-            <?php foreach($minuman as $item){ ?>
+            <?php while($item = mysqli_fetch_assoc($minuman)){ ?>
 
             <div class="menu-card">
 
-                <img src="<?= $item[2] ?>" alt="<?= $item[0] ?>">
+                <img src="assets/images/Menu/<?= $item['gambar']; ?>" alt="<?= $item['nama_menu']; ?>">
 
                 <div class="menu-info">
 
-                    <h4><?= $item[0] ?></h4>
+                    <h4><?= $item['nama_menu'] ?></h4>
 
                     <p>
-                        Rp <?= number_format($item[1],0,',','.') ?>
+                        Rp <?= number_format($item['harga'],0,',','.'); ?>
                     </p>
 
                     <form method="POST">
 
                         <input type="hidden"
                             name="id"
-                            value="<?= $item[0] ?>">
+                            value="<?= $item['id'] ?>">
 
                         <input type="hidden"
                             name="nama"
-                            value="<?= $item[0] ?>">
+                            value="<?= $item['nama_menu'] ?>">
 
                         <input type="hidden"
                             name="harga"
-                            value="<?= $item[1] ?>">
+                            value="<?= $item['harga'] ?>">
 
                         <button
                             type="submit"
