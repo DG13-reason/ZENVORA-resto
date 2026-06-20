@@ -1,5 +1,15 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+if(!isset($_SESSION['user'])) {
+    echo "<script>
+        alert('Silakan login terlebih dahulu!');
+        window.location.href='/ZENVORA-resto/index.php?showLogin=1';
+    </script>";
+    exit;
+}
 
 if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = [];

@@ -1,10 +1,13 @@
 <?php 
 session_start();
 include '../database/koneksi.php';
+/** @var mysqli $conn */
 
 if(!isset($_SESSION['user'])) {
-    echo "<script>alert('Silahkan Login Terlebih dahulu!'); 
-    history.back();</script>";
+    echo "<script>
+        alert('Silakan login terlebih dahulu!');
+        window.location.href='../index.php?showLogin=1';
+    </script>";
     exit;
 }
 

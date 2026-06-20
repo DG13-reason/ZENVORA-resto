@@ -2,6 +2,10 @@
 include 'auth_admin.php';
 include '../database/koneksi.php';
 
+$pageTitle = "Menu - Admin ZENVORA";
+
+/** @var mysqli $conn */
+
 $query = mysqli_query($conn,"
     SELECT
         menus.*,
@@ -11,82 +15,50 @@ $query = mysqli_query($conn,"
     ON menus.category_id = categories.id
     ORDER BY menus.id DESC
 ");
+
+include 'adminHeader.php';
+include 'adminNavbar.php'
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Kelola Menu</title>
-</head>
-<body>
+<section class="admin-menu">
+    <h1>Kelola <span>Menu</span></h1>
+    <a href="tambah_menu.php">
+        <button>Tambah Menu</button>
+    </a>
 
-<h1>Kelola Menu</h1>
+    <div class="admin-table">
+        <table border="1" cellpadding="10" cellspacing="0">
+            <tr>
+                <th>ID</th>
+                <th>Gambar</th>
+                <th>Nama Menu</th>
+                <th>Kategori</th>
+                <th>Harga</th>
+                <th>Stok</th>
+                <th>Aksi</th>
+            </tr>
 
-<a href="dashboard.php">← Dashboard</a>
-<br><br>
+            <?php while($menu = mysqli_fetch_assoc($query)): ?>
+            <tr>
+                <td class="menus-id"><?= $menu['id']; ?></td>
+                <td>
+                    <img src="../assets/images/Menu/<?= $menu['gambar']; ?>">
+                </td>
+                <td><?= $menu['nama_menu']; ?></td>
+                <td><?= $menu['nama_kategori']; ?></td>
+                <td>Rp <?= number_format($menu['harga']); ?></td>
+                <td><?= $menu['stok']; ?></td>
+                <td>
+                    <a href="edit_menu.php?id=<?= $menu['id']; ?>">Edit</a>
+                    <a href="hapus_menu.php?id=<?= $menu['id']; ?>"onclick="return confirm('Hapus menu ini?')"><span>Hapus</span></a>
+                </td>
+            </tr>
 
-<a href="tambah_menu.php">
-    <button>Tambah Menu</button>
-</a>
+            <?php endwhile; ?>
+        </table>
+    </div>
+</section>
 
-<br><br>
-
-<table border="1" cellpadding="10" cellspacing="0">
-
-<tr>
-    <th>ID</th>
-    <th>Gambar</th>
-    <th>Nama Menu</th>
-    <th>Kategori</th>
-    <th>Harga</th>
-    <th>Stok</th>
-    <th>Aksi</th>
-</tr>
-
-<?php while($menu = mysqli_fetch_assoc($query)): ?>
-
-<tr>
-
-    <td><?= $menu['id']; ?></td>
-
-    <td>
-        <img
-            src="../assets/images/Menu/<?= $menu['gambar']; ?>"
-            width="80">
-    </td>
-
-    <td><?= $menu['nama_menu']; ?></td>
-
-    <td><?= $menu['nama_kategori']; ?></td>
-
-    <td>
-        Rp <?= number_format($menu['harga']); ?>
-    </td>
-
-    <td><?= $menu['stok']; ?></td>
-
-    <td>
-
-        <a href="edit_menu.php?id=<?= $menu['id']; ?>">
-            Edit
-        </a>
-
-        |
-
-        <a
-            href="hapus_menu.php?id=<?= $menu['id']; ?>"
-            onclick="return confirm('Hapus menu ini?')"
-        >
-            Hapus
-        </a>
-
-    </td>
-
-</tr>
-
-<?php endwhile; ?>
-
-</table>
 
 </body>
 </html>

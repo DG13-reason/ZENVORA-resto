@@ -185,6 +185,15 @@ $snack = mysqli_query($conn, "SELECT * FROM menus Where category_id= 3 LIMIT 3")
     
 </section>
 
-
+<?php if(isset($_GET['showLogin']) && $_GET['showLogin'] == 1): ?>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const popup = document.getElementById('popup');
+    if (popup) {
+        popup.classList.add('active');
+    }
+});
+</script>
+<?php endif; ?>
 
 <?php include 'includes/footer.php'; ?>

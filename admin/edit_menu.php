@@ -2,6 +2,8 @@
 include 'auth_admin.php';
 include '../database/koneksi.php';
 
+$pageTitle = "Edit Menu - Admin ZENVORA";
+
 $id = $_GET['id'];
 
 $data = mysqli_fetch_assoc(

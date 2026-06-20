@@ -2,35 +2,47 @@
 include 'auth_admin.php';
 include '../database/koneksi.php';
 
+$pageTitle = "Users - Admin ZENVORA";
+
+/** @var mysqli $conn */
 $query = mysqli_query($conn, "SELECT * FROM users");
+
+include 'adminHeader.php';
+include 'adminNavbar.php';
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Dashboard Admin</title>
-    <link rel="stylesheet" href="../assets/css/admin.css">
-</head>
-<body>
-    <div class="user-container" >
-        <h1>Daftar User</h1>
 
-        <table border="1">
-        <tr>
-            <th>ID</th>
-            <th>Username</th>
-            <th>Email</th>
-            <th>Role</th>
-        </tr>
+<section class="users-section">
+    <div class="users-header">
+        <h1>Daftar <span>User</span></h1>
+    </div>
 
-        <?php while($user = mysqli_fetch_assoc($query)): ?>
-        <tr>
-            <td><?= $user['id']; ?></td>
-            <td><?= $user['username']; ?></td>
-            <td><?= $user['email']; ?></td>
-            <td><?= $user['role']; ?></td>
-        </tr>
-        <?php endwhile; ?>
+    <div class="users-table-wrapper">
+        <table class="users-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php while($user = mysqli_fetch_assoc($query)): ?>
+                <tr>
+                    <td><?= $user['id']; ?></td>
+                    <td><?= htmlspecialchars($user['username']); ?></td>
+                    <td><?= htmlspecialchars($user['email']); ?></td>
+                    <td>
+                        <span class="role-badge <?= strtolower($user['role']); ?>">
+                            <?= htmlspecialchars($user['role']); ?>
+                        </span>
+                    </td>
+                </tr>
+                <?php endwhile; ?>
+            </tbody>
         </table>
     </div>
+</section>
+
 </body>
 </html>

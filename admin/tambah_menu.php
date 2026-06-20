@@ -2,6 +2,10 @@
 include 'auth_admin.php';
 include '../database/koneksi.php';
 
+$pageTitle = "Tambah Menu - Admin ZENVORA";
+
+/** @var mysqli $conn */
+
 $kategori = mysqli_query($conn,
     "SELECT * FROM categories"
 );
@@ -46,98 +50,47 @@ if(isset($_POST['simpan'])){
     header("Location: menu.php");
     exit;
 }
+
+include 'adminHeader.php';
+include 'adminNavbar.php';
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Tambah Menu</title>
-</head>
-<body>
+<section class="tambah-sect">
+    <h1>Tambah <span>Menu</span></h1>
+    <a href="menu.php">
+        <button>Kembali</button>
+    </a>
 
-<h1>Tambah Menu</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <label>Kategori</label>
+        <select name="category_id" required>
+            <option value="">
+                -- Pilih Kategori --
+            </option>
+            <?php while($kat = mysqli_fetch_assoc($kategori)): ?>
+                <option value="<?= $kat['id']; ?>">
+                    <?= $kat['nama_kategori']; ?>
+                </option>
+            <?php endwhile; ?>
+        </select>
 
-<form method="POST" enctype="multipart/form-data">
+        <label>Nama Menu</label>
+        <input type="text" name="nama_menu" required>
 
-<label>Kategori</label>
-<br>
+        <label>Deskripsi</label>
+        <textarea name="deskripsi" rows="5" cols="40"></textarea>
 
-<select name="category_id" required>
+        <label>Harga</label>
+        <input type="number" name="harga" required>
 
-<option value="">
-    -- Pilih Kategori --
-</option>
+        <label>Stok</label>
+        <input type="number" name="stok" required>
 
-<?php while($kat = mysqli_fetch_assoc($kategori)): ?>
+        <label>Gambar</label>
+        <input type="file" name="gambar" required>
 
-<option value="<?= $kat['id']; ?>">
-    <?= $kat['nama_kategori']; ?>
-</option>
-
-<?php endwhile; ?>
-
-</select>
-
-<br><br>
-
-<label>Nama Menu</label>
-<br>
-
-<input
-    type="text"
-    name="nama_menu"
-    required>
-
-<br><br>
-
-<label>Deskripsi</label>
-<br>
-
-<textarea
-    name="deskripsi"
-    rows="5"
-    cols="40">
-</textarea>
-
-<br><br>
-
-<label>Harga</label>
-<br>
-
-<input
-    type="number"
-    name="harga"
-    required>
-
-<br><br>
-
-<label>Stok</label>
-<br>
-
-<input
-    type="number"
-    name="stok"
-    required>
-
-<br><br>
-
-<label>Gambar</label>
-<br>
-
-<input
-    type="file"
-    name="gambar"
-    required>
-
-<br><br>
-
-<button
-    type="submit"
-    name="simpan">
-    Simpan
-</button>
-
-</form>
-
+        <button type="submit" name="simpan"> Simpan </button>
+    </form>
+</section>
 </body>
 </html>
