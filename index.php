@@ -105,12 +105,12 @@ $snack = mysqli_query($conn, "SELECT * FROM menus Where category_id= 3 LIMIT 3")
                     <input type="hidden" name="nama" value="<?= $item['nama_menu'] ?>">
                     <input type="hidden" name="harga" value="<?= $item['harga'] ?>">
                     <div class="menu-footer">
-                    <button type="submit" name="cart"  class="cart-btn">
-                        <i data-feather="shopping-cart"></i>
-                    </button>
+                        <button type="submit" name="cart"  class="cart-btn">
+                            <i data-feather="shopping-cart"></i>
+                        </button>
 
-                    <button class="pesan-btn">pesan</button>
-                </div>
+                        <button class="pesan-btn">pesan</button>
+                    </div>
                 </form>
                 
             </div>

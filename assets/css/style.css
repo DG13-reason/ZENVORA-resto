@@ -2,12 +2,13 @@
 
 
 :root {
-    --main-color: #06b6d4;
-    --secondary-color: #2563EB;
-    --font-main-color: #ffffff;
-    --font-secondary-color:#64748B;
-    --font-navbar: #facc15;
-    --alert-main: #F97316
+    --main-color: #f7F7F5;
+    --secondary-color: #18B7CF;
+    --font-main-color: #2E2E2E;
+    --font-secondary-color:#D4A437;
+    --card-main: #fff3cd;
+    --border-color:#E5E0D5;
+    --Tosku-color: #162544;
 }
 
 *{
@@ -18,7 +19,7 @@
 
 body{
     background: var(--main-color);
-    color: #000000;
+    color: var(--font-main-color);
     font-family: "Poppins", sans-serif;
 }
 
@@ -32,7 +33,6 @@ body{
     position: sticky;
     top: 0;
     z-index: 9999;
-    border: solid 1px;
 }
 .navbar .nav-logo a{
     display: flex;
@@ -44,35 +44,37 @@ body{
     width: 50px;
     height: 50px;
     object-fit: cover;
-    border: solid 2px white;
+    border: solid 2px var(--border-color);
     border-radius: 50%;
 }
 
 .navbar .nav-logo h2{
-    color: var(--font-navbar);
+    color: var(--Tosku-color);
     font-size: 20px;
     font-family: "Montserrat", sans-serif;
     font-weight: 900;
 }
 
 .navbar .nav-logo h2 span{
-    color: var(--font-main-color);
+    color: var(--main-color);
 }
 .navbar .nav-links a{
-    color: var(--font-main-color);
+    color: var(--Tosku-color);
     text-decoration: none;
 }
 .navbar .nav-links ul{
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1.2rem;
     list-style: none;
 }
 .navbar .nav-links .btn-navLinks{
-    background: var(--font-navbar);
-    border: none;
-    padding: 8px 15px;
-    border-radius: 20px;
+    font-size: 1.2rem;
+    font-weight:600;
+}
+.navbar .nav-links .btn-navLinks:hover{
+    color: var(--main-color);
+    border-bottom: solid 2px var(--main-color);
 }
 .navbar .nav-right{
     display: flex;
@@ -85,15 +87,15 @@ body{
 }
 .navbar .nav-right .btn-cart{
     padding: 9px 12px 0 10px;
-    background-color: #22C55E;
-    color: #ffffff;
+    background-color: var(--Tosku-color);
+    color: var(--main-color);
     border-radius: 20px;
 }
 .navbar .nav-right .nav-user{
     width: 40px;
     height: 40px;
     background-color: var(--main-color);
-    color: #ffffff;
+    color: var(--Tosku-color);
     border-radius: 20px;
 }
 
@@ -112,7 +114,7 @@ body{
     justify-content: center;
 }
 .navbar .nav-right .toggle-menu{
-    color: white;
+    color: var(--Tosku-color);
     cursor: pointer;
 }
 .navbar .mobile-nav-user{
@@ -140,7 +142,8 @@ body{
 }
 .popup-container .popup-box{
     width: 400px;
-    background: #fff;
+    background: var(--main-color);
+    color: var(--Tosku-color);
     padding: 30px;
     border-radius: 20px;
     position: relative;
@@ -157,22 +160,24 @@ body{
 .popup-container .popup-box .form-box{
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1.2rem;
 }
 .popup-container .popup-box .form-box input{
     width: 100%;
-    padding: 1.2rem;
+    padding: 1rem;
     border-radius: 10px;
-    margin-bottom: 1.2rem;
-    border: 1px solid #ccc;
+    margin-bottom: 1rem;
+    border: 1px solid var(--main-color);
 }
 .popup-container .popup-box .form-box button{
     padding: 1.2rem;
     width: 100%;
     border: none;
     border-radius: 10px;
-    background: #2563EB;
-    color: white;
+    background: var(--Tosku-color);
+    color: var(--card-main);
+    font-size: 1.2rem;
+    font-weight: 600;
     cursor: pointer;
 }
 .popup-container .popup-box .register-form{
@@ -182,7 +187,7 @@ body{
     text-align: center;
 }
 .popup-container .popup-box .form-box span{
-    color: #2563EB;
+    color: var(--Tosku-color);
     cursor: pointer;
     font-weight: bold;
 }
@@ -207,7 +212,7 @@ body{
     padding: 5px 8rem;
     font-size: 1.2rem;
     border-radius: 10px;
-    border: solid 2px var(--secondary-color);
+    border: solid 2px var(--Tosku-color);
 }
 .search-sect .search-menu button{
     position: absolute;
@@ -218,7 +223,7 @@ body{
     height:40px;
     border-radius:50%;
     border: none;
-    color: var(--secondary-color);
+    color: var(--Tosku-color);
     background: transparent;
     display:flex;
     justify-content:center;
@@ -262,7 +267,7 @@ body{
     border:none;
     border-radius:50%;
     background:rgba(0,0,0,0.5);
-    color:white;
+    color:var(--main-color);
     display:flex;
     justify-content:center;
     align-items:center;
@@ -272,7 +277,8 @@ body{
 }
 
 .banner-sect .banner-slider .prev:hover,.next:hover{
-    background:#00aa5b;
+    background: var(--main-color);
+    color: var(--Tosku-color);
 }
 
 .banner-sect .banner-slider .prev{
@@ -292,8 +298,7 @@ body{
 }
 .menu-recomend .menu-recomend-tittle h2{
     font-size: 42px;
-    color: #ffffff;
-    border-bottom: solid 1px #ffffff;
+    border-bottom: solid 2px var(--font-main-color);
     margin-bottom: 2rem;    
 }
 
@@ -308,8 +313,9 @@ body{
     border: none;
     padding: 1rem 2rem;
     border-radius: 50px;
-    background: white;
-    color: #000000;
+    border: solid 1px var(--border-color);
+    background: var(--card-main);
+    color: var(--Tosku-color);
     cursor: pointer;
     font-size: 1.2rem;
     font-weight: 500;
@@ -317,19 +323,20 @@ body{
     box-shadow: 0 5px 15px rgba(0,0,0,0.08);
 }
 .menu-recomend .menu-filter .filter-btn:hover{
-    background: var(--font-navbar);
-    color: white;
+    background: var(--Tosku-color);
+    color: var(--card-main);
 }
 .menu-recomend .menu-filter .filter-btn.active{
-    background: var(--font-navbar);
-    color: white;
+    background: var(--Tosku-color);
+    color: var(--card-main);
 }
 .menu-recomend .menu-container{
     display: flex;
     gap: 2rem;
 }
 .menu-recomend .menu-container .menu-card{
-    background: white;
+    background: var(--card-main);
+    border: solid 2px var(--border-color);
     width: 15rem;
     height: 20rem;
     border-radius: 20px;
@@ -363,7 +370,7 @@ body{
 }
 .menu-recomend .menu-container .menu-card .menu-desc .tittle h3{
     font-size: 1rem;
-    color: #000000;
+    color: var(--Tosku-color);
 }
 .menu-recomend .menu-container .menu-card .menu-desc .tittle .rating{
     display: flex;
@@ -377,11 +384,11 @@ body{
 }
 .menu-recomend .menu-container .menu-card .menu-desc .tittle .rating span{
     font-size: 1rem;
-    color: #000000;
+    color: var(--font-main-color);
     font-weight: 500;
 }
 .menu-recomend .menu-container .menu-card .menu-desc p{
-    color: #64748b;
+    color: var(--Tosku-color);
     line-height: 1.6;
     font-size: 0.8rem;
     margin-bottom: 1rem;
@@ -389,39 +396,36 @@ body{
 .menu-recomend .menu-container .menu-card .menu-footer{
     height: 2.6rem;
     width: 100%;
-    display: flex;
     gap: 0.5rem;
-    margin-bottom: 0;
-    padding: 0 0.5rem 0 0.5rem;
+    display: flex;
 }
 .cart-btn{
     width: 3rem;
     height: 100%;
     border: none;
-    border-radius: 0 10px;
-    background: #22C55E;
-    color: #ffffff;
+    background: var(--main-color);
+    color: var(--Tosku-color);
     cursor: pointer;
     transition: 0.3s ease;
 }
 .cart-btn:hover{
-    background: #2563EB;
-    color: white;
+    background: var(--Tosku-color);
+    color: var(--main-color);
 }
 .pesan-btn{
     width: 100%;
     flex: 1;
     border: none;
-    border-radius: 10px 0;
-    background: var(--alert-main);
-    color: white;
+    background: var(--Tosku-color);
+    color: var(--main-color);
     cursor: pointer;
     font-size: 1.2rem;
     font-weight: 500;
     transition: 0.3s ease;
 }
 .pesan-btn:hover{
-    background: #1d4ed8;
+    background: var(--main-color);
+    color: var(--Tosku-color);
 }
 
 
@@ -442,7 +446,7 @@ body{
     width: 100%;
     max-width: 500px;
     padding: 12px;
-    border: none;
+    border: solid 2px var(--Tosku-color);
     border-radius: 8px;
 }
 .menu-section .menu-title{
@@ -450,6 +454,9 @@ body{
     margin-bottom: 10px;
     text-align: center;
 }
+.menu-section .menu-subtitle{
+    margin-bottom: 1rem;
+} 
 .menu-section .menu-kategori{
     display: flex;
     justify-content: center;
@@ -459,18 +466,20 @@ body{
 }
 .menu-section .menu-kategori button{
     padding: 10px 18px;
+    font-weight: 600;
     border: none;
+    border-radius: 20px;
     cursor: pointer;
-    background: #d9d9d9;
-    color: #fff;
+    background: var(--card-main);
+    color: var(--Tosku-color);
     transition: 0.3s;
 }
 .menu-section .menu-kategori button.active{
-    background: orange;
-    color: white;
+    background: var(--Tosku-color);
+    color: var(--card-main);
 }
 .menu-section .judul-kategori{
-    color: white;
+    color: var(--font-main-color);
     margin: 25px 0 15px;
     font-size: 18px;
 }
@@ -483,7 +492,7 @@ body{
 }
 
 .menu-section .kategori-grid .menu-card{
-    background: #444;
+    background: var(--card-main);
     border-radius: 10px;
     overflow: hidden;
     transition: 0.3s;
@@ -505,27 +514,28 @@ body{
 }
 
 .menu-section .kategori-grid .menu-card .menu-info h4{
-    color: white;
+    color: var(--Tosku-color);
     font-size: 14px;
     margin-bottom: 5px;
 }
 
 .menu-section .kategori-grid .menu-card .menu-info p{
-    color: #e0e0e0;
+    color: var(--Tosku-color);
     font-size: 13px;
 }
 .menu-section .kategori-grid .menu-card .menu-info .btn-cart{
     width: 100%;
     padding: 10px;
     border: none;
-    background: #ff9800;
-    color: white;
+    background: var(--Tosku-color);
+    color: var(--card-main);
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s;
 }
 .menu-section .kategori-grid .menu-card .menu-info .btn-cart:hover{
-    background: #e68900;
+    background: var(--main-color);
+    color: var(--Tosku-color);
 }
 
 /*HALAMAN PROFIL*/
@@ -829,6 +839,17 @@ display:inline-block;
 margin-top:20px;
 }
 
+/*HALAMAN FOOTER*/
+.footer{
+    background: var(--secondary-color);
+    color: var(--Tosku-color);
+    padding: 1.2rem;
+    text-align: center;
+}
+.footer p {
+    color: var(--main-color);
+}
+
 
 /*Responsive*/
 @media (min-width: 769px){
@@ -857,25 +878,24 @@ margin-top:20px;
         top: 100%;
         right: -100%;
         height: 50vh;
-        background: rgba(37, 99, 235, 0.7);
+        background: #f7f7f579;
         padding: 2rem;
         transition: 0.3s;
         z-index: 9999;
     }
-
     .nav-links .mobile-nav-user{
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 0.7rem;
-        color: white;
+        color: var(--main-color);
         text-decoration: none;
         margin-bottom: 1.5rem;
         padding-bottom: 1rem;
         border-bottom: solid 1px;
     }
     .nav-links .mobile-nav-user:hover{
-        color: var(--font-navbar);
+        color: var(--card-main);
     }
 
     .nav-links.active{

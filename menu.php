@@ -109,9 +109,7 @@ $snack = mysqli_query($conn, "SELECT * FROM menus Where category_id= 3");
                             type="submit"
                             name="cart"
                             class="btn-cart">
-
-                            🛒 Tambah Keranjang
-
+                            <i data-feather="shopping-cart"></i>
                         </button>
 
                     </form>
