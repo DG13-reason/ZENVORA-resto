@@ -27,7 +27,8 @@
 
 </section>
 
-<section class="box">
+<section class="box" id="kontak">
+    <h1>Visi dan Misi ZENVORA</h1>
     <div class="card">
         <div class="visi">
             <h2>Visi Kami</h2>
@@ -90,7 +91,7 @@
 </section>
 
 <!-- KONTAK -->
-<section class="contact-section" id="kontak">
+<section class="contact-section">
 
     <h1>Kontak Kami</h1>
     <p>Hubungi kami kapan saja untuk informasi dan pemesanan.</p>

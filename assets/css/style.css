@@ -428,12 +428,6 @@ body{
     color: var(--Tosku-color);
 }
 
-
-
-
-/*HALAMAN LOGIN*/
-/*HALAMAN PROFILE*/
-/*HALAMAN REGISTER*/
 /*======================== HALAMAN MENU ========================*/
 .menu-section{
     padding: 2rem 5%;
@@ -538,7 +532,7 @@ body{
     color: var(--Tosku-color);
 }
 
-/*HALAMAN PROFIL*/
+/*===============HALAMAN PROFIL====================*/
 .profile-container{
     height: 100vh;
     padding: 2rem 7%;
@@ -596,12 +590,13 @@ body{
 
 /*HALAMAN ABOUT*/
 .tentang-sect{
+    height: 100vh;
     align-items:center;
     padding: 2rem 7%;
 }
 .tentang-sect h1{
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     color: var(--font-main-color);
 }
 .tentang-sect span{
@@ -610,6 +605,7 @@ body{
 .tentang-sect .content{
     display: flex; 
     justify-content: center;
+    align-items: center;
     gap: 3rem;
 }
 .tentang-sect .content .text{
@@ -644,12 +640,19 @@ body{
 
 .box{
     gap: 5rem;
-    padding: 5rem;
+    padding: 2rem 7%;
+}
+.box h1{
+    font-size: 1.4rem;
+    text-align: center;
+    margin-bottom: 2rem;
 }
 .box .card{
+    align-items: center;
     width: 70rem;
     height: 15rem;
     display: flex;
+    align-items: center;
     justify-content: space-between;
     gap: 5rem;
 }
@@ -693,7 +696,7 @@ body{
     padding: 20px;
     cursor: pointer;
     border-radius: 15px;
-    background: var(--secondary-color);
+    background: var(--Tosku-color);
 }
 
 .keunggulan .icon-box .about-card .hidden-text{
@@ -714,7 +717,7 @@ body{
     transform: translate(-5px);
 }
 .keunggulan .icon-box .about-card h3{
-    color:var(--font-main-color);
+    color:var(--card-main);
     margin-top: 10px;
 }
 .keunggulan .icon-box .about-card.active .hidden-text{
@@ -728,14 +731,14 @@ body{
 .keunggulan .icon-box .about-card svg{
     width: 45px;
     height: 45px;
-    stroke: #ffd000;
+    stroke: var(--card-main);
     stroke-width: 2.5;
     margin-bottom: 15px;
 }
 .contact-section{
     padding: 70px 50px;
     text-align: center;
-    color: white;
+    color: var(--font-main-color);
 }
 
 .contact-section h1{
@@ -759,19 +762,19 @@ body{
 .contact-section .contact-container .contact-card{
     width: 250px;
     height: 120px;
-    background: #6f7b91;
+    background: var(--Tosku-color);
     padding: 15px;
     cursor: pointer;
     border-radius: 25px;
 }
 .contact-section .contact-container .contact-card i{
     font-size: 65px;
-    color: #ffd000;
+    color: var(--card-main);
     text-align:center;
     padding:40px;
 }
 .contact-section .contact-container .contact-card h2{
-    color: #ffd000;
+    color: var(--card-main);
     margin-bottom: 1px;
     font-size: 20px;
 }
@@ -783,7 +786,7 @@ body{
 .contact-section .contact-container .contact-card svg{
     width: 27px;
     height: 27px;
-    stroke: #ffd000;
+    stroke: var(--card-main);
     stroke-width: 2.5;
 }
 
@@ -850,6 +853,84 @@ margin-top:20px;
     color: var(--main-color);
 }
 
+/*HALAMAN PAYMENTS*/
+.booking{
+    display:flex;
+    min-height:100vh;
+}
+
+.booking .booking-left{
+    width:40%;
+    background:var(--Tosku-color);
+    padding:30px;
+}
+
+.booking .booking-right{
+    width:60%;
+    background:var(--main-color);
+    padding:40px;
+}
+
+.booking .booking-left .menu-img{
+    width:100%;
+    border-radius:20px;
+}
+
+.booking .booking-left .menu-card{
+    background:white;
+    padding:15px;
+    margin-top:20px;
+    border-radius:15px;
+}
+
+.booking h1,h3{
+    color:var(--font-secondary-color);
+}
+
+.booking .booking-right .tab{
+    display:flex;
+    gap:15px;
+    margin:30px 0;
+}
+
+.booking .booking-right .tab button{
+    padding:15px 25px;
+    border:none;
+    background:var(--secondary-color);
+    color:white;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+.booking .booking-right form{
+    display:none;
+    gap:15px;
+    flex-direction:column;
+}
+
+.booking .booking-right form.active{
+    display:flex;
+}
+
+.booking .booking-right form input, select, textarea{
+    padding:15px;
+    border:1px solid var(--border-color);
+    border-radius:10px;
+}
+
+.booking .booking-right form .payment{
+    display:flex;
+    gap:20px;
+}
+
+.booking .booking-right form button{
+    background:var(--secondary-color);
+    color:white;
+    border:none;
+    padding:15px;
+    border-radius:10px;
+    cursor:pointer;
+}
 
 /*Responsive*/
 @media (min-width: 769px){
@@ -936,6 +1017,7 @@ margin-top:20px;
 
     /*HALAMAN ABOUT*/
     .tentang-sect{
+        height: 100%;
         padding: 1rem 5%;
     }
     .tentang-sect h1{
@@ -954,28 +1036,39 @@ margin-top:20px;
         width: 60rem;
         height: 15rem;
     }
-    .box{
-        padding: 5rem 0.8rem;
+    
+    .box h1{
+        margin-bottom: 1.2rem;
     }
     .box .card{
-        width: 40rem;
-        height: 10rem;
+        width: 100%;
+        height: 8rem;
         gap: 1rem;
     }
     .box .card .visi,.misi{
-        padding: 1rem;
+        padding: 0.6rem;
     }
     .box .card .visi h2,.misi h2{
-        font-size: 1.2rem;
-        margin-bottom: 1rem;
+        font-size: 1rem;
+        margin-bottom: 0.2rem;
     }
     .box .card .visi p,.misi p{
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
     .keunggulan h2{
         font-size: 1.5rem;
     }
-    
+    .keunggulan .icon-box{
+        flex-wrap: wrap;
+        max-width: 100%;
+    }
+    .contact-section h1{
+        font-size: 2rem;
+    }
+    .contact-section p{
+        font-size: 1.2rem;
+        margin-bottom: 1.2rem;
+    }
 }
 
 /*HANDPHONE*/

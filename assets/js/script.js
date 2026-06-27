@@ -270,5 +270,24 @@ function toggleText(card){
     card.classList.toggle('active');
 }
 
+/*===============HALAMAN PAYMENTS==================*/
+function showForm(type){
+
+    document
+    .getElementById("resto")
+    .classList
+    .remove("active");
+
+    document
+    .getElementById("delivery")
+    .classList
+    .remove("active");
+
+    document
+    .getElementById(type)
+    .classList
+    .add("active");
+}
+
 /* ================= FEATHER RELOAD ================= */
 feather.replace();
