@@ -3,27 +3,41 @@ include 'includes/header.php';
 include 'includes/navbar.php';
 ?>
 
-<div class="success">
+<section class="success-page">
 
-<h1>🎉</h1>
+    <div class="success-card">
 
-<h2>Pesanan Berhasil</h2>
+        <div class="success-icon">
+            🎉
+        </div>
 
-<p>
+        <h1>Pesanan Berhasil!</h1>
 
-Terima kasih telah melakukan pemesanan di
+        <p class="thanks">
+            Terima kasih telah melakukan pemesanan di
+            <strong>ZENVORA Resto</strong>.
+        </p>
 
-<b>ZENVORA Resto</b>
+        <p class="info">
+            Pesanan Anda sedang kami proses.
+            <br>
+            Silakan cek status pesanan pada menu
+            <b>History Pesanan</b>.
+        </p>
 
-</p>
+        <div class="success-btn">
+            <a href="history.php" class="history-btn">
+                📦 Lihat Pesanan
+            </a>
 
-<a href="index.php">
+            <a href="index.php" class="home-btn">
+                🏠 Kembali ke Home
+            </a>
+        </div>
 
-Kembali ke Home
+    </div>
 
-</a>
-
-</div>
+</section>
 
 <?php
 include 'includes/footer.php';

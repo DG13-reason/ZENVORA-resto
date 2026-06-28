@@ -10,6 +10,11 @@ if(isset($_SESSION['user'])){
 
 if(isset($_POST['cart'])){
 
+    if(!isset($_SESSION['user'])){
+        header("Location: ?showLogin=1");
+        exit;
+    }
+
     $id = $_POST['id'];
 
     if(isset($_SESSION['cart'][$id])){
@@ -22,26 +27,79 @@ if(isset($_POST['cart'])){
         ];
     }
 
-    header("Location: cart.php");
+    header("Location: " . $_SERVER['PHP_SELF']);
     exit;
 }
 
 include 'includes/header.php';
 include 'includes/navbar.php';
 
-$makanan = mysqli_query($conn, "SELECT * FROM menus Where category_id= 1 LIMIT 3");
-$minuman = mysqli_query($conn, "SELECT * FROM menus Where category_id= 2 LIMIT 3");
-$snack = mysqli_query($conn, "SELECT * FROM menus Where category_id= 3 LIMIT 3");
+$keyword = "";
+if(isset($_GET['search']) && $_GET['search'] != ""){
+    $keyword = mysqli_real_escape_string($conn, $_GET['search']);
+}
+
+$makanan = mysqli_query($conn,"
+SELECT menus.*,
+IFNULL(AVG(reviews.rating),0) AS rata_rating,
+COUNT(reviews.id) AS total_review
+FROM menus
+LEFT JOIN reviews
+ON menus.id = reviews.menu_id
+WHERE menus.category_id = 1
+AND (
+    menus.nama_menu LIKE '%$keyword'
+    OR menus.deskripsi LIKE '%$keyword%'
+)
+GROUP BY menus.id
+HAVING total_review >= 3
+AND rata_rating >= 4
+ORDER BY rata_rating DESC,total_review DESC
+LIMIT 3
+");
+
+$minuman = mysqli_query($conn,"
+SELECT menus.*,
+IFNULL(AVG(reviews.rating),0) AS rata_rating,
+COUNT(reviews.id) AS total_review
+FROM menus
+LEFT JOIN reviews
+ON menus.id = reviews.menu_id
+WHERE menus.category_id = 1
+GROUP BY menus.id
+HAVING total_review >= 3
+AND rata_rating >= 4
+ORDER BY rata_rating DESC,total_review DESC
+LIMIT 3
+");
+
+$snack = mysqli_query($conn,"
+SELECT menus.*,
+IFNULL(AVG(reviews.rating),0) AS rata_rating,
+COUNT(reviews.id) AS total_review
+FROM menus
+LEFT JOIN reviews
+ON menus.id = reviews.menu_id
+WHERE menus.category_id = 1
+GROUP BY menus.id
+HAVING total_review >= 3
+AND rata_rating >= 4
+ORDER BY rata_rating DESC,total_review DESC
+LIMIT 3
+");
 ?>
 
 
 <section class="search-sect">
-    <div class="search-menu">
-        <input type="text" placeholder="searching menu">
-        <button>
+    <form action="menu.php" method="GET" class="search-menu">
+        <input type="text" name="search" placeholder="searching menu" value="<?= isset($_GET['search']) ? $_GET['search'] : '' ?>" required>
+        <button type="submit">
             <i data-feather="search"></i>
         </button>
-    </div>
+        <?php if(isset($_GET['search']) && $_GET['search']!=""){ ?>
+            <a href="index.php" class="reset-search">Reset</a>
+        <?php } ?>
+    </form>
 </section>
 
 <section class="banner-sect">
@@ -85,6 +143,7 @@ $snack = mysqli_query($conn, "SELECT * FROM menus Where category_id= 3 LIMIT 3")
         </div>
         
         <div class="menu-container">
+        <?php if(mysqli_num_rows($makanan) > 0){ ?>
             <?php while($item = mysqli_fetch_assoc($makanan)){ ?>
             <div class="menu-card main">
                 <div class="menu-img">
@@ -93,12 +152,16 @@ $snack = mysqli_query($conn, "SELECT * FROM menus Where category_id= 3 LIMIT 3")
                 <div class="menu-desc">
                     <div class="tittle">
                         <h3><?= $item['nama_menu'] ?></h3>
-                        <div class="rating">
-                            <i data-feather="star"></i>
-                            <span>4.5</span>
-                        </div>
                     </div>
                     <p>Rp <?= number_format($item['harga'],0,',','.'); ?></p>
+                    <div class="rating">
+                        <i data-feather="star"></i>
+                        <span>
+                            <?= number_format($item['rata_rating'],1) ?>
+                            (<?= $item['total_review'] ?>)
+                        </span>
+                        <a href="detail_menus.php?id=<?= $item['id']; ?>">Detail</a>
+                    </div>
                 </div>
 
                 <div class="menu-footer">
@@ -124,29 +187,33 @@ $snack = mysqli_query($conn, "SELECT * FROM menus Where category_id= 3 LIMIT 3")
                 <div class="menu-desc">
                     <div class="tittle">
                         <h3><?= $item['nama_menu'] ?></h3>
-                        <div class="rating">
-                            <i data-feather="star"></i>
-                            <span>4.5</span>
-                        </div>
                     </div>
                     <p>Rp <?= number_format($item['harga'],0,',','.'); ?></p>
+                    <div class="rating">
+                        <i data-feather="star"></i>
+                        <span>
+                            <?= number_format($item['rata_rating'],1) ?>
+                            (<?= $item['total_review'] ?>)
+                        </span>
+                        <a href="detail_menus.php?id=<?= $item['id']; ?>">Detail</a>
+                    </div>
                 </div>
-                <form method="POST">
-                    <input type="hidden" name="id" value="<?= $item['id'] ?>">
-                    <input type="hidden" name="nama" value="<?= $item['nama_menu'] ?>">
-                    <input type="hidden" name="harga" value="<?= $item['harga'] ?>">
-                    <div class="menu-footer">
-                    <button type="submit" name="cart"  class="cart-btn">
-                        <i data-feather="shopping-cart"></i>
-                    </button>
-
-                    <button type="submit" class="pesan-btn">pesan</button>
+                <div class="menu-footer">
+                    <form method="POST">
+                        <input type="hidden" name="id" value="<?= $item['id'] ?>">
+                        <input type="hidden" name="nama" value="<?= $item['nama_menu'] ?>">
+                        <input type="hidden" name="harga" value="<?= $item['harga'] ?>">
+                    
+                        <button type="submit" name="cart"  class="cart-btn">
+                            <i data-feather="shopping-cart"></i>
+                        </button>
+                    </form>
+                    <a href="payments.php?id=<?= $item['id']; ?>" class="pesan-btn">pesan</a>
                 </div>
-                </form>
                 
             </div>
             <?php } ?>
-
+        
             <?php while($item = mysqli_fetch_assoc($snack)){ ?>
             <div class="menu-card desserts">
                 <div class="menu-img">
@@ -155,30 +222,37 @@ $snack = mysqli_query($conn, "SELECT * FROM menus Where category_id= 3 LIMIT 3")
                 <div class="menu-desc">
                     <div class="tittle">
                         <h3><?= $item['nama_menu'] ?></h3>
-                        <div class="rating">
-                            <i data-feather="star"></i>
-                            <span>4.5</span>
-                        </div>
                     </div>
                     <p>Rp <?= number_format($item['harga'],0,',','.'); ?></p>
+                    <div class="rating">
+                        <i data-feather="star"></i>
+                        <span>
+                            <?= number_format($item['rata_rating'],1) ?>
+                            (<?= $item['total_review'] ?>)
+                        </span>
+                        <a href="detail_menus.php?id=<?= $item['id']; ?>">Detail</a>
+                    </div>
                 </div>
-                <form method="POST">
-                    <input type="hidden" name="id" value="<?= $item['id'] ?>">
-                    <input type="hidden" name="nama" value="<?= $item['nama_menu'] ?>">
-                    <input type="hidden" name="harga" value="<?= $item['harga'] ?>">
-                    <div class="menu-footer">
-                    <button type="submit" name="cart"  class="cart-btn">
-                        <i data-feather="shopping-cart"></i>
-                    </button>
-
-                    <button class="pesan-btn">pesan</button>
+                <div class="menu-footer">
+                    <form method="POST">
+                        <input type="hidden" name="id" value="<?= $item['id'] ?>">
+                        <input type="hidden" name="nama" value="<?= $item['nama_menu'] ?>">
+                        <input type="hidden" name="harga" value="<?= $item['harga'] ?>">
+                    
+                        <button type="submit" name="cart"  class="cart-btn">
+                            <i data-feather="shopping-cart"></i>
+                        </button>
+                    </form>
+                    <a href="payments.php?id=<?= $item['id']; ?>" class="pesan-btn">pesan</a>
                 </div>
-                </form>
                 
             </div>
             <?php } ?>
-
-            
+        <?php }else{ ?>
+            <div class="empty-recommendation">
+                Belum ada menu rekomendasi
+            </div>
+        <?php } ?> 
         </div>
         
     </div>

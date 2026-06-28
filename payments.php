@@ -2,6 +2,11 @@
 session_start();
 include 'database/koneksi.php';
 
+if(!isset($_SESSION['user'])){
+    header("Location: index.php?showLogin=1");
+    exit;
+}
+
 $menus = [];
 $total = 0;
 
@@ -17,9 +22,8 @@ if(isset($_GET['id'])){
     }
 }
 elseif(isset($_SESSION['cart'])){
-    foreach($_SESSION['cart'] as $item){
-        $id = $item['id'];
-        $query=mysqli_query($conn,"SELECT * FROM menus WHERE id='$id'");
+    foreach($_SESSION['cart'] as $id => $item){
+        $query = mysqli_query($conn,"SELECT * FROM menus WHERE id='$id'");
         if(mysqli_num_rows($query)>0){
             $menu = mysqli_fetch_assoc($query);
             $menu['quantity'] = $item['qty'];
@@ -73,15 +77,16 @@ include 'includes/navbar.php';
 
         <form id="resto" class="active" method="POST" action="process/payments_process.php" enctype="multipart/form-data">
             <input type="hidden" name="total_harga" value="<?= $total; ?>">
+            <input type="hidden" name="jenis_pesanan" value="resto">
             <?php if(isset($_GET['id'])){ ?>
             <input type="hidden" name="menu_id" value="<?= $_GET['id']; ?>">
             <?php
             }
             ?>
 
-            <input type="text" name="nama" placeholder="Nama Lengkap">
+            <input type="text" name="nama" placeholder="Nama Lengkap" required>
 
-            <input type="tel" name="telepon" placeholder="Nomor Telepon">
+            <input type="tel" name="telepon" placeholder="Nomor Telepon" required>
             
             <input type="date" name="tanggal" min="<?= date('Y-m-d'); ?>" max="<?= date('Y-m-d', strtotime('+30 days')); ?>" required>
             
@@ -99,7 +104,7 @@ include 'includes/navbar.php';
                 ?>
             </select>
 
-            <select name="jumlah_orang">
+            <select name="jumlah_orang" required>
                 <option value="">jumlah_orang</option>
                 <?php for($i = 1;$i <= 10;$i++){ ?>
                 <option value="<?=  $i ?>"><?= $i ?> Orang</option>
@@ -108,25 +113,21 @@ include 'includes/navbar.php';
                 ?>
             </select>
 
-            <select name="area" id="area">
+            <select name="area" id="area" required>
                 <option value="">Pilih Area</option>
                 <option value="Indoor">Indoor</option>
                 <option value="Outdoor">Outdoor</option>
                 <option value="VIP">VIP</option>
             </select>
 
-            <select name="meja" id="meja">
+            <select name="meja" id="meja" required>
                 <option value="">Pilih Nomor Meja</option>
             </select>
-
             <textarea name="catatan" placeholder="Catatan"></textarea>
-
             <h3>Metode Pembayaran</h3>
-
             <div class="payment">
-
                 <label>
-                    <input type="radio" name="payment_method" value="Tunai">
+                    <input type="radio" name="payment_method" value="Tunai" checked>
                     Tunai
                 </label>
 
@@ -145,79 +146,116 @@ include 'includes/navbar.php';
                     QRIS
                 </label>
             </div>
-            <div>
-                <label>Upload Bukti Transfer</label>
-                <input type="file" name="proof_image">
+            <div class="payment-info">
+                <div id="tunai" class="payment-box">
+                    <h4>Pembayaran Tunai</h4>
+                    <p>
+                        Silakan lakukan pembayaran langsung di kasir saat datang ke restoran.
+                    </p>
+                </div>
+                <div id="transfer" class="payment-box">
+                    <h4>Transfer Bank</h4>
+                    <p><b>Bank BCA</b></p>
+                    <p>1234567890</p>
+                    <p>a.n ZENVORA RESTO</p>
+                </div>
+                <div id="ewallet" class="payment-box">
+                    <h4>E-Wallet</h4>
+                    <p>DANA : 081234567890</p>
+                    <p>OVO : 081234567890</p>
+                    <p>GoPay : 081234567890</p>
+                </div>
+                <div id="qris" class="payment-box">
+                    <img src="assets/images/payment/QRIS.png" width="220">
+                    <p>
+                        Scan QR Code di atas kemudian upload bukti pembayaran.
+                    </p>
+                </div>
             </div>
-
+            <div id="uploadSection">
+                <label>Upload Bukti Pembayaran</label>
+                <input type="file" name="proof_image" id="proof_image" accept=".jpg,.jpeg,.png,.webp">
+            </div>
             <button type="submit">
                 Reservasi Sekarang
             </button>
-
         </form>
 
+        <form id="delivery" method="POST" action="process/payments_process.php" enctype="multipart/form-data">
+            <input type="hidden" name="total_harga" value="<?= $total; ?>">
+            <input type="hidden" name="jenis_pesanan" value="delivery">
+            <?php if(isset($_GET['id'])){ ?>
+            <input type="hidden" name="menu_id" value="<?= $_GET['id']; ?>">
+            <?php } ?>
 
-        <!-- FORM DELIVERY -->
-
-        <form id="delivery">
-
-            <input type="text"
-                placeholder="Nama Lengkap">
-
-            <input type="tel"
-                placeholder="Nomor Telepon">
-
-            <textarea
-                placeholder="Alamat Lengkap">
+            <input type="text" name="nama" placeholder="Nama Lengkap" required>
+            <input type="tel" name="telepon" placeholder="Nomor Telepon" required>
+            <textarea name="alamat" 
+                placeholder="Alamat Lengkap" required>
             </textarea>
-
-            <input type="text"
+            <input type="text" name="maps"
                 placeholder="Link Google Maps">
-
-            <select>
-                <option>Metode Pengiriman</option>
-                <option>Kurir Resto</option>
-                <option>GoSend</option>
-                <option>Grab Express</option>
+            <select name="pengiriman" required>
+                <option value="Kurir Resto" selected>
+                    Kurir Resto
+                </option>
             </select>
-
-            <textarea
-                placeholder="Catatan Pesanan">
+            <textarea name="catatan" placeholder="Catatan Pesanan">
             </textarea>
 
             <h3>Metode Pembayaran</h3>
-
             <div class="payment">
-
                 <label>
-                    <input type="radio" name="pay2">
+                    <input type="radio" name="pay2" value="COD" checked>
                     COD
                 </label>
-
                 <label>
-                    <input type="radio" name="pay2">
+                    <input type="radio" name="pay2" value="Transfer">
                     Transfer
                 </label>
-
                 <label>
-                    <input type="radio" name="pay2">
+                    <input type="radio" name="pay2" value="E-Wallet">
                     E-Wallet
                 </label>
-
                 <label>
-                    <input type="radio" name="pay2">
+                    <input type="radio" name="pay2" value="QRIS">
                     QRIS
                 </label>
+            <div class="payment-info">
+                <div id="cod" class="payment-box">
+                    <h4>Bayar di Tempat (COD)</h4>
+                    <p>
+                        Pembayaran dilakukan saat pesanan diterima.
+                    </p>
+                </div>
+                <div id="transfer2" class="payment-box">
+                    <h4>Transfer Bank</h4>
+                    <p><b>Bank BCA</b></p>
+                    <p>1234567890</p>
+                    <p>a.n ZENVORA RESTO</p>
+                </div>
+                <div id="ewallet2" class="payment-box">
+                    <h4>E-Wallet</h4>
+                    <p>DANA : 081234567890</p>
+                    <p>OVO : 081234567890</p>
+                    <p>GoPay : 081234567890</p>
+                </div>
+                <div id="qris2" class="payment-box">
+                    <img src="assets/images/payment/QRIS.png" width="220">
+                    <p>
+                        Scan QR Code di atas kemudian upload bukti pembayaran.
+                    </p>
+                </div>
             </div>
-
-            <button>
+            <div id="uploadDelivery">
+                <label>Upload Bukti Pembayaran</label>
+                <input type="file" name="proof_image" id="proof_image_delivery" accept=".jpg,.jpeg,.png,.webp" required>
+            </div>
+            <button type="submit">
                 Pesan Sekarang
             </button>
-
         </form>
-
     </div>
-
 </section>
 
 <?php include 'includes/footer.php' ?>

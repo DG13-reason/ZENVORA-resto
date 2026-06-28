@@ -4,6 +4,14 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 include 'header.php';
+
+$cartCount = 0;
+
+if(isset($_SESSION['cart'])){
+    foreach($_SESSION['cart'] as $item){
+        $cartCount += $item['qty'];
+    }
+}
 ?>
 
 <nav class="navbar">
@@ -47,6 +55,9 @@ include 'header.php';
 
         <a class="btn-cart" href="/ZENVORA-resto/cart.php">
             <i data-feather="shopping-cart"></i>
+            <?php if($cartCount > 0): ?>
+                <span class="cart-badge"><?= $cartCount ?></span>
+            <?php endif; ?>
         </a>
 
         <?php if(isset($_SESSION['user'])): ?>

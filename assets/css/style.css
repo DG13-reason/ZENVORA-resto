@@ -86,10 +86,32 @@ body{
     color: #ffffff;
 }
 .navbar .nav-right .btn-cart{
-    padding: 9px 12px 0 10px;
+    position: relative;
+    padding: 8px 10px 5px 9px;
     background-color: var(--Tosku-color);
     color: var(--main-color);
     border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+.navbar .nav-right .btn-cart .cart-badge{
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+    background: #ff3b30;
+    color: #fff;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 11px;
+    font-weight: bold;
+    border: 2px solid var(--secondary-color);
 }
 .navbar .nav-right .nav-user{
     width: 40px;
@@ -372,26 +394,38 @@ body{
     font-size: 1rem;
     color: var(--Tosku-color);
 }
-.menu-recomend .menu-container .menu-card .menu-desc .tittle .rating{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1px;
-}
-.menu-recomend .menu-container .menu-card .menu-desc .tittle .rating svg{
-    color: #facc15;
-    fill: #facc15;
-}
-.menu-recomend .menu-container .menu-card .menu-desc .tittle .rating span{
-    font-size: 1rem;
-    color: var(--font-main-color);
-    font-weight: 500;
-}
 .menu-recomend .menu-container .menu-card .menu-desc p{
     color: var(--Tosku-color);
     line-height: 1.6;
-    font-size: 0.8rem;
+    font-size: 1.2rem;
     margin-bottom: 1rem;
+}
+.menu-recomend .menu-container .menu-card .menu-desc .rating{
+    display: flex;
+    gap: 1px;
+    width: 100%;
+}
+.menu-recomend .menu-container .menu-card .menu-desc .rating svg{
+    color: #facc15;
+    fill: #facc15;
+    width: 15px;
+    height: 15px;
+}
+.menu-recomend .menu-container .menu-card .menu-desc .rating span{
+    font-size: 0.8rem;
+    color: var(--font-main-color);
+    font-weight: 500;
+}
+.menu-recomend .menu-container .menu-card .menu-desc .rating a {
+    font-size: 0.8rem;
+    text-decoration: none;
+    cursor: pointer;
+    color: var(--font-main-color);
+    font-weight: 600;
+    margin-left: 1rem;
+}
+.menu-recomend .menu-container .menu-card .menu-desc .rating a:hover {
+    border-bottom: solid 1px var(--font-secondary-color);
 }
 .menu-recomend .menu-container .menu-card .menu-footer{
     height: 2.6rem;
@@ -495,6 +529,7 @@ body{
     border-radius: 10px;
     overflow: hidden;
     transition: 0.3s;
+    border: solid 3px var(--border-color);
 }
 
 .menu-section .kategori-grid .menu-card:hover{
@@ -514,84 +549,639 @@ body{
 
 .menu-section .kategori-grid .menu-card .menu-info h4{
     color: var(--Tosku-color);
-    font-size: 14px;
-    margin-bottom: 5px;
+    font-size: 1.2rem;
+    margin-bottom: 2px;
 }
 
 .menu-section .kategori-grid .menu-card .menu-info p{
     color: var(--Tosku-color);
-    font-size: 13px;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
 }
-.menu-section .kategori-grid .menu-card .menu-info .btn-cart{
+.menu-section .kategori-grid .menu-card .menu-info .rating{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1px;
+}
+.menu-section .kategori-grid .menu-card .menu-info .rating svg{
+    color: #facc15;
+    fill: #facc15;
+    width: 15px;
+    height: 15px;
+}
+.menu-section .kategori-grid .menu-card .menu-info .rating a{
+    font-size: 1rem;
+    text-decoration: none;
+    color: var(--font-main-color);
+    margin-left: 1rem;
+}
+.menu-section .kategori-grid .menu-card .menu-info .rating a:hover{
+    border-bottom: solid 1px var(--font-secondary-color);
+}
+.menu-section .kategori-grid .menu-card .menu-footer{
+    height: 2.6rem;
     width: 100%;
-    padding: 10px;
+    gap: 0.5rem;
+    display: flex;
+}
+.menu-section .kategori-grid .menu-card .menu-footer .btn-cart{
+    width: 3rem;
+    height: 100%;
     border: none;
+    background: var(--main-color);
+    color: var(--Tosku-color);
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.menu-section .kategori-grid .menu-card .menu-footer .btn-cart:hover{
+    background: var(--Tosku-color);
+    color: var(--main-color);
+}
+.menu-section .kategori-grid .menu-card .menu-footer .pesan-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background: var(--Tosku-color);
+    color: var(--main-color);
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: 0.3s ease;
+    text-decoration: none;
+    text-align: center;
+    
+}
+.menu-section .kategori-grid .menu-card .menu-footer .pesan-btn:hover{
+    background: var(--main-color);
+    color: var(--Tosku-color);
+}
+
+/*HALALAMAN DETAIL_MENUS*/
+.detail-menu{
+    max-width:1100px;
+    margin:40px auto;
+    padding:20px;
+}
+
+.detail-menu .detail-card{
+    display:flex;
+    align-items: center;
+    padding: 0.2rem;
+    gap:40px;
+    margin-bottom:30px;
+    background: var(--card-main);
+    border-radius: 20px;
+}
+
+.detail-menu .detail-card .detail-image img{
+    width:280px;
+    height: 100%;
+    border-radius:15px;
+}
+
+.detail-menu .detail-card .detail-info{
+    background: var(--card-main);
+    flex:1;
+}
+
+.detail-menu .detail-card .detail-info h2{
+    font-size:32px;
+    margin-bottom:10px;
+}
+
+.detail-menu .detail-card .detail-info h3{
+    color:#ff6b35;
+    margin-bottom:15px;
+}
+
+.detail-menu .detail-card .rating-box{
+    margin:15px 0;
+    font-size:18px;
+    font-weight:bold;
+    color:#ffb400;
+}
+.detail-menu .detail-card .detail-info .footer-menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    margin-top: 1.2rem;
+}
+.detail-menu .detail-card .detail-info .footer-menu .cart-btn{
+    width: 3rem;
+    height: 100%;
+    border: none;
+    padding: 11px;
+    background: var(--main-color);
+    color: var(--Tosku-color);
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.detail-menu .detail-card .detail-info .footer-menu .cart-btn:hover{
     background: var(--Tosku-color);
     color: var(--card-main);
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
 }
-.menu-section .kategori-grid .menu-card .menu-info .btn-cart:hover{
+.detail-menu .detail-card .detail-info .footer-menu .btn-order{
+    display:inline-block;
+    background: var(--Tosku-color);
+    color: var(--card-main);
+    padding:12px 25px;
+    text-decoration:none;
+}
+.detail-menu .detail-card .detail-info .footer-menu .btn-order:hover{
+    background: var(--card-main);
+    color: var(--Tosku-color);
+}
+
+.detail-menu .review-item{
+    background:#fff;
+    padding:20px;
+    border-radius:10px;
+    margin:15px 0;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+
+.detail-menu .review-item h4{
+    margin-bottom:5px;
+}
+
+.detail-menu .review-item .review-star{
+    color:#ffb400;
+    margin-bottom:10px;
+}
+.detail-menu .review-item .review-info{
+    padding:15px;
+    border-radius:8px;
+    margin-top:15px;
+    font-weight:500;
+}
+
+.detail-menu .review-info.success{
+    background:#d4edda;
+    color:#155724;
+}
+
+.detail-menu .review-info.warning{
+    background:#fff3cd;
+    color:#856404;
+}
+
+.detail-menu .review-info.danger{
+    background:#f8d7da;
+    color:#721c24;
+}
+
+/* HALAMAN REVIEW */
+.review-container{
+    width:90%;
+    max-width:700px;
+    margin:40px auto;
+    background: var(--card-main);
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.review-container h2{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.review-container .review-menu{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.review-container .review-menu img{
+    width:170px;
+    border-radius:10px;
+}
+
+.review-container .review-menu h3{
+    margin-top:15px;
+    color: var(--font-main-color);
+}
+
+.review-container form{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.review-container select,
+.review-container textarea{
+    padding:12px;
+    border:1px solid var(--border-color);
+    border-radius:8px;
+    font-size:15px;
+}
+
+.review-container button{
+    padding:12px;
+    border:none;
+    background: var(--Tosku-color);
+    color: var(--card-main);
+    font-size:16px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.review-container button:hover{
     background: var(--main-color);
     color: var(--Tosku-color);
 }
 
 /*===============HALAMAN PROFIL====================*/
 .profile-container{
-    height: 100vh;
+    min-height: 100vh;
     padding: 2rem 7%;
     color: var(--font-main-color);
 }
+
 .profile-container h1{
-    text-align: center;
-    color: var(--font-navbar)
+    text-align:center;
+    margin-bottom:3rem;
+    color:var(--font-navbar);
+    font-size:2.2rem;
+    font-weight:700;
 }
+
 .profile-container .profile-content{
-    display: flex;
-    justify-content: flex-start;
-    gap: 5rem;
+    max-width:900px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    gap:2rem;
+    padding:2.5rem;
+    background:#fff;
+    border-radius:18px;
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
 }
 
 .profile-container .foto-profile{
-    width: 20rem;
-    height: 20rem;
-}
-.profile-container .foto-profile img{
-    width: 100%;
-    height: 100%;
-    border-radius: 20%;
-    object-fit: cover;
-}
-.profile-container .profile-desc h2{
-    padding-bottom: 2rem;
-}
-.profile-container .profile-desc h3{
-    padding-bottom: 1rem;
-}
-.profile-container .profile-desc a h3{
-    margin-bottom: 2rem;
-}
-.profile-container .profile-desc a{
-    text-decoration: none;
-    color: var(--font-main-color);
-}
-.profile-container .profile-desc .profile-log{
-    text-align: center;
-}
-.profile-container .profile-desc .profile-log button{
-    background: rgb(219, 10, 10);
-    color: var(--font-main-color);
-    width: 50%;
-    height: 2rem;
-    font-weight: 700;
-    font-size: 1.2rem;
-    border: none;
-    outline: none;
-    padding: 0;
-    cursor: pointer;
+    width:220px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    flex-shrink:0;
 }
 
+.profile-container .foto-profile img{
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    object-fit:cover;
+    border:5px solid #d4af37;
+    background:#f5f5f5;
+}
+
+/* Jika memakai Feather Icon */
+.profile-container .foto-profile .default-profile{
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    background:#f5f5f5;
+    border: 5px solid #d4af37;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.profile-container .foto-profile .default-profile svg{
+    width: 20px;
+    height:20px;
+    color:#8b0000;
+}
+
+.profile-container .foto-profile .edit-foto{
+    margin-top:20px;
+    display:inline-block;
+    padding:10px 22px;
+    background:#d4af37;
+    color:#fff;
+    text-decoration:none;
+    border-radius:8px;
+    transition:.3s;
+    font-weight:600;
+}
+
+.profile-container .foto-profile .edit-foto:hover{
+    background:#b58b12;
+}
+
+.profile-container .profile-desc{
+    flex:1;
+}
+
+.profile-container .profile-desc h2{
+    margin-bottom:1.5rem;
+    font-size:1.5rem;
+}
+
+.profile-container .profile-desc h3{
+    margin-bottom:1rem;
+    font-size:1.1rem;
+    font-weight:500;
+}
+
+.profile-container .profile-desc .profile-menu{
+    display:flex;
+    gap:15px;
+    margin:2rem 0;
+}
+
+.profile-container .profile-desc .profile-menu .btn-profile{
+    padding:10px 18px;
+    background:#8b0000;
+    color:#fff;
+    border-radius:8px;
+    text-decoration:none;
+    transition:.3s;
+    font-weight:600;
+}
+
+.profile-container .profile-desc .profile-menu .btn-profile:hover{
+    background:#680000;
+}
+
+.profile-container .profile-desc a{
+    text-decoration:none;
+}
+
+.profile-container .profile-desc .profile-log{
+    margin-top:2rem;
+}
+
+.profile-container .profile-desc .profile-log button{
+    width:180px;
+    height:45px;
+    background:#dc2626;
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:1rem;
+    font-weight:600;
+    transition:.3s;
+}
+
+.profile-container .profile-desc .profile-log button:hover{
+    background:#b91c1c;
+}
+
+/*HALAMAN EDIT_PROFILE*/
+.edit-profile-container{
+    min-height:100vh;
+    padding:3rem 7%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.edit-profile-container .edit-profile-card{
+    width:500px;
+    background:#fff;
+    border-radius:18px;
+    padding:35px;
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
+}
+
+.edit-profile-container .edit-profile-card h1{
+    text-align:center;
+    color:var(--font-navbar);
+    margin-bottom:30px;
+}
+
+.edit-profile-container .edit-profile-card .foto-area{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.edit-profile-container .edit-profile-card .foto-area img{
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    object-fit:cover;
+    border:5px solid #d4af37;
+    margin-bottom:20px;
+}
+
+.edit-profile-container .edit-profile-card .foto-area .default-profile{
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    background:#f5f5f5;
+    border:5px solid #d4af37;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.edit-profile-container .edit-profile-card .foto-area .default-profile svg{
+    width:90px;
+    height:90px;
+    color:#8B0000;
+}
+
+.edit-profile-container .edit-profile-card .foto-area input[type=file]{
+    width:100%;
+    padding:10px;
+}
+
+.edit-profile-container .edit-profile-card .input-group{
+    display:flex;
+    flex-direction:column;
+    margin-bottom:20px;
+}
+
+.edit-profile-container .edit-profile-card .input-group label{
+    margin-bottom:8px;
+    font-weight:600;
+    color:#444;
+}
+
+.edit-profile-container .edit-profile-card .input-group input{
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:15px;
+    outline:none;
+    transition:.3s;
+}
+
+.edit-profile-container .edit-profile-card .input-group input:focus{
+    border-color:#8B0000;
+}
+
+.btn-save{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:8px;
+    background:#8B0000;
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.btn-save:hover{
+    background:#6d0000;
+}
+
+/* HALAMAN HISTORY */
+.history-container{
+    width:90%;
+    max-width:1100px;
+    margin:40px auto;
+}
+
+.history-container h1{
+    text-align:center;
+    margin-bottom:30px;
+    color:#333;
+}
+
+.history-containe .history-table{
+    width:100%;
+    border-collapse:collapse;
+    background:#fff;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.history-containe  .history-table th{
+    background:#d4af37;
+    color:white;
+    padding:15px;
+}
+
+.history-containe .history-table td{
+    padding:15px;
+    text-align:center;
+    border-bottom:1px solid #eee;
+}
+
+.history-containe .history-table tr:hover{
+    background:#fafafa;
+}
+
+.history-containe .history-table .btn-detail{
+    background:#d4af37;
+    color:white;
+    padding:8px 15px;
+    border-radius:6px;
+    text-decoration:none;
+}
+
+.history-containe .history-table .btn-detail:hover{
+    background:#b8941f;
+}
+
+.history-containe .history-table .status{
+    padding:6px 15px;
+    border-radius:20px;
+    color:white;
+    font-size:14px;
+}
+
+.history-containe .history-table .status.menunggu{
+    background:#ff9800;
+}
+
+.history-containe .history-table .status.diproses{
+    background:#2196f3;
+}
+
+.history-containe .history-table .status.selesai{
+    background:#4caf50;
+}
+
+.history-containe .history-table .status.dibatalkan{
+    background:#f44336;
+}
+
+.history-containe .empty-history{
+    text-align:center;
+    padding:50px;
+    background:#fff;
+    border-radius:10px;
+}
+
+/* HALAMAN ORDER_DETAIL */
+.detail-container{
+    max-width: 900px;
+    margin: 50px auto;
+    background: var(--card-main);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.detail-container h2{
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--font-main-color);
+}
+
+
+.detail-info{
+    background: var(--Tosku-color);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.detail-info p{
+    margin: 8px 0;
+    font-size: 15px;
+    color: var(--card-main);
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+table th{
+    background: var(--Tosku-color);
+    color: var(--card-main);
+    padding: 12px;
+    font-size: 14px;
+}
+
+table tr{
+    background: var(--border-color);
+}
+table tr:hover{
+    background: #f9f9f9;
+}
+
+.back-btn{
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 18px;
+    background: var(--Tosku-color);
+    color: var(--card-main);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.back-btn:hover{
+    background: var(--main-color);
+    color: var(--Tosku-color);
+}
 
 /*HALAMAN ABOUT*/
 .tentang-sect{
@@ -858,6 +1448,85 @@ margin-top:20px;
     color: var(--main-color);
 }
 
+/* HALAMAN SUCCES */
+.success-page{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:50px 8%;
+    background:linear-gradient(135deg,#e9f8fb,#fdf6e7);
+}
+.success-card{
+    width:100%;
+    max-width:650px;
+    background:#fff;
+    padding:50px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 15px 35px rgba(0,0,0,.12);
+}
+
+.success-icon{
+    width:120px;
+    height:120px;
+    margin:auto;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:60px;
+    border-radius:50%;
+    background:#eafaf1;
+    margin-bottom:25px;
+}
+.success-card h1{
+    color:#1d3557;
+    font-size:38px;
+    margin-bottom:20px;
+}
+.success-card .thanks{
+    font-size:20px;
+    color:#444;
+    line-height:1.7;
+}
+.success-card strong{
+    color:#16b4c6;
+}
+.success-card .info{
+    margin-top:20px;
+    color:#666;
+    line-height:1.8;
+    font-size:17px;
+}
+.success-btn{
+    margin-top:40px;
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+.success-btn a{
+    text-decoration:none;
+    padding:15px 30px;
+    border-radius:10px;
+    font-size:16px;
+    font-weight:600;
+    transition:.3s;
+}
+.home-btn{
+    background:#162447;
+    color:white;
+}
+.home-btn:hover{
+    background:#0f1b35;
+}
+.history-btn{
+    background:#16b4c6;
+    color:white;
+}
+.history-btn:hover{
+    background:#0f99a9;
+}
 /*HALAMAN PAYMENTS*/
 .booking{
     display:flex;
@@ -943,7 +1612,49 @@ margin-top:20px;
     border-radius:10px;
     cursor:pointer;
 }
-
+.booking .booking-right .payment{
+    margin:15px 0;
+    flex-wrap:wrap;
+}
+.booking .booking-right .payment label{
+    cursor:pointer;
+    padding:10px 18px;
+    background:#fff;
+    border-radius:8px;
+    border:1px solid var(--border-color);
+    transition:.3s;
+}
+.booking .booking-right .payment label:hover{
+    background:var(--secondary-color);
+    color:#fff;
+}
+.payment-info{
+    margin:20px 0;
+}
+.payment-box, .pay2{
+    display:none;
+    background:#fff;
+    border-radius:15px;
+    padding:20px;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+.payment-box, .pay2 h4{
+    color:var(--secondary-color);
+    margin-bottom:15px;
+}
+.payment-box, .pay2 img{
+    width:220px;
+    border-radius:10px;
+    margin-bottom:15px;
+}
+.payment-box, .pay2 p{
+    margin:8px 0;
+    color:#555;
+}
+#uploadBukti, #uploadDelivery{
+    margin-top:20px;
+}
 /*Responsive*/
 @media (min-width: 769px){
 

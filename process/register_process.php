@@ -15,7 +15,7 @@ if(isset($_FILES['foto']) && $_FILES['foto']['name'] != ''){
     $foto = time() . '_' . $_FILES['foto']['name'];
     move_uploaded_file(
         $_FILES['foto']['tmp_name'],
-        '../Uploads/' . $foto
+        '../Uploads/profile/' . $foto
     );
 }
 

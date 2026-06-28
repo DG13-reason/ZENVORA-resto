@@ -290,16 +290,101 @@ function showForm(type){
 }
 
 /*================NOMOR MEJA=================*/
-document.getElementById("area").addEventListener("change", function (){
-    let area = this.value;
-    fetch("get_meja.php?area=" + encodeURIComponent(area))
-        .then(Response => Response.text())
+const area = document.getElementById("area");
+
+if(area){
+
+    area.addEventListener("change", function (){
+
+        fetch("get_meja.php?area=" + encodeURIComponent(this.value))
+        .then(response => response.text())
         .then(data => {
             document.getElementById("meja").innerHTML = data;
         })
-        .catch(error => {
-            console.error("Error:", error);
-        });
+        .catch(error => console.error(error));
+
+    });
+
+}
+
+/*=================== PEMBAYARAN RESTORAN ===================*/
+function tampilPembayaranResto(){
+
+    const metode = document.querySelector('input[name="payment_method"]:checked').value;
+
+    document.getElementById("tunai").style.display = "none";
+    document.getElementById("transfer").style.display = "none";
+    document.getElementById("ewallet").style.display = "none";
+    document.getElementById("qris").style.display = "none";
+
+    document.getElementById("uploadSection").style.display = "none";
+    document.getElementById("proof_image").required = false;
+
+    if(metode == "Tunai"){
+        document.getElementById("tunai").style.display = "block";
+    }
+    if(metode == "Transfer"){
+        document.getElementById("transfer").style.display = "block";
+        document.getElementById("uploadSection").style.display = "block";
+        document.getElementById("proof_image").required = true;
+    }
+    if(metode == "E-Wallet"){
+        document.getElementById("ewallet").style.display = "block";
+        document.getElementById("uploadSection").style.display = "block";
+        document.getElementById("proof_image").required = true;
+    }
+    if(metode == "QRIS"){
+        document.getElementById("qris").style.display = "block";
+        document.getElementById("uploadSection").style.display = "block";
+        document.getElementById("proof_image").required = true;
+    }
+}
+
+document.querySelectorAll('input[name="payment_method"]').forEach(function(radio){
+    radio.addEventListener("change", tampilPembayaranResto);
 });
+
+tampilPembayaranResto();
+
+
+
+/*=================== PEMBAYARAN DELIVERY ===================*/
+function tampilPembayaranDelivery(){
+
+    const metode = document.querySelector('input[name="pay2"]:checked').value;
+
+    document.getElementById("cod").style.display = "none";
+    document.getElementById("transfer2").style.display = "none";
+    document.getElementById("ewallet2").style.display = "none";
+    document.getElementById("qris2").style.display = "none";
+
+    document.getElementById("uploadDelivery").style.display = "none";
+    document.getElementById("proof_image_delivery").required = false;
+
+    if(metode == "COD"){
+        document.getElementById("cod").style.display = "block";
+    }
+    if(metode == "Transfer"){
+        document.getElementById("transfer2").style.display = "block";
+        document.getElementById("uploadDelivery").style.display = "block";
+        document.getElementById("proof_image_delivery").required = true;
+    }
+    if(metode == "E-Wallet"){
+        document.getElementById("ewallet2").style.display = "block";
+        document.getElementById("uploadDelivery").style.display = "block";
+        document.getElementById("proof_image_delivery").required = true;
+    }
+    if(metode == "QRIS"){
+        document.getElementById("qris2").style.display = "block";
+        document.getElementById("uploadDelivery").style.display = "block";
+        document.getElementById("proof_image_delivery").required = true;
+    }
+}
+
+document.querySelectorAll('input[name="pay2"]').forEach(function(radio){
+    radio.addEventListener("change", tampilPembayaranDelivery);
+});
+
+tampilPembayaranDelivery();
 /* ================= FEATHER RELOAD ================= */
 feather.replace();
