@@ -399,7 +399,7 @@ body{
     gap: 0.5rem;
     display: flex;
 }
-.cart-btn{
+.menu-recomend .menu-container .menu-card .menu-footer .cart-btn{
     width: 3rem;
     height: 100%;
     border: none;
@@ -408,22 +408,27 @@ body{
     cursor: pointer;
     transition: 0.3s ease;
 }
-.cart-btn:hover{
+.menu-recomend .menu-container .menu-card .menu-footer .cart-btn:hover{
     background: var(--Tosku-color);
     color: var(--main-color);
 }
-.pesan-btn{
+.menu-recomend .menu-container .menu-card .menu-footer .pesan-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
-    flex: 1;
-    border: none;
     background: var(--Tosku-color);
     color: var(--main-color);
     cursor: pointer;
     font-size: 1.2rem;
     font-weight: 500;
     transition: 0.3s ease;
+    text-decoration: none;
+    text-align: center;
+    
 }
-.pesan-btn:hover{
+
+.menu-recomend .menu-container .menu-card .menu-footer .pesan-btn:hover{
     background: var(--main-color);
     color: var(--Tosku-color);
 }
@@ -877,10 +882,17 @@ margin-top:20px;
 }
 
 .booking .booking-left .menu-card{
-    background:white;
+    background: var(--card-main);
     padding:15px;
-    margin-top:20px;
     border-radius:15px;
+    margin-bottom: 1rem;
+}
+.booking .booking-left h2{
+    padding: 15px;
+    font-size: 1.2rem;
+    background: var(--card-main);
+    color: var(--font-secondary-color);
+    border-radius: 20px;
 }
 
 .booking h1,h3{
@@ -912,7 +924,7 @@ margin-top:20px;
     display:flex;
 }
 
-.booking .booking-right form input, select, textarea{
+.booking .booking-right form input, .booking .booking-right form select, .booking .booking-right form textarea{
     padding:15px;
     border:1px solid var(--border-color);
     border-radius:10px;

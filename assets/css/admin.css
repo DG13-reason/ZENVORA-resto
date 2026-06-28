@@ -2,10 +2,13 @@
 
 
 :root {
-    --main-color: #06b6d4;
-    --secondary-color: #2563EB;
-    --font-main-color: #ffffff;
-    --font-secondary-color:#64748B;
+    --main-color: #f7F7F5;
+    --secondary-color: #18B7CF;
+    --font-main-color: #2E2E2E;
+    --font-secondary-color:#D4A437;
+    --card-main: #fff3cd;
+    --border-color:#E5E0D5;
+    --Tosku-color: #162544;
     --font-navbar: #facc15;
     --alert-main: #F97316;
     --error-main: #EF4444;
@@ -34,7 +37,6 @@ body{
     position: sticky;
     top: 0;
     z-index: 9999;
-    border: solid 1px;
 }
 .navbar-admin .nav-logo a, .nav-admin a{
     display: flex;
@@ -50,13 +52,13 @@ body{
     border-radius: 50%;
 }
 .navbar-admin .nav-logo h2, .navbar-admin h2{
-    color: var(--font-navbar);
+    color: var(--Tosku-color);
     font-size: 20px;
     font-family: "Montserrat", sans-serif;
     font-weight: 900;
 }
 .navbar-admin .nav-logo, .navbar-admin span{
-    color: var(--font-main-color);
+    color: var(--main-color);
 }
 /*HALAMAN DASHBOARD*/
 .admin-sect{
@@ -68,7 +70,7 @@ body{
 }
 
 .admin-sect span{
-    color: var(--font-navbar);
+    color: var(--font-secondary-color);
 }
 
 .admin-sect h3{
@@ -84,12 +86,12 @@ body{
     list-style-type: none;
 }
 .admin-sect .admin-kategori a{
-    background: #facc15;
+    background: var(--card-main);
     border: none;
     padding: 1rem;
     border-radius: 20px;
     text-decoration: none;
-    color: var(--font-main-color);
+    color: var(--Tosku-color);
     font-weight: 700;
 }
 .admin-sect .admin-info{
@@ -98,9 +100,10 @@ body{
     gap: 10rem;
 }
 .admin-sect .admin-info span{
-    color: var(--alert-main);
+    color: var(--font-secondary-color);
 }
-/*HALAMAN MENU*/
+
+/*================HALAMAN MENU========================*/
 .admin-menu{
     padding: 1rem 7%;
     text-align: center;
@@ -109,38 +112,37 @@ body{
 .admin-menu h1{
     margin-bottom: 3rem;
 }
-.admin-menu span{
-    color: var(--font-navbar);
-}
 .admin-menu a button{
     border: none;
-    background: var(--secondary-color);
+    background: var(--Tosku-color);
     padding: 0.6rem;
     margin-bottom: 1.2rem;
     border-radius: 20px;
     cursor: pointer;
-    color: var(--font-main-color);
+    color: var(--card-main);
     font-weight: 600;
 }
 .admin-menu a button:hover{
-    background: var(--font-main-color);
-    color: var(--secondary-color);
+    background: var(--card-main);
+    color: var(--Tosku-color);
 }
 .admin-menu .admin-table{
     display: flex;
     justify-content: center;
 }
 .admin-menu .admin-table table {
-    background: #2563EB;
+    background: var(--card-main);
     display: flex;
     justify-content: center;
+    color: var(--Tosku-color);
 }
 .admin-menu .admin-table table tr th{
-    background: var(--font-navbar);
+    background: var(--border-color);
     padding: 1rem 2rem;
 }
 .admin-menu .admin-table table tr .menus-id{
-    background: #885CF6;
+    background: var(--Tosku-color);
+    color: var(--main-color);
 }
 .admin-menu table tr td img{
     object-fit: cover;
@@ -159,41 +161,113 @@ body{
 .admin-menu table tr td a:hover{
     padding: 0.2rem;
     border-radius: 20px;
-    background: var(--alert-main);
+    background: var(--font-secondary-color);
     color: var(--font-main-color);
 }
 .admin-menu table tr td a span:hover{
-    background: var(--error-main);
     padding: 0.2rem;
     border-radius: 20px;
     color: var(--font-main-color);
 }
+
 /*HALAMAN EDIT MENU*/
+.edit-menu{
+    width:100%;
+    max-width:700px;
+    margin:40px auto;
+    padding:35px;
+    background: var(--card-main);
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+.edit-menu h1{
+    text-align:center;
+    font-size:32px;
+    color: var(--font-main-color);
+    margin-bottom:30px;
+}
+.edit-menu form{
+    display:flex;
+    flex-direction:column;
+}
+.edit-menu label{
+    margin-bottom:8px;
+    font-weight:bold;
+    color: var(--font-main-color);
+}
+.edit-menu input,
+.edit-menu select,
+.edit-menu textarea{
+    width:100%;
+    padding:12px;
+    margin-bottom:20px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    font-size:15px;
+    outline:none;
+    transition:.3s;
+    box-sizing:border-box;
+}
+.edit-menu textarea{
+    resize:vertical;
+}
+.edit-menu input:focus,
+.edit-menu select:focus,
+.edit-menu textarea:focus{
+    border-color: var(--Tosku-color);
+    box-shadow:0 0 8px rgba(212,160,23,.3);
+}
+.edit-menu img{
+    width:180px;
+    border-radius:10px;
+    margin-bottom:20px;
+    border:2px solid #ddd;
+    object-fit:cover;
+}
+.edit-menu button{
+    background: var(--Tosku-color);
+    color: var(--card-main);
+    padding:14px;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+.edit-menu button:hover{
+    background: var(--main-color);
+    color: var(--Tosku-color);
+    transform:translateY(-2px);
+}
+
 /*HALAMAN TAMBAH_MENU*/
 .tambah-sect{
-    padding: 2rem 20%;
-    color: var(--font-main-color);
+    width:100%;
+    max-width:700px;
+    margin:40px auto;
+    padding:35px;
+    background: var(--card-main);
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
     text-align: center;
 }
 .tambah-sect h1{
     margin-bottom: 3rem;
 }
-.tambah-sect h1 span{
-    color: var(--font-navbar);
-}
 .tambah-sect a button{
     border: none;
     padding: 0.5rem 1.5rem;
-    background: var(--secondary-color);
-    color: white;
+    background: var(--Tosku-color);
+    color: var(--card-main);
     cursor: pointer;
     border-radius: 20px;
     font-weight: 600;
     margin-bottom: 1rem;
 }
 .tambah-sect a button:hover{
-    background: var(--font-main-color);
-    color: var(--secondary-color);
+    background: var(--card-main);
+    color: var(--Tosku-color);
 }
 .tambah-sect form{
     display: flex;
@@ -225,8 +299,8 @@ body{
 .tambah-sect input[type="file"]:focus,
 .tambah-sect select:focus,
 .tambah-sect textarea:focus {
-    border-color: #b22222;
-    background: #fff;
+    border-color: var(--Tosku-color);
+    background: var(--main-color);
     box-shadow: 0 0 0 3px rgba(178, 34, 34, 0.12);
 }
 .tambah-sect textarea {
@@ -241,8 +315,8 @@ body{
 .tambah-sect form button {
     margin-top: 10px;
     padding: 14px;
-    background: #b22222;
-    color: #fff;
+    background:  var(--Tosku-color);
+    color: var(--card-main);
     border: none;
     border-radius: 12px;
     font-size: 16px;
@@ -251,7 +325,8 @@ body{
     transition: 0.3s ease;
 }
 .tambah-sect form button:hover {
-    background: #8f1b1b;
+    background: var(--card-main);
+    color: var(--Tosku-color);
     transform: translateY(-2px);
     box-shadow: 0 6px 18px rgba(178, 34, 34, 0.25);
 }
@@ -272,11 +347,9 @@ body{
     font-weight: 700;
     color: var(--font-main-color);
 }
-.orders-section .orders-header h1 span {
-    color: var(--font-navbar);
-}
+
 .orders-section .orders-table-wrapper {
-    background: var(--secondary-color);
+    background: var(--Tosku-color);
     border-radius: 16px;
     box-shadow: 0 8px 25px rgba(0,0,0,0.08);
     overflow-x: auto;
@@ -288,21 +361,21 @@ body{
     min-width: 1000px;
 }
 .orders-section .orders-table-wrapper .orders-table thead {
-    background: var(--font-navbar);
-    color: var(--font-main-color);
+    background: var(--card-main);
+    color: var(--Tosku-color);
 }
 .orders-section .orders-table-wrapper .orders-table tbody {
-    background: var(--font-main-color);
+    background: var(--border-color);
 }
 .orders-section .orders-table-wrapper .orders-table th, .orders-table td {
     padding: 14px 16px;
-    border-bottom: 1px solid var(--secondary-color);
+    border-bottom: 1px solid var(--Tosku-color);
     text-align: center;
     font-size: 14px;
     vertical-align: middle;
 }
 .orders-section .orders-table-wrapper .orders-table tbody tr:hover {
-    background: #faf5f5;
+    background: var(--main-color);
     transition: 0.3s ease;
 }
 .orders-section .orders-table-wrapper .orders-table tbody .status-badge {
@@ -347,12 +420,12 @@ body{
     min-width: 120px;
 }
 .status-form select:focus {
-    border-color: #b22222;
+    border-color: var(--Tosku-color);
     box-shadow: 0 0 0 3px rgba(178, 34, 34, 0.12);
 }
 .status-form button {
-    background: #b22222;
-    color: #fff;
+    background: var(--Tosku-color);
+    color: var(--card-main);
     border: none;
     padding: 8px 14px;
     border-radius: 8px;
@@ -362,14 +435,15 @@ body{
     transition: 0.3s ease;
 }
 .status-form button:hover {
-    background: #8f1b1b;
+    background: var(--card-main);
+    color: var(--Tosku-color);
     transform: translateY(-1px);
 }
 .detail-btn {
     display: inline-block;
     padding: 8px 14px;
-    background: #222;
-    color: #fff;
+    background: var(--card-main);
+    color: var(--Tosku-color);
     text-decoration: none;
     border-radius: 8px;
     font-size: 13px;
@@ -400,14 +474,11 @@ body{
     color: var(--font-main-color);
     margin: 0;
 }
-.order-detail-header h1 span {
-    color: var(--font-navbar);
-}
 .back-btn {
     display: inline-block;
     padding: 10px 16px;
-    background: var(--secondary-color);
-    color: var(--font-main-color);
+    background: var(--Tosku-color);
+    color: var(--card-main);
     text-decoration: none;
     border-radius: 10px;
     font-size: 14px;
@@ -415,13 +486,13 @@ body{
     transition: 0.3s ease;
 }
 .back-btn:hover {
-    background: var(--font-main-color);
-    color: var(--secondary-color);
+    background: var(--card-main);
+    color: var(--Tosku-color);
     transform: translateY(-1px);
 }
 .order-info-card,
 .order-items-card {
-    background: var(--secondary-color);
+    background: var(--card-main);
     border-radius: 16px;
     padding: 24px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
@@ -460,8 +531,8 @@ body{
 }
 
 .order-detail-table thead {
-    background: var(--font-navbar);
-    color: #fff;
+    background: var(--font-secondary-color);
+    color: var(--Tosku-color);
 }
 
 .order-detail-table th,
@@ -481,14 +552,6 @@ body{
     border-bottom: none;
 }
 
-.order-total-box {
-    margin-top: 20px;
-    text-align: right;
-    font-size: 18px;
-    font-weight: 700;
-    color: #b22222;
-}
-
 /*HALAMAN USERS*/
 .users-section {
     padding: 2rem 7%;
@@ -504,12 +567,8 @@ body{
     font-weight: 700;
 }
 
-.users-section .users-header h1 span {
-    color: var(--font-navbar);
-}
-
 .users-section .users-table-wrapper {
-    background: var(--secondary-color);
+    background: var(--Tosku-color);
     border-radius: 16px;
     box-shadow: 0 8px 25px rgba(0,0,0,0.08);
     overflow-x: auto;
@@ -523,20 +582,20 @@ body{
 }
 
 .users-section .users-table-wrapper .users-table thead {
-    background: var(--font-navbar);
-    color: #fff;
+    background: var(--border-color);
+    color: var(--Tosku-color);
 }
 .users-section .users-table-wrapper .users-table th, .users-table td {
     padding: 14px 16px;
     text-align: center;
-    border-bottom: 1px solid var(--secondary-color);
+    border-bottom: 1px solid var(--Tosku-color);
     font-size: 15px;
 }
 .users-section .users-table-wrapper .users-table tbody{
-    background: var(--font-main-color);
+    background: var(--card-main);
 }
 .users-section .users-table-wrapper .users-table tbody tr:hover {
-    background: #faf5f5;
+    background: var(--main-color);
     transition: 0.3s ease;
 }
 
@@ -559,3 +618,224 @@ body{
     color: #2e7d32;
 }
 
+/*====================HALAMAN MEJA====================*/
+.admin-meja{
+    width: 95%;
+    margin: 30px auto;
+    padding: 20px;
+    text-align: center;
+    color: var(--font-main-color);
+}
+.admin-meja h1{
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+.admin-meja .btn-tambah{
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background: var(--Tosku-color);
+    color: var(--card-main);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: .3s;
+}
+.admin-meja .btn-tambah:hover{
+    background: var(--card-main);
+    color: var(--Tosku-color);
+    transform: translateY(-2px);
+}
+.admin-meja .admin-table{
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--card-main);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,.08);
+}
+.admin-meja .admin-table th{
+    background: var(--border-color);
+    color: var(--Tosku-color);
+    padding: 15px;
+    font-size: 15px;
+}
+.admin-meja .admin-table td{
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid var(--card-main);
+}
+.admin-meja .admin-table tr:nth-child(even){
+    background: var(--card-main);
+}
+.admin-meja .admin-table tr:hover{
+    background: var(--main-color);
+}
+.admin-meja .admin-table .btn-edit{
+    background: var(--Tosku-color);
+    color: var(--card-main);
+    padding: 7px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: .3s;
+}
+.admin-meja .admin-table .btn-edit:hover{
+    background: var(--card-main);
+    color: var(--Tosku-color);
+}
+.admin-meja .admin-table .btn-hapus{
+    background: #e74c3c;
+    color: white;
+    padding: 7px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: .3s;
+}
+.admin-meja .admin-table .btn-hapus:hover{
+    background: #c0392b;
+}
+.admin-meja .admin-table .status-kosong{
+    background: #2ecc71;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+}
+.admin-meja .admin-table .status-terisi{
+    background: #e74c3c;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+/*HALAMAN EDIT_MEJA*/
+.edit-meja{
+    width: 100%;
+    max-width: 650px;
+    margin: 40px auto;
+    padding: 35px;
+    background: var(--card-main);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,.1);
+}
+
+.edit-meja h1{
+    text-align: center;
+    color: var(--font-main-color);
+    margin-bottom: 30px;
+    font-size: 32px;
+}
+
+.edit-meja label{
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--font-main-color);
+}
+
+.edit-meja input,
+.edit-meja select{
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 1px solid var(--main-color);
+    border-radius: 8px;
+    outline: none;
+    font-size: 15px;
+    transition: .3s;
+    box-sizing: border-box;
+}
+
+.edit-meja input:focus,
+.edit-meja select:focus{
+    border-color: var(--card-main);
+    box-shadow: 0 0 8px rgba(253, 229, 168, 0.3);
+}
+
+.edit-meja button{
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background: var(--Tosku-color);
+    color: var(--card-main);
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.edit-meja button:hover{
+    background: var(--border-color);
+    color: var(--Tosku-color);
+    transform: translateY(-2px);
+}
+
+/*HALAMAN TAMBAH_MEJA*/
+.tambah-meja{
+    width: 100%;
+    max-width: 650px;
+    margin: 40px auto;
+    padding: 35px;
+    background: var(--card-main);
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,.08);
+}
+
+.tambah-meja h1{
+    text-align: center;
+    color: var(--font-main-color);
+    margin-bottom: 30px;
+    font-size: 32px;
+}
+
+.tambah-meja form{
+    display: flex;
+    flex-direction: column;
+}
+
+.tambah-meja label{
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--font-main-color);
+}
+
+.tambah-meja input,
+.tambah-meja select{
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 1px solid var(--main-color);
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    transition: .3s;
+    box-sizing: border-box;
+}
+
+.tambah-meja input:focus,
+.tambah-meja select:focus{
+    border-color: var(--Tosku-color);
+    box-shadow: 0 0 8px rgba(212,160,23,.25);
+}
+
+.tambah-meja button{
+    width: 100%;
+    padding: 14px;
+    background: var(--Tosku-color);
+    color: var(--card-main);
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+}
+.tambah-meja button:hover{
+    background: var(--border-color);
+    color: var(--Tosku-color);
+    transform: translateY(-2px);
+}

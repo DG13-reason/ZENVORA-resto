@@ -36,7 +36,7 @@ include 'adminNavbar.php';
 
 <section class="orders-section">
     <div class="orders-header">
-        <h1>Kelola <span>Pesanan</span></h1>
+        <h1>Kelola Pesanan</h1>
     </div>
 
     <div class="orders-table-wrapper">

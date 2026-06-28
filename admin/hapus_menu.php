@@ -3,6 +3,7 @@ include 'auth_admin.php';
 include '../database/koneksi.php';
 
 $pageTitle = "Hapus Menu - Admin ZENVORA";
+/** @var mysqli $conn */
 
 $id = $_GET['id'];
 

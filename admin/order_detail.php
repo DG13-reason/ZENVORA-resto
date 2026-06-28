@@ -45,7 +45,7 @@ include 'adminNavbar.php';
 
 <section class="order-detail-section">
     <div class="order-detail-header">
-        <h1>Detail <span>Pesanan</span></h1>
+        <h1>Detail Pesanan</h1>
         <a href="orders.php" class="back-btn">← Kembali</a>
     </div>
 

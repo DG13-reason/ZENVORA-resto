@@ -289,5 +289,17 @@ function showForm(type){
     .add("active");
 }
 
+/*================NOMOR MEJA=================*/
+document.getElementById("area").addEventListener("change", function (){
+    let area = this.value;
+    fetch("get_meja.php?area=" + encodeURIComponent(area))
+        .then(Response => Response.text())
+        .then(data => {
+            document.getElementById("meja").innerHTML = data;
+        })
+        .catch(error => {
+            console.error("Error:", error);
+        });
+});
 /* ================= FEATHER RELOAD ================= */
 feather.replace();

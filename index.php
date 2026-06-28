@@ -100,19 +100,19 @@ $snack = mysqli_query($conn, "SELECT * FROM menus Where category_id= 3 LIMIT 3")
                     </div>
                     <p>Rp <?= number_format($item['harga'],0,',','.'); ?></p>
                 </div>
-                <form method="POST">
-                    <input type="hidden" name="id" value="<?= $item['id'] ?>">
-                    <input type="hidden" name="nama" value="<?= $item['nama_menu'] ?>">
-                    <input type="hidden" name="harga" value="<?= $item['harga'] ?>">
-                    <div class="menu-footer">
+
+                <div class="menu-footer">
+                    <form method="POST">
+                        <input type="hidden" name="id" value="<?= $item['id'] ?>">
+                        <input type="hidden" name="nama" value="<?= $item['nama_menu'] ?>">
+                        <input type="hidden" name="harga" value="<?= $item['harga'] ?>">
+                    
                         <button type="submit" name="cart"  class="cart-btn">
                             <i data-feather="shopping-cart"></i>
                         </button>
-
-                        <button class="pesan-btn">pesan</button>
-                    </div>
-                </form>
-                
+                    </form>
+                    <a href="payments.php?id=<?= $item['id']; ?>" class="pesan-btn">pesan</a>
+                </div>
             </div>
             <?php } ?>
 
@@ -140,7 +140,7 @@ $snack = mysqli_query($conn, "SELECT * FROM menus Where category_id= 3 LIMIT 3")
                         <i data-feather="shopping-cart"></i>
                     </button>
 
-                    <button class="pesan-btn">pesan</button>
+                    <button type="submit" class="pesan-btn">pesan</button>
                 </div>
                 </form>
                 

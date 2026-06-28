@@ -13,7 +13,7 @@ include 'adminNavbar.php';
 
 <section class="users-section">
     <div class="users-header">
-        <h1>Daftar <span>User</span></h1>
+        <h1>Daftar User</h1>
     </div>
 
     <div class="users-table-wrapper">

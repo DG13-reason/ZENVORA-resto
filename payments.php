@@ -1,4 +1,35 @@
 <?php 
+session_start();
+include 'database/koneksi.php';
+
+$menus = [];
+$total = 0;
+
+if(isset($_GET['id'])){
+    $id = intval($_GET['id']);
+    $query = mysqli_query($conn, "SELECT * FROM menus WHERE id='$id'");
+    if(mysqli_num_rows($query)>0){
+        $menu = mysqli_fetch_assoc($query);
+        $menu['quantity'] = 1;
+        $menu['subtotal'] = $menu['harga'];
+        $menus[] = $menu;
+        $total = $menu['harga'];
+    }
+}
+elseif(isset($_SESSION['cart'])){
+    foreach($_SESSION['cart'] as $item){
+        $id = $item['id'];
+        $query=mysqli_query($conn,"SELECT * FROM menus WHERE id='$id'");
+        if(mysqli_num_rows($query)>0){
+            $menu = mysqli_fetch_assoc($query);
+            $menu['quantity'] = $item['qty'];
+            $menu['subtotal'] = $item['qty'] * $menu['harga'];
+            $total += $menu['subtotal'];
+            $menus[] = $menu;
+        }
+    }
+}
+
 include 'includes/header.php';
 include 'includes/navbar.php';
 ?>
@@ -6,19 +37,20 @@ include 'includes/navbar.php';
 <section class="booking">
 
     <div class="booking-left">
+        <?php if(count($menus)>0): ?>
+        <img src="assets/images/Menu/<?= $menus[0]['gambar']; ?>" class="menu-img">
 
-        <img src="img/steak.jpg" class="menu-img">
-
+        <?php foreach($menus as $menu): ?>
         <div class="menu-card">
-            <h3>Ribeye Steak</h3>
-            <p>Rp 98.000</p>
+            <h3><?= $menu['nama_menu']; ?></h3>
+            <p><?= number_format($menu['harga'],0,',','.'); ?></p>
+            <small>Qty : <?= $menu['quantity']; ?></small>
         </div>
-
-        <div class="menu-card">
-            <h3>Creamy Carbonara</h3>
-            <p>Rp 65.000</p>
-        </div>
-
+        <?php endforeach; ?>
+        <h2>Total: Rp <?= number_format($total,0,',','.'); ?></h2>
+        <?php else: ?>
+            <h3>Belum ada Pesanan.</h3>
+            <?php endif; ?>
     </div>
 
 
@@ -39,69 +71,86 @@ include 'includes/navbar.php';
 
         <!-- FORM RESTORAN -->
 
-        <form id="resto" class="active">
+        <form id="resto" class="active" method="POST" action="process/payments_process.php" enctype="multipart/form-data">
+            <input type="hidden" name="total_harga" value="<?= $total; ?>">
+            <?php if(isset($_GET['id'])){ ?>
+            <input type="hidden" name="menu_id" value="<?= $_GET['id']; ?>">
+            <?php
+            }
+            ?>
 
-            <input type="text"
-                placeholder="Nama Lengkap">
+            <input type="text" name="nama" placeholder="Nama Lengkap">
 
-            <input type="tel"
-                placeholder="Nomor Telepon">
-
-            <input type="date">
-
-            <input type="time">
-
-            <select>
-                <option>Jumlah Orang</option>
-                <option>1</option>
-                <option>2</option>
-                <option>4</option>
+            <input type="tel" name="telepon" placeholder="Nomor Telepon">
+            
+            <input type="date" name="tanggal" min="<?= date('Y-m-d'); ?>" max="<?= date('Y-m-d', strtotime('+30 days')); ?>" required>
+            
+            <select name="jam" required>
+                <option value="">Pilih Jam Reservasi</option>
+                <?php
+                $jam = strtotime("10:00");
+                $jamAkhir = strtotime("21:00");
+                
+                while($jam <= $jamAkhir){
+                    $waktu = date("h:i", $jam);
+                    echo "<option value='$waktu'>$waktu</option>";
+                    $jam = strtotime("+30 minutes", $jam);
+                }
+                ?>
             </select>
 
-            <select>
-                <option>Pilih Area</option>
-                <option>Indoor</option>
-                <option>Outdoor</option>
-                <option>VIP</option>
+            <select name="jumlah_orang">
+                <option value="">jumlah_orang</option>
+                <?php for($i = 1;$i <= 10;$i++){ ?>
+                <option value="<?=  $i ?>"><?= $i ?> Orang</option>
+                <?php 
+                }
+                ?>
             </select>
 
-            <select>
-                <option>Nomor Meja</option>
-                <option>A01</option>
-                <option>A02</option>
-                <option>B01</option>
+            <select name="area" id="area">
+                <option value="">Pilih Area</option>
+                <option value="Indoor">Indoor</option>
+                <option value="Outdoor">Outdoor</option>
+                <option value="VIP">VIP</option>
             </select>
 
-            <textarea
-                placeholder="Catatan">
-            </textarea>
+            <select name="meja" id="meja">
+                <option value="">Pilih Nomor Meja</option>
+            </select>
+
+            <textarea name="catatan" placeholder="Catatan"></textarea>
 
             <h3>Metode Pembayaran</h3>
 
             <div class="payment">
 
                 <label>
-                    <input type="radio" name="pay">
+                    <input type="radio" name="payment_method" value="Tunai">
                     Tunai
                 </label>
 
                 <label>
-                    <input type="radio" name="pay">
+                    <input type="radio" name="payment_method" value="Transfer">
                     Transfer
                 </label>
 
                 <label>
-                    <input type="radio" name="pay">
+                    <input type="radio" name="payment_method" value="E-Wallet">
                     E-Wallet
                 </label>
                 
                 <label>
-                    <input type="radio" name="pay">
+                    <input type="radio" name="payment_method" value="QRIS">
                     QRIS
                 </label>
             </div>
+            <div>
+                <label>Upload Bukti Transfer</label>
+                <input type="file" name="proof_image">
+            </div>
 
-            <button>
+            <button type="submit">
                 Reservasi Sekarang
             </button>
 

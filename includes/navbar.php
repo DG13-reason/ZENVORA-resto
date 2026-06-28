@@ -37,7 +37,7 @@ include 'header.php';
                 $_SESSION['user']['role'] == 'admin'
             ): ?>
                 <li>
-                    <a href="/ZENVORA-resto/admin/dashboard.php">Dashboard</a>
+                    <a class="btn-navLinks" href="/ZENVORA-resto/admin/dashboard.php">Dashboard</a>
                 </li>
             <?php endif; ?>
         </ul>

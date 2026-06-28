@@ -1,16 +1,15 @@
 <?php
-include 'auth_admin.php';
-include '../database/koneksi.php';
+include "auth_admin.php";
+include "../database/koneksi.php";
 
-$pageTitle = "Edit Menu - Admin ZENVORA";
+/** @var mysqli $conn */
+
+$pageTitle = "Edit Menu";
 
 $id = $_GET['id'];
 
 $data = mysqli_fetch_assoc(
-    mysqli_query(
-        $conn,
-        "SELECT * FROM menus WHERE id='$id'"
-    )
+    mysqli_query($conn, "SELECT * FROM menus WHERE id='$id'")
 );
 
 $kategori = mysqli_query(
@@ -21,107 +20,129 @@ $kategori = mysqli_query(
 if(isset($_POST['update'])){
 
     $category_id = $_POST['category_id'];
-    $nama_menu = $_POST['nama_menu'];
-    $deskripsi = $_POST['deskripsi'];
-    $harga = $_POST['harga'];
-    $stok = $_POST['stok'];
+    $nama_menu   = $_POST['nama_menu'];
+    $deskripsi   = $_POST['deskripsi'];
+    $harga       = $_POST['harga'];
+    $stok        = $_POST['stok'];
+
+    // gambar lama
+    $gambar = $data['gambar'];
+
+    // jika upload gambar baru
+    if(isset($_FILES['gambar']) && $_FILES['gambar']['name'] != ""){
+
+        $gambar = time()."_".$_FILES['gambar']['name'];
+
+        move_uploaded_file(
+            $_FILES['gambar']['tmp_name'],
+            "../assets/images/Menu/".$gambar
+        );
+    }
 
     mysqli_query($conn,"
-        UPDATE menus
-        SET
+        UPDATE menus SET
+
         category_id='$category_id',
         nama_menu='$nama_menu',
         deskripsi='$deskripsi',
         harga='$harga',
+        gambar='$gambar',
         stok='$stok'
+
         WHERE id='$id'
     ");
 
-    header("Location: menu.php");
-    exit;
+    echo "
+    <script>
+        alert('Menu berhasil diperbarui');
+        window.location='menu.php';
+    </script>
+    ";
 }
+
+include "adminHeader.php";
+include "adminNavbar.php";
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Edit Menu</title>
-</head>
-<body>
+<section class="edit-menu">
 
-<h1>Edit Menu</h1>
+    <h1>Edit Menu</h1>
 
-<form method="POST">
+    <form method="POST" enctype="multipart/form-data">
 
-<label>Kategori</label>
-<br>
+        <label>Kategori</label>
 
-<select name="category_id">
+        <select name="category_id" required>
 
-<?php while($kat = mysqli_fetch_assoc($kategori)): ?>
+            <?php while($kat=mysqli_fetch_assoc($kategori)){ ?>
 
-<option
-    value="<?= $kat['id']; ?>"
-    <?= $kat['id']==$data['category_id']
-        ? 'selected'
-        : ''; ?>
->
-    <?= $kat['nama_kategori']; ?>
-</option>
+            <option
+                value="<?= $kat['id']; ?>"
+                <?= $kat['id']==$data['category_id'] ? "selected" : ""; ?>>
 
-<?php endwhile; ?>
+                <?= $kat['nama_kategori']; ?>
 
-</select>
+            </option>
 
-<br><br>
+            <?php } ?>
 
-<label>Nama Menu</label>
-<br>
+        </select>
 
-<input
-    type="text"
-    name="nama_menu"
-    value="<?= $data['nama_menu']; ?>">
+        <label>Nama Menu</label>
 
-<br><br>
+        <input
+            type="text"
+            name="nama_menu"
+            value="<?= htmlspecialchars($data['nama_menu']); ?>"
+            required>
 
-<label>Deskripsi</label>
-<br>
+        <label>Deskripsi</label>
 
-<textarea
-    name="deskripsi"
-    rows="5"
-    cols="40"><?= $data['deskripsi']; ?></textarea>
+        <textarea
+            name="deskripsi"
+            rows="5"
+            required><?= htmlspecialchars($data['deskripsi']); ?></textarea>
 
-<br><br>
+        <label>Gambar Saat Ini</label>
 
-<label>Harga</label>
-<br>
+        <img
+            src="../assets/images/Menu/<?= $data['gambar']; ?>"
+            width="180">
 
-<input
-    type="number"
-    name="harga"
-    value="<?= $data['harga']; ?>">
+        <label>Ganti Gambar</label>
 
-<br><br>
+        <input
+            type="file"
+            name="gambar"
+            accept="image/*">
 
-<label>Stok</label>
-<br>
+        <label>Harga</label>
 
-<input
-    type="number"
-    name="stok"
-    value="<?= $data['stok']; ?>">
+        <input
+            type="number"
+            name="harga"
+            value="<?= $data['harga']; ?>"
+            required>
 
-<br><br>
+        <label>Stok</label>
 
-<button
-    type="submit"
-    name="update">
-    Update
-</button>
+        <input
+            type="number"
+            name="stok"
+            value="<?= $data['stok']; ?>"
+            required>
 
-</form>
+        <button
+            type="submit"
+            name="update">
+
+            Update Menu
+
+        </button>
+
+    </form>
+
+</section>
 
 </body>
 </html>

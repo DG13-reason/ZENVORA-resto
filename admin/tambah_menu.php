@@ -56,7 +56,7 @@ include 'adminNavbar.php';
 ?>
 
 <section class="tambah-sect">
-    <h1>Tambah <span>Menu</span></h1>
+    <h1>Tambah Menu</h1>
     <a href="menu.php">
         <button>Kembali</button>
     </a>

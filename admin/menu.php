@@ -21,7 +21,7 @@ include 'adminNavbar.php'
 ?>
 
 <section class="admin-menu">
-    <h1>Kelola <span>Menu</span></h1>
+    <h1>Kelola Menu</h1>
     <a href="tambah_menu.php">
         <button>Tambah Menu</button>
     </a>
